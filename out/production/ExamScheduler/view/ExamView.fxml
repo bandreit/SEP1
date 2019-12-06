@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane prefHeight="500.0" prefWidth="911.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.ExamViewController">
+   <children>
+      <VBox alignment="CENTER" layoutX="14.0" layoutY="14.0" prefHeight="422.0" prefWidth="199.0">
+         <children>
+            <Button mnemonicParsing="false" text="Add exam">
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin></Button>
+            <Button mnemonicParsing="false" text="Remove exam">
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin></Button>
+            <Button mnemonicParsing="false" text="Edit exam">
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+            </Button>
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <Button mnemonicParsing="false" text="*" />
+                  <Button mnemonicParsing="false" text="+">
+                     <HBox.margin>
+                        <Insets left="20.0" />
+                     </HBox.margin>
+                  </Button>
+               </children>
+            </HBox>
+            <VBox prefHeight="60.0" prefWidth="200.0">
+               <children>
+                  <DatePicker />
+                  <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+<!--                        <Image url="VIA_Logo.png" />-->
+                     </image>
+                  </ImageView>
+               </children>
+            </VBox>
+         </children>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+      </VBox>
+      <VBox layoutX="213.0" layoutY="11.0" prefHeight="410.0" prefWidth="684.0">
+         <children>
+            <TableView prefHeight="410.0" prefWidth="683.0">
+              <columns>
+                <TableColumn prefWidth="89.5999755859375" text="Course" />
+                  <TableColumn prefWidth="61.59991455078125" text="O/W" />
+                  <TableColumn prefWidth="90.0" text="Date" />
+                  <TableColumn prefWidth="90.0" text="Time" />
+                  <TableColumn prefWidth="100.0" text="Examiners" />
+                  <TableColumn prefWidth="75.0" text="Room" />
+                  <TableColumn prefWidth="75.0" text="Students" />
+                  <TableColumn prefWidth="100.0" text="Eternal examiners" />
+              </columns>
+            </TableView>
+         </children>
+      </VBox>
+      <Label layoutX="486.0" layoutY="428.0" text="Error Label" textFill="RED" />
+   </children>
+</AnchorPane>
