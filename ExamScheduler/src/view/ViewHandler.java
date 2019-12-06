@@ -4,22 +4,26 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.Region;
 import javafx.stage.Stage;
+import model.ExamList;
+import model.ExamListModel;
 
 public class ViewHandler
 {
   private Scene currentScene;
   private Stage primaryStage;
-  private ExamViewController examViewController;
+  private ExamListModel model;
+  private ExamListViewController examListViewController;
 
-  public ViewHandler()
+  public ViewHandler(ExamListModel model)
   {
+    this.model = model;
     currentScene = new Scene(new Region());
   }
 
   public void start(Stage primaryStage)
   {
    this.primaryStage = primaryStage;
-   openView("examView");
+   openView("examListView");
   }
 
 
@@ -27,7 +31,8 @@ public class ViewHandler
   {
     Region root = null;
     switch (id) {
-      case "examView" : root = loadExamView("ExamView.fxml"); break;
+      case "examListView" : root = loadExamListView("ExamListView.fxml"); break;
+      case "addEamView" : root = loadAddExamView("AddExamView.fxml"); break;
     }
     currentScene.setRoot(root);
     String title = "";
@@ -47,17 +52,17 @@ public class ViewHandler
       primaryStage.close();
   }
 
-  private Region loadExamView(String fxmlFile)
+  private Region loadExamListView(String fxmlFile)
   {
-    if (examViewController == null)
+    if (examListViewController == null)
     {
       try
       {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource(fxmlFile));
         Region root = loader.load();
-        examViewController = loader.getController();
-        examViewController.init(this, root);
+        examListViewController = loader.getController();
+        examListViewController.init(this, root, model);
       }
       catch (Exception e)
       {
@@ -66,9 +71,33 @@ public class ViewHandler
     }
     else
     {
-      examViewController.reset();
+      examListViewController.reset();
     }
-    return examViewController.getRoot();
+    return examListViewController.getRoot();
+  }
+
+  private Region loadAddExamView(String fxmlFile)
+  {
+    if (examListViewController == null)
+    {
+      try
+      {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource(fxmlFile));
+        Region root = loader.load();
+        examListViewController = loader.getController();
+        examListViewController.init(this, root, model);
+      }
+      catch (Exception e)
+      {
+        e.printStackTrace();
+      }
+    }
+    else
+    {
+      examListViewController.reset();
+    }
+    return examListViewController.getRoot();
   }
 
 }
