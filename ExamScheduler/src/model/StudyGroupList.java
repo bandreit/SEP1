@@ -1,5 +1,6 @@
 package model;
 
+<<<<<<< HEAD
 import java.util.ArrayList;
 
 public class StudyGroupList
@@ -56,4 +57,8 @@ public class StudyGroupList
       }
     }
   }
+=======
+public class StudyGroupList
+{
+>>>>>>> 1593870bfefeb8a9778e9cc497cc5ee51539497c
 }
