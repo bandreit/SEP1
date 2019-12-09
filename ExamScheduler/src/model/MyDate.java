@@ -1,4 +1,5 @@
-package  model;
+package model;
+
 import java.time.LocalDate;
 
 public class MyDate
@@ -6,22 +7,22 @@ public class MyDate
   private int day;
   private int month;
   private int year;
-  private double timeInSeconds;
+  private int hour;
+  private int minutes;
 
-  public MyDate(int day, int month, int year)
+  public MyDate(int day, int month, int year, int hour, int minutes)
   {
-    set(day, month, year);
+    this.day=day;
+    this.month=month;
+    this.year=year;
+    if(hour>24||minutes>59)
+    {
+      throw new IllegalArgumentException("Time is out of bounds");
+    }
+    this.hour = hour;
+    this.minutes = minutes;
   }
 
-  public MyDate()
-  {
-    LocalDate today = LocalDate.now();
-
-    this.day = today.getDayOfMonth();
-    this.month = today.getMonthValue();
-    this.year = today.getYear();
-
-  }
   public int getDay()
   {
     return day;
@@ -36,6 +37,7 @@ public class MyDate
   {
     return year;
   }
+
   public void set(int day, int month, int year)
   {
     if (year < 0)
@@ -64,6 +66,7 @@ public class MyDate
     }
     this.day = day;
   }
+
   public int numberOfDaysInMonth()
   {
     switch (month)
@@ -83,30 +86,38 @@ public class MyDate
         return 31;
     }
   }
+
   public boolean isLeapYear()
   {
     return (year % 4 == 0) && (year % 100 != 0 || year % 400 == 0);
   }
+
   public double getTimeInSeconds()
   {
-    int days=0;
-    if (month == 1 )
+    double timeInSeconds;
+    int days = 0;
+    if (month == 1)
     {
-      days=year*365+numberOfDaysInMonth();
-      return timeInSeconds=days*86.400;
+      days = year * 365 + numberOfDaysInMonth();
+      return timeInSeconds = days * 86.400 + hour * 60 * 60 + minutes * 60;
     }
-    if (month == 6 )
+    if (month == 6)
     {
-      if(isLeapYear())
+      if (isLeapYear())
       {
-        days = year * 365 + 31 + 29 + 31 +30 + 31 + day;
+        days = year * 365 + 31 + 29 + 31 + 30 + 31 + day;
       }
       else
       {
-        days = year * 365 + 31 + 28 + 31 +30 + 31 + day;
+        days = year * 365 + 31 + 28 + 31 + 30 + 31 + day;
       }
     }
-    return timeInSeconds=day*86.400;
+    return timeInSeconds = day * 86.400 + hour * 60 * 60 + minutes * 60;
+  }
+
+  public MyDate copy()
+  {
+    return new MyDate(day, month, year, hour, minutes);
   }
 }
 
