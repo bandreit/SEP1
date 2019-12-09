@@ -2,8 +2,10 @@ package view;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+<<<<<<< HEAD
 import model.Exam;
-import model.ExamListModel;
+=======
+>>>>>>> 7951de843be3ad59c3c6040360bdfd95b28785af
 
 import java.util.ArrayList;
 

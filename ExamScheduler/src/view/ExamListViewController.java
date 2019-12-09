@@ -1,14 +1,15 @@
 package view;
 
-import javafx.beans.property.SimpleIntegerProperty;
-import javafx.beans.property.SimpleStringProperty;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.layout.Region;
+<<<<<<< HEAD
 import model.Exam;
 import model.ExamListModel;
+=======
+>>>>>>> 50ed1581058d2ef35eab3abbe74bd3a20b913133
 
 import java.util.Optional;
 

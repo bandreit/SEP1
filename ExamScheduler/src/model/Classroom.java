@@ -2,75 +2,38 @@ package model;
 
 public class Classroom
 {
-  private String status;
-  private String equipment;
-  private String number;
-  private int tableCount;
-  private int chairCount;
-  public Classroom(String status,String equipment,String number,int tableCount,int chairCount)
-  {
-    this.status=status;
-    this.equipment=equipment;
-    this.number=number;
-    this.tableCount=tableCount;
-    this.chairCount=chairCount;
-  }
-  public boolean isAvailable()
-  {
-    if(status.equals("Available") ||status.equals("available") && (equipment.equals("ready") || equipment.equals("Ready") && tableCount >=35 && chairCount>=35 ))
-    {
-      return true;
-    }
-    return false;
-  }
-
-  public void setStatus(String status)
-  {
-    this.status = status;
-  }
-
-  public void setChairCount(int chairCount)
-  {
-    this.chairCount = chairCount;
-  }
-
-  public void setEquipment(String equipment)
-  {
-    this.equipment = equipment;
-  }
+ private boolean equiped;
+ private String number;
+ private int maxCapacity;
+ public Classroom(String number,boolean equiped,int maxCapacity)
+ {
+   this.number=number;
+   this.equiped=false;
+   this.maxCapacity=0;
+ }
 
   public void setNumber(String number)
   {
     this.number = number;
   }
 
-  public void setTableCount(int tableCount)
+  public void setEquiped()
   {
-    this.tableCount = tableCount;
+    this.equiped = true;
   }
 
-  public String getStatus()
+  public void setMaxCapacity(int maxCapacity)
   {
-    return status;
-  }
-
-  public int getChairCount()
-  {
-    return chairCount;
-  }
-
-  public int getTableCount()
-  {
-    return tableCount;
-  }
-
-  public String getEquipment()
-  {
-    return equipment;
+    this.maxCapacity = maxCapacity;
   }
 
   public String getNumber()
   {
     return number;
+  }
+
+  public int getMaxCapacity()
+  {
+    return maxCapacity;
   }
 }
