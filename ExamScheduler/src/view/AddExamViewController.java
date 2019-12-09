@@ -22,19 +22,26 @@ public class AddExamViewController
 
   public AddExamViewController()
   {
-
   }
 
   public void init(ViewHandler viewHandler, Region root)
   {
     this.viewHandler = viewHandler;
     this.root = root;
+    reset();
+    supervisor.getItems().add("SVA");
   }
 
   public void reset()
   {
-    room.setText("");
     errorLabel.setText("");
+    supervisor.getItems().removeAll();
+    course.getItems().removeAll();
+    oralOrWritten.setText("ORAL/WRITTEN");
+    time1.setText("HH-MM");
+    time2.setText("HH-MM");
+    room.setText("");
+    externalSupervisor.getItems().removeAll();
   }
 
   public Region getRoot()
@@ -48,6 +55,7 @@ public class AddExamViewController
     {
       errorLabel.setText("");
       viewHandler.openView("examListView");
+      System.out.println((String) supervisor.getValue());
     }
     catch (Exception e)
     {
@@ -57,7 +65,7 @@ public class AddExamViewController
 
   @FXML private void cancelPressed(ActionEvent event)
 {
-  ((Node)(event.getSource())).getScene().getWindow().hide();
+  viewHandler.openView("examListView");
 }
 
 }

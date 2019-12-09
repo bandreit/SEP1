@@ -7,36 +7,25 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane prefHeight="500.0" prefWidth="911.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.ExamListViewController">
+<AnchorPane prefHeight="516.0" prefWidth="1087.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.ExamListViewController">
    <children>
       <VBox alignment="CENTER" layoutX="14.0" layoutY="14.0" prefHeight="422.0" prefWidth="199.0">
          <children>
-            <Button mnemonicParsing="false" text="Add exam" onAction="#addExamButtonPressed">
+            <Button mnemonicParsing="false" onAction="#addExamButtonPressed" prefHeight="53.0" prefWidth="154.0" text="Add exam">
                <VBox.margin>
                   <Insets />
                </VBox.margin></Button>
-            <Button mnemonicParsing="false" text="Remove exam">
+            <Button mnemonicParsing="false" onAction="#removeExamButtonPressed" prefHeight="53.0" prefWidth="154.0" text="Remove exam">
                <VBox.margin>
                   <Insets top="10.0" />
                </VBox.margin></Button>
-            <Button mnemonicParsing="false" text="Edit exam">
+            <Button mnemonicParsing="false" prefHeight="53.0" prefWidth="154.0" text="Edit exam">
                <VBox.margin>
                   <Insets top="10.0" />
                </VBox.margin>
             </Button>
-            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
-               <children>
-                  <Button mnemonicParsing="false" text="*" />
-                  <Button mnemonicParsing="false" text="+">
-                     <HBox.margin>
-                        <Insets left="20.0" />
-                     </HBox.margin>
-                  </Button>
-               </children>
-            </HBox>
             <VBox prefHeight="60.0" prefWidth="200.0">
                <children>
                   <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
@@ -51,22 +40,22 @@
             <Insets />
          </opaqueInsets>
       </VBox>
-      <VBox layoutX="213.0" layoutY="11.0" prefHeight="410.0" prefWidth="684.0">
+      <VBox layoutX="213.0" layoutY="11.0" prefHeight="439.0" prefWidth="843.0">
          <children>
-            <TableView prefHeight="410.0" prefWidth="683.0" fx:id="examListTable">
+            <TableView fx:id="examListTable" prefHeight="426.0" prefWidth="802.0">
               <columns>
-                <TableColumn prefWidth="89.5999755859375" text="Course" fx:id="courseColumn"/>
-                  <TableColumn prefWidth="61.59991455078125" text="O/W" fx:id="oralWrittenColumn"/>
-                  <TableColumn prefWidth="90.0" text="Date" fx:id="dateColumn"/>
-                  <TableColumn prefWidth="90.0" text="Time" fx:id="timeColumn"/>
-                  <TableColumn prefWidth="100.0" text="Examiners" fx:id="examinersColumn"/>
-                  <TableColumn prefWidth="75.0" text="Room" fx:id="roomColumn"/>
-                  <TableColumn prefWidth="75.0" text="Students" fx:id="studentsColumn"/>
-                  <TableColumn prefWidth="100.0" text="Eternal examiners" fx:id="externalExaminerColumn"/>
+                <TableColumn fx:id="courseColumn" prefWidth="104.0" text="Course" />
+                  <TableColumn fx:id="oralWrittenColumn" prefWidth="104.0" text="O/W" />
+                  <TableColumn fx:id="dateColumn" prefWidth="104.0" text="Date" />
+                  <TableColumn fx:id="timeColumn" prefWidth="104.0" text="Time" />
+                  <TableColumn fx:id="examinersColumn" prefWidth="104.0" text="Examiners" />
+                  <TableColumn fx:id="roomColumn" prefWidth="104.0" text="Room" />
+                  <TableColumn fx:id="studentsColumn" prefWidth="104.0" text="Students" />
+                  <TableColumn fx:id="externalExaminerColumn" prefWidth="114.4000122070313" text="Eternal examiners" />
               </columns>
             </TableView>
          </children>
       </VBox>
-      <Label layoutX="486.0" layoutY="428.0" text="Error Label" textFill="RED" fx:id="errorLabel"/>
+      <Label fx:id="errorLabel" layoutX="614.0" layoutY="466.0" text="Error Label" textFill="RED" />
    </children>
 </AnchorPane>

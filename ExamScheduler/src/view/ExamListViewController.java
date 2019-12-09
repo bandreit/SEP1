@@ -7,7 +7,10 @@ import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.layout.Region;
+import model.Exam;
 import model.ExamListModel;
+
+import java.util.Optional;
 
 public class ExamListViewController
 {
@@ -78,6 +81,46 @@ public class ExamListViewController
     {
       errorLabel.setText(e.getMessage());
     }
+  }
+
+  @FXML private void removeExamButtonPressed()
+  {
+    errorLabel.setText("");
+    try
+    {
+      ExamViewModel selectedItem = examListTable.getSelectionModel()
+          .getSelectedItem();
+      boolean remove = confirmation();
+      if (remove)
+      {
+        Exam exam = new Exam(selectedItem.getCourseProperty().get(),
+            selectedItem.getOralWrittenProperty().get(),selectedItem.getDateProperty().get(),selectedItem.getTimeProperty().get(),selectedItem.getExaminersProperty().get(),selectedItem.getRoomProperty().get(),selectedItem.getStudentsProperty().get(),selectedItem.getExternalExaminersProperty().get());
+        //        model.removeGrade(grade);
+//        viewModel.remove(exam);
+        examListTable.getSelectionModel().clearSelection();
+      }
+    }
+    catch (Exception e)
+    {
+      errorLabel.setText("Item not found: " + e.getMessage());
+    }
+  }
+
+  private boolean confirmation()
+  {
+    int index = examListTable.getSelectionModel().getSelectedIndex();
+    ExamViewModel selectedItem = examListTable.getItems().get(index);
+    if (index < 0 || index >= examListTable.getItems().size())
+    {
+      return false;
+    }
+    Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+    alert.setTitle("Confirmation");
+    alert.setHeaderText(
+        "Removing exam {" + selectedItem.getCourseProperty().get() + "on "
+            + selectedItem.getDateProperty().get() + "}");
+    Optional<ButtonType> result = alert.showAndWait();
+    return (result.isPresent()) && (result.get() == ButtonType.OK);
   }
 
   @FXML private void cancelPressed(ActionEvent event)

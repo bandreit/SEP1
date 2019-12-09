@@ -7,14 +7,14 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="387.0" prefWidth="646.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.AddExamViewController">
+<AnchorPane prefHeight="400.0" prefWidth="658.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.AddExamViewController">
    <children>
-      <Label fx:id="oralOrWritten" layoutX="366.0" layoutY="92.0" text="ORAL/WRITTEN" />
+      <Label fx:id="oralOrWritten" layoutX="123.0" layoutY="295.0" text="ORAL/WRITTEN" />
       <DatePicker id="datePicker" fx:id="datePicker" layoutX="50.0" layoutY="225.0" prefHeight="26.0" prefWidth="230.0" showWeekNumbers="true" />
-      <TextField id="time" fx:id="time1" alignment="CENTER" layoutX="50.0" layoutY="291.0" maxWidth="-Infinity" prefHeight="26.0" prefWidth="84.0" text="HH-MM" />
+      <TextField id="time" fx:id="time1" alignment="CENTER" layoutX="364.0" layoutY="82.0" maxWidth="-Infinity" prefHeight="26.0" prefWidth="84.0" text="HH-MM" />
       <Label layoutX="50.0" layoutY="134.0" text="EXAMINER" />
       <Label layoutX="50.0" layoutY="207.0" text="Date" />
-      <Label fx:id="t" layoutX="51.0" layoutY="273.0" text="Start time" />
+      <Label fx:id="t" layoutX="365.0" layoutY="64.0" text="Start time" />
       <Label layoutX="53.0" layoutY="69.0" text="COURSE" />
       <Label layoutX="365.0" layoutY="134.0" text="ROOM" />
       <Label layoutX="365.0" layoutY="207.0" text="EXTERNAL EXAMINER" />
@@ -24,7 +24,8 @@
       <ComboBox fx:id="supervisor" layoutX="51.0" layoutY="152.0" prefHeight="26.0" prefWidth="230.0" />
       <ComboBox fx:id="externalSupervisor" layoutX="366.0" layoutY="225.0" prefHeight="26.0" prefWidth="230.0" />
       <ComboBox fx:id="course" layoutX="51.0" layoutY="88.0" prefHeight="26.0" prefWidth="230.0" />
-      <TextField id="time" fx:id="time2" alignment="CENTER" layoutX="195.0" layoutY="291.0" maxWidth="-Infinity" prefHeight="26.0" prefWidth="84.0" text="HH-MM" />
-      <Label layoutX="237.0" layoutY="273.0" text="End time" />
+      <TextField id="time" fx:id="time2" alignment="CENTER" layoutX="509.0" layoutY="82.0" maxWidth="-Infinity" prefHeight="26.0" prefWidth="84.0" text="HH-MM" />
+      <Label layoutX="545.0" layoutY="64.0" text="End time" />
+      <Button layoutX="53.0" layoutY="28.0" mnemonicParsing="false" onAction="#cancelPressed" text="GO BACK" />
    </children>
 </AnchorPane>
