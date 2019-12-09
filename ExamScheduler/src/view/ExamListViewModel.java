@@ -3,7 +3,6 @@ package view;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import model.Exam;
-import model.ExamListModel;
 
 import java.util.ArrayList;
 

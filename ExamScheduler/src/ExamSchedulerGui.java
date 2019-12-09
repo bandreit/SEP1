@@ -1,7 +1,5 @@
 import javafx.application.Application;
 import javafx.stage.Stage;
-import model.ExamListModel;
-import model.ExamListModelManager;
 import view.ViewHandler;
 
 public class ExamSchedulerGui extends Application
