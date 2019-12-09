@@ -4,6 +4,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.Region;
 import javafx.stage.Stage;
+import model.ExamListModel;
 
 public class ViewHandler
 {
@@ -61,7 +62,7 @@ public class ViewHandler
         loader.setLocation(getClass().getResource(fxmlFile));
         Region root = loader.load();
         examListViewController = loader.getController();
-        examListViewController.init(this, root, model);
+        examListViewController.init(this, model, root);
       }
       catch (Exception e)
       {

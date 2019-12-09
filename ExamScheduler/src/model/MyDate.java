@@ -119,5 +119,10 @@ public class MyDate
   {
     return new MyDate(day, month, year, hour, minutes);
   }
+
+  public String toString()
+  {
+    return day + "-" + month + "-" + year + " " + hour + ":" +minutes;
+  }
 }
 

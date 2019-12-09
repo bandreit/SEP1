@@ -1,32 +1,60 @@
 package view;
 
-import javafx.beans.property.IntegerProperty;
-import javafx.beans.property.SimpleIntegerProperty;
-import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.property.StringProperty;
+import javafx.beans.property.*;
+import model.Course;
+import model.Exam;
 
 public class ExamViewModel
 {
+  private StringProperty date1Property;
+  private StringProperty date2Property;
+  private StringProperty examinerProperty;
+  private StringProperty coExaminerProperty;
   private StringProperty courseProperty;
+  private StringProperty classroomProperty;
   private StringProperty oralWrittenProperty;
-  private StringProperty dateProperty;
-  private StringProperty timeProperty;
-  private StringProperty examinersProperty;
-  private StringProperty roomProperty;
-  private StringProperty externalExaminersProperty;
   private IntegerProperty studentsProperty;
 
   public ExamViewModel(Exam exam)
   {
-    courseProperty = new SimpleStringProperty(exam.getCourse());
-    oralWrittenProperty = new SimpleStringProperty(exam.getOralWritten());
-    dateProperty = new SimpleStringProperty(exam.getDate());
-    timeProperty = new SimpleStringProperty(exam.getTime());
-    examinersProperty = new SimpleStringProperty(exam.getExaminer());
-    roomProperty = new SimpleStringProperty(exam.getRoom());
-    externalExaminersProperty = new SimpleStringProperty(
-        exam.getExternalExaminer());
-    studentsProperty = new SimpleIntegerProperty(exam.getStudents());
+    courseProperty = new SimpleStringProperty(exam.getCourse().getName());
+    examinerProperty = new SimpleStringProperty(exam.getExaminer().getName());
+    coExaminerProperty = new SimpleStringProperty(
+        exam.getCoExaminer().getName());
+    classroomProperty = new SimpleStringProperty(
+        exam.getClassroom().getNumber());
+    if (exam.getCourse().isOral())
+    {
+      oralWrittenProperty = new SimpleStringProperty("Oral");
+    }
+    else
+    {
+      oralWrittenProperty = new SimpleStringProperty("Written");
+    }
+    date1Property = new SimpleStringProperty(exam.getDate1().toString());
+    date2Property = new SimpleStringProperty(exam.getDate2().toString());
+    studentsProperty = new SimpleIntegerProperty(
+        exam.getCourse().getStudents());
+  }
+
+  public StringProperty getDate1Property()
+  {
+    return date1Property;
+  }
+
+  public StringProperty getDate2Property()
+  {
+    return date2Property;
+  }
+
+  public StringProperty getExaminerProperty()
+  {
+    return examinerProperty;
+  }
+
+  public StringProperty getCoExaminerProperty()
+  {
+    return coExaminerProperty;
   }
 
   public StringProperty getCourseProperty()
@@ -34,39 +62,18 @@ public class ExamViewModel
     return courseProperty;
   }
 
+  public StringProperty getClassroomProperty()
+  {
+    return classroomProperty;
+  }
+
   public StringProperty getOralWrittenProperty()
   {
     return oralWrittenProperty;
-  }
-
-  public StringProperty getDateProperty()
-  {
-    return dateProperty;
-  }
-
-  public StringProperty getTimeProperty()
-  {
-    return timeProperty;
-  }
-
-  public StringProperty getExaminersProperty()
-  {
-    return examinersProperty;
-  }
-
-  public StringProperty getExternalExaminersProperty()
-  {
-    return externalExaminersProperty;
-  }
-
-  public StringProperty getRoomProperty()
-  {
-    return roomProperty;
   }
 
   public IntegerProperty getStudentsProperty()
   {
     return studentsProperty;
   }
-
 }

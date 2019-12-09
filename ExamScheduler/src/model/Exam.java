@@ -8,7 +8,6 @@ public class Exam
   private Examiner coExaminer;
   private Course course;
   private Classroom classroom;
-  private int id;
 
   public Exam(MyDate date1, MyDate date2, Examiner examiner, Examiner coExaminer, Course course, Classroom classroom)
   {
@@ -18,5 +17,35 @@ public class Exam
     this.coExaminer=coExaminer;
     this.course=course;
     this.classroom=classroom;
+  }
+
+  public MyDate getDate1()
+  {
+    return date1;
+  }
+
+  public MyDate getDate2()
+  {
+    return date2;
+  }
+
+  public Examiner getExaminer()
+  {
+    return examiner;
+  }
+
+  public Examiner getCoExaminer()
+  {
+    return coExaminer;
+  }
+
+  public Course getCourse()
+  {
+    return course;
+  }
+
+  public Classroom getClassroom()
+  {
+    return classroom;
   }
 }

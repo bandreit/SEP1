@@ -17,15 +17,16 @@ public class ExamList
   }
 
   public void addExam(Exam exam)
-
   {
     exams.add(exam);
   }
-  public void remove(Exam exam)
+
+  public void removeExam(int index)
   {
-    exams.remove(exam);
+    exams.remove(index);
   }
-  public Exam get(int index)
+
+  public Exam getExam(int index)
   {
     return exams.get(index);
   }
