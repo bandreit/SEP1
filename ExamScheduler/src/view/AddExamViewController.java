@@ -8,12 +8,13 @@ import javafx.scene.layout.Region;
 
 public class AddExamViewController
 {
-  @FXML private MenuButton oralOrWritten;
-  @FXML private MenuButton supervisor;
-  @FXML private MenuButton externalSupervisor;
-  @FXML private MenuButton course;
+  @FXML private Label oralOrWritten;
+  @FXML private ComboBox supervisor;
+  @FXML private ComboBox externalSupervisor;
+  @FXML private ComboBox course;
   @FXML private DatePicker datePicker;
-  @FXML private TextField time;
+  @FXML private TextField time1;
+  @FXML private TextField time2;
   @FXML private TextField room;
   @FXML private Label errorLabel;
   private Region root;

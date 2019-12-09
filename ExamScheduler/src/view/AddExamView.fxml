@@ -1,50 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.MenuButton?>
-<?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
 <AnchorPane prefHeight="387.0" prefWidth="646.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.AddExamViewController">
    <children>
-      <Label layoutX="50.0" layoutY="70.0" text="ORAL/WRITTEN" />
-      <MenuButton fx:id="oralOrWritten" layoutX="50.0" layoutY="88.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="230.0">
-         <items>
-            <MenuItem mnemonicParsing="false" text="Action 1" />
-            <MenuItem mnemonicParsing="false" text="Action 2" />
-         </items>
-      </MenuButton>
-      <MenuButton id="supervisor" fx:id="supervisor" layoutX="50.0" layoutY="152.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="230.0">
-         <items>
-            <MenuItem mnemonicParsing="false" text="Action 1" />
-            <MenuItem mnemonicParsing="false" text="Action 2" />
-         </items>
-      </MenuButton>
+      <Label fx:id="oralOrWritten" layoutX="366.0" layoutY="92.0" text="ORAL/WRITTEN" />
       <DatePicker id="datePicker" fx:id="datePicker" layoutX="50.0" layoutY="225.0" prefHeight="26.0" prefWidth="230.0" showWeekNumbers="true" />
-      <TextField id="time" fx:id="time" layoutX="50.0" layoutY="291.0" maxWidth="-Infinity" prefHeight="26.0" prefWidth="230.0" text="HH-MM" />
-      <Label layoutX="50.0" layoutY="134.0" text="SUPERVISOR" />
+      <TextField id="time" fx:id="time1" alignment="CENTER" layoutX="50.0" layoutY="291.0" maxWidth="-Infinity" prefHeight="26.0" prefWidth="84.0" text="HH-MM" />
+      <Label layoutX="50.0" layoutY="134.0" text="EXAMINER" />
       <Label layoutX="50.0" layoutY="207.0" text="Date" />
-      <Label layoutX="51.0" layoutY="273.0" text="Time" />
-      <Label layoutX="365.0" layoutY="70.0" text="COURSE" />
-      <MenuButton id="course" fx:id="course" layoutX="365.0" layoutY="88.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="230.0">
-         <items>
-            <MenuItem mnemonicParsing="false" text="Action 1" />
-            <MenuItem mnemonicParsing="false" text="Action 2" />
-         </items>
-      </MenuButton>
+      <Label fx:id="t" layoutX="51.0" layoutY="273.0" text="Start time" />
+      <Label layoutX="53.0" layoutY="69.0" text="COURSE" />
       <Label layoutX="365.0" layoutY="134.0" text="ROOM" />
-      <Label layoutX="365.0" layoutY="207.0" text="EXTERNAL SUPERVISOR" />
+      <Label layoutX="365.0" layoutY="207.0" text="EXTERNAL EXAMINER" />
       <TextField id="room" fx:id="room" layoutX="366.0" layoutY="152.0" prefHeight="26.0" prefWidth="230.0" />
-      <MenuButton id="externalSupervisor" fx:id="externalSupervisor" layoutX="366.0" layoutY="225.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="230.0">
-         <items>
-            <MenuItem mnemonicParsing="false" text="Action 1" />
-            <MenuItem mnemonicParsing="false" text="Action 2" />
-         </items>
-      </MenuButton>
       <Button layoutX="366.0" layoutY="291.0" mnemonicParsing="false" onAction="#createExam" prefHeight="26.0" prefWidth="230.0" text="CREATE EXAM" />
       <Label id="errorLabel" fx:id="errorLabel" layoutX="294.0" layoutY="348.0" text="Error Label" />
+      <ComboBox fx:id="supervisor" layoutX="51.0" layoutY="152.0" prefHeight="26.0" prefWidth="230.0" />
+      <ComboBox fx:id="externalSupervisor" layoutX="366.0" layoutY="225.0" prefHeight="26.0" prefWidth="230.0" />
+      <ComboBox fx:id="course" layoutX="51.0" layoutY="88.0" prefHeight="26.0" prefWidth="230.0" />
+      <TextField id="time" fx:id="time2" alignment="CENTER" layoutX="195.0" layoutY="291.0" maxWidth="-Infinity" prefHeight="26.0" prefWidth="84.0" text="HH-MM" />
+      <Label layoutX="237.0" layoutY="273.0" text="End time" />
    </children>
 </AnchorPane>

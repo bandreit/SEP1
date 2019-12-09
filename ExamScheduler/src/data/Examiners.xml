@@ -1,0 +1,10 @@
+<Examiners>
+    <Examiner>
+        <Equiped>SVA</Equiped>
+        <IsExternalExaminer>false</IsExternalExaminer>
+    </Examiner>
+    <Examiner>
+        <Equiped>FV</Equiped>
+        <IsExternalExaminer>true</IsExternalExaminer>
+    </Examiner>
+</Examiners>

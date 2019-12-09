@@ -13,6 +13,7 @@ public class ViewHandler
   private Stage primaryStage;
   private ExamListModel model;
   private ExamListViewController examListViewController;
+  private AddExamViewController addExamViewController;
 
   public ViewHandler(ExamListModel model)
   {
@@ -32,7 +33,7 @@ public class ViewHandler
     Region root = null;
     switch (id) {
       case "examListView" : root = loadExamListView("ExamListView.fxml"); break;
-      case "addEamView" : root = loadAddExamView("AddExamView.fxml"); break;
+      case "addExamView" : root = loadAddExamView("AddExamView.fxml"); break;
     }
     currentScene.setRoot(root);
     String title = "";
@@ -78,15 +79,15 @@ public class ViewHandler
 
   private Region loadAddExamView(String fxmlFile)
   {
-    if (examListViewController == null)
+    if (addExamViewController == null)
     {
       try
       {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource(fxmlFile));
         Region root = loader.load();
-        examListViewController = loader.getController();
-        examListViewController.init(this, root, model);
+        addExamViewController = loader.getController();
+        addExamViewController.init(this, root);
       }
       catch (Exception e)
       {
@@ -95,9 +96,9 @@ public class ViewHandler
     }
     else
     {
-      examListViewController.reset();
+      addExamViewController.reset();
     }
-    return examListViewController.getRoot();
+    return addExamViewController.getRoot();
   }
 
 }

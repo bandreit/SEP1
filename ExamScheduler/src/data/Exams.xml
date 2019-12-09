@@ -1,0 +1,10 @@
+<Exams>
+    <Exam>
+        <Course>SEP1Y</Course>
+        <StartDate>10-01-2019 09:00</StartDate>
+        <EndDate>13-01-2019 16:00</EndDate>
+        <ClassRoom>E301B</ClassRoom>
+        <Examiners>SVA, SJF<Examiners>
+        <IsOral>true</IsOral>
+    </Exam>
+</Exams>

@@ -16,9 +16,9 @@ public class ExamList
     return exams.size();
   }
 
-  public void addExam(Exam grade)
+  public void addExam(Exam exam)
   {
-    exams.add(grade);
+    exams.add(exam);
   }
 
   public void removeExam(int index)

@@ -37,7 +37,7 @@ public class ExamListViewController
     this.root = root;
     this.model = model;
     this.viewModel = new ExamListViewModel(model);
-    model.addExam("SDJ1", "O", "14-01-2020","09:00", "SVA", "E-301A", 34, "SVV");
+    model.addExam("SDJ1X", "O", "14-01-2020","09:00", "SVA", "E-301A", 34, "SVV");
     courseColumn.setCellValueFactory(cellData -> cellData.getValue().getCourseProperty());
     oralWrittenColumn.setCellValueFactory(
         cellData -> cellData.getValue().getOralWrittenProperty());
@@ -72,6 +72,7 @@ public class ExamListViewController
     try
     {
       viewHandler.openView("addExamView");
+      System.out.println("aici");
     }
     catch (Exception e)
     {
