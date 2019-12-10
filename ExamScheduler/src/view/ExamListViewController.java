@@ -82,7 +82,21 @@ public class ExamListViewController
   {
     try
     {
-      viewHandler.openView("addExamView");
+      viewHandler.openView("addExamView",null);
+    }
+    catch (Exception e)
+    {
+      errorLabel.setText(e.getMessage());
+    }
+  }
+
+  @FXML private void editExamButtonPressed()
+  {
+    try
+    {
+      ExamViewModel selectedItem = examListTable.getSelectionModel().getSelectedItem();
+      String course = selectedItem.getCourseProperty().get();
+      viewHandler.openView("editExamView", course);
     }
     catch (Exception e)
     {

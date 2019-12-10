@@ -21,7 +21,7 @@
                <VBox.margin>
                   <Insets top="10.0" />
                </VBox.margin></Button>
-            <Button mnemonicParsing="false" prefHeight="53.0" prefWidth="154.0" text="Edit exam">
+            <Button mnemonicParsing="false" prefHeight="53.0" prefWidth="154.0" text="Edit exam" onAction="#editExamButtonPressed">
                <VBox.margin>
                   <Insets top="10.0" />
                </VBox.margin>
