@@ -2,8 +2,10 @@ package view;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.Node;
-import javafx.scene.control.*;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.DatePicker;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.Region;
 import mediator.ExamListModel;
 import model.*;
@@ -11,7 +13,7 @@ import persistence.XmlConverterException;
 
 import java.time.LocalDate;
 
-public class AddExamViewController
+public class EditExamViewController
 {
   @FXML private Label oralOrWritten;
   @FXML private ComboBox supervisor;
@@ -23,6 +25,7 @@ public class AddExamViewController
   @FXML private ComboBox time2;
   @FXML private TextField room;
   @FXML private Label errorLabel;
+  @FXML private Label editingExam;
   private Region root;
   private ViewHandler viewHandler;
   private ExamListModel model;
@@ -30,7 +33,7 @@ public class AddExamViewController
   private CourseList courseList;
   private ExaminerList examinerList;
 
-  public AddExamViewController()
+  public EditExamViewController()
   {
 
   }
@@ -39,7 +42,6 @@ public class AddExamViewController
   {
     errorLabel.setText("");
     supervisor.getItems().removeAll();
-    course.getItems().removeAll();
     classroom.getItems().removeAll();
     oralOrWritten.setText("ORAL/WRITTEN");
     externalSupervisor.getItems().removeAll();
@@ -73,14 +75,14 @@ public class AddExamViewController
     try
     {
       errorLabel.setText("");
-//      MyDate date1 = new MyDate(2,1,2020,10,20);
-//      MyDate date2 = new MyDate(5,1,2020,14,20);
-//      Examiner examiner = new Examiner("SVA", false);
-//      Examiner coExaminer = new Examiner("MNA", true);
-//      Course course = new Course("SEP1Y",34, true, examiner);
-//      Classroom classroom = new Classroom("301B", true, 36);
+      //      MyDate date1 = new MyDate(2,1,2020,10,20);
+      //      MyDate date2 = new MyDate(5,1,2020,14,20);
+      //      Examiner examiner = new Examiner("SVA", false);
+      //      Examiner coExaminer = new Examiner("MNA", true);
+      //      Course course = new Course("SEP1Y",34, true, examiner);
+      //      Classroom classroom = new Classroom("301B", true, 36);
 
-//      model.addExam(date1,date2,examiner,coExaminer,course,classroom);
+      //      model.addExam(date1,date2,examiner,coExaminer,course,classroom);
 
 
       LocalDate datePickerValue = datePicker.getValue();
@@ -112,8 +114,7 @@ public class AddExamViewController
     viewHandler.openView("examListView", null);
   }
 
-
-  public void init(ViewHandler viewHandler, ExamListModel model, Region root)
+  public void init(ViewHandler viewHandler, ExamListModel model, Region root, String course)
       throws XmlConverterException
   {
     this.viewHandler = viewHandler;
@@ -125,6 +126,8 @@ public class AddExamViewController
     classroomList = model.loadClassroomList();
     courseList = model.loadCourseList();
     examinerList = model.loadExaminerList();
+
+    editingExam.setText(editingExam.getText() + " " + course);
 
     for (int i = 8; i < 10; i++)
     {
@@ -158,10 +161,6 @@ public class AddExamViewController
       classroom.getItems().add(classroomList.getClassroom(i).getNumber());
     }
 
-    for (int i = 0; i < courseList.size(); i++)
-    {
-      course.getItems().add(courseList.getCourse(i).getName());
-    }
 
     for (int i = 0; i < examinerList.size(); i++)
     {
@@ -177,4 +176,5 @@ public class AddExamViewController
     }
 
   }
+
 }
