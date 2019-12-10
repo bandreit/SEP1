@@ -8,6 +8,7 @@ public interface ExamListModel
   void addExam(MyDate date1, MyDate date2, Examiner examiner, Examiner coExaminer, Course course, Classroom classroom);
   void removeExam(int index);
   Exam getExam(int index);
+  void removeExam(String course);
   ClassroomList loadClassroomList() throws XmlConverterException;
   CourseList loadCourseList() throws XmlConverterException;
   ExaminerList loadExaminerList() throws XmlConverterException;

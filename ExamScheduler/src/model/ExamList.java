@@ -26,6 +26,16 @@ public class ExamList
     exams.remove(index);
   }
 
+  public void removeExam(String course)
+  {
+    for (int i = 0; i < exams.size(); i++)
+    {
+      if (exams.get(i).getCourse().getName().equals(course)){
+        exams.remove(i);
+      }
+    }
+  }
+
   public Exam getExam(int index)
   {
     return exams.get(index);

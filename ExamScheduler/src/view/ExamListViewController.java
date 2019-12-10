@@ -6,11 +6,10 @@ import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.layout.Region;
 import mediator.ExamListModel;
-import model.Classroom;
-import model.Course;
-import model.Examiner;
-import model.MyDate;
+import model.*;
 import persistence.XmlConverterException;
+
+import java.util.Optional;
 
 public class ExamListViewController
 {
@@ -41,14 +40,14 @@ public class ExamListViewController
     this.model = model;
     this.viewModel = new ExamListViewModel(model);
 
-//    MyDate date1 = new MyDate(2,1,2020,10,20);
-//    MyDate date2 = new MyDate(5,1,2020,14,20);
-//    Examiner examiner = new Examiner("SVA", false);
-//    Examiner coExaminer = new Examiner("MNA", true);
-//    Course course = new Course("SEP1Y",34, true, examiner);
-//    Classroom classroom = new Classroom("301B", true, 36);
-//
-//    model.addExam(date1,date2,examiner,coExaminer,course,classroom);
+    MyDate date1 = new MyDate(2,1,2020,10,20);
+    MyDate date2 = new MyDate(5,1,2020,14,20);
+    Examiner examiner = new Examiner("SVA", false);
+    Examiner coExaminer = new Examiner("MNA", true);
+    Course course = new Course("SEP1Y",34, true, examiner);
+    Classroom classroom = new Classroom("301B", true, 36);
+
+    model.addExam(date1,date2,examiner,coExaminer,course,classroom);
 
     courseColumn.setCellValueFactory(cellData -> cellData.getValue().getCourseProperty());
     oralWrittenColumn.setCellValueFactory(
@@ -91,45 +90,47 @@ public class ExamListViewController
     }
   }
 
-//  @FXML private void removeExamButtonPressed()
-//  {
-//    errorLabel.setText("");
-//    try
-//    {
-//      ExamViewModel selectedItem = examListTable.getSelectionModel()
-//          .getSelectedItem();
-//      boolean remove = confirmation();
-//      if (remove)
-//      {
+  @FXML private void removeExamButtonPressed()
+  {
+    errorLabel.setText("");
+    try
+    {
+      ExamViewModel selectedItem = examListTable.getSelectionModel()
+          .getSelectedItem();
+      boolean remove = confirmation();
+      if (remove)
+      {
 //        Exam exam = new Exam(selectedItem.getCourseProperty().get(),
 //            selectedItem.getOralWrittenProperty().get(),selectedItem.getDateProperty().get(),selectedItem.getTimeProperty().get(),selectedItem.getExaminersProperty().get(),selectedItem.getRoomProperty().get(),selectedItem.getStudentsProperty().get(),selectedItem.getExternalExaminersProperty().get());
-//        //        model.removeGrade(grade);
-////        viewModel.remove(exam);
-//        examListTable.getSelectionModel().clearSelection();
-//      }
-//    }
-//    catch (Exception e)
-//    {
-//      errorLabel.setText("Item not found: " + e.getMessage());
-//    }
-//  }
+        //        model.removeGrade(grade);
+        System.out.println(selectedItem.getCourseProperty().get());
+        viewModel.remove(selectedItem.getCourseProperty().get());
+        examListTable.getSelectionModel().clearSelection();
+        model.removeExam(selectedItem.getCourseProperty().get());
+      }
+    }
+    catch (Exception e)
+    {
+      errorLabel.setText("Item not found: " + e.getMessage());
+    }
+  }
 
-//  private boolean confirmation()
-//  {
-//    int index = examListTable.getSelectionModel().getSelectedIndex();
-//    ExamViewModel selectedItem = examListTable.getItems().get(index);
-//    if (index < 0 || index >= examListTable.getItems().size())
-//    {
-//      return false;
-//    }
-//    Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-//    alert.setTitle("Confirmation");
-//    alert.setHeaderText(
-//        "Removing exam {" + selectedItem.getCourseProperty().get() + "on "
-//            + selectedItem.getDateProperty().get() + "}");
-//    Optional<ButtonType> result = alert.showAndWait();
-//    return (result.isPresent()) && (result.get() == ButtonType.OK);
-//  }
+  private boolean confirmation()
+  {
+    int index = examListTable.getSelectionModel().getSelectedIndex();
+    ExamViewModel selectedItem = examListTable.getItems().get(index);
+    if (index < 0 || index >= examListTable.getItems().size())
+    {
+      return false;
+    }
+    Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+    alert.setTitle("Confirmation");
+    alert.setHeaderText(
+        "Removing exam {" + selectedItem.getCourseProperty().get() + " on "
+            + selectedItem.getDate1Property().get() + "}");
+    Optional<ButtonType> result = alert.showAndWait();
+    return (result.isPresent()) && (result.get() == ButtonType.OK);
+  }
 
   @FXML private void cancelPressed(ActionEvent event)
   {

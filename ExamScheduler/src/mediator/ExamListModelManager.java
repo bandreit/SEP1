@@ -49,4 +49,10 @@ public class ExamListModelManager implements ExamListModel
   {
     return examListFile.loadExaminerList();
   }
+
+  @Override public void removeExam(String course)
+  {
+    exams.removeExam(course);
+  }
 }
+
