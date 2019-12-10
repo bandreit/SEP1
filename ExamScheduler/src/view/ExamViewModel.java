@@ -18,9 +18,9 @@ public class ExamViewModel
   public ExamViewModel(Exam exam)
   {
     courseProperty = new SimpleStringProperty(exam.getCourse().getName());
-    examinerProperty = new SimpleStringProperty(exam.getExaminer().getName());
+    examinerProperty = new SimpleStringProperty(exam.getExaminer().getInitials());
     coExaminerProperty = new SimpleStringProperty(
-        exam.getCoExaminer().getName());
+        exam.getCoExaminer().getInitials());
     classroomProperty = new SimpleStringProperty(
         exam.getClassroom().getNumber());
     if (exam.getCourse().isOral())

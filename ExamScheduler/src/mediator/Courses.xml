@@ -1,0 +1,29 @@
+<courselist>
+    <courses>
+        <name>SDJ1X</name>
+        <students>34</students>
+        <isOral>true</isOral>
+        <teacher>
+            <initials>SVA</initials>
+            <isCoExaminer>false</isCoExaminer>
+        </teacher>
+    </courses>
+    <courses>
+        <name>SEP1Y</name>
+        <students>32</students>
+        <isOral>true</isOral>
+        <teacher>
+            <initials>MNA</initials>
+            <isCoExaminer>false</isCoExaminer>
+        </teacher>
+    </courses>
+    <courses>
+        <name>RWD</name>
+        <students>30</students>
+        <isOral>false</isOral>
+        <teacher>
+            <initials>Lina</initials>
+            <isCoExaminer>false</isCoExaminer>
+        </teacher>
+    </courses>
+</courselist>

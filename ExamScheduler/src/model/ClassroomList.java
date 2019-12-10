@@ -1,8 +1,9 @@
 package model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class ClassroomList
+public class ClassroomList implements Serializable
 {
   private ArrayList<Classroom> classrooms;
 
@@ -11,15 +12,39 @@ public class ClassroomList
     classrooms = new ArrayList<>();
   }
 
-  public Classroom getClassrooms(String number)
+  public void addClassroom(Classroom classroom)
   {
-    for (int i = 0; i <classrooms.size() ; i++)
+    classrooms.add(classroom);
+  }
+
+  public Classroom getClassroom(String number)
+  {
+    for (int i = 0; i < classrooms.size(); i++)
     {
-      if(classrooms.get(i).getNumber().equals(number))
+      if (classrooms.get(i).getNumber().equals(number))
       {
         return classrooms.get(i);
       }
     }
     return null;
+  }
+
+  public Classroom getClassroom(int index){return classrooms.get(index);}
+
+  public int size()
+  {
+    return classrooms.size();
+  }
+
+  public String toString()
+  {
+    String text = " ";
+
+    for (int i = 0; i < classrooms.size(); i++)
+    {
+      text += classrooms.get(i).toString();
+      text += "\n";
+    }
+    return text;
   }
 }

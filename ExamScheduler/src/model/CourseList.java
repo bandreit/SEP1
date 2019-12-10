@@ -8,25 +8,59 @@ public class CourseList
 
   public CourseList()
   {
-    courses=new ArrayList<>();
+    courses = new ArrayList<>();
   }
+
   public void addCourse(Course course)
   {
     courses.add(course);
   }
+
+  public Course getCourse(int index)
+  {
+    return courses.get(index);
+  }
+
+  public Course getCourse(String name)
+  {
+    for (int i = 0; i < courses.size(); i++)
+    {
+      if (courses.get(i).getName().equals(name))
+      {
+        return courses.get(i);
+      }
+    }
+    return null;
+  }
+
+  public int size(){return courses.size();}
+
   public void removeCourse(String name)
   {
-    for(int i=0;i<courses.size();i++)
+    for (int i = 0; i < courses.size(); i++)
     {
-      if(courses.get(i).getName().equals(name))
+      if (courses.get(i).getName().equals(name))
       {
         courses.remove(i);
         break;
       }
     }
   }
+
   public ArrayList<Course> getAllCourses()
   {
     return courses;
+  }
+
+  public String toString()
+  {
+    String text = " ";
+
+    for (int i = 0; i < courses.size(); i++)
+    {
+      text += courses.get(i).toString();
+      text += "\n";
+    }
+    return text;
   }
 }

@@ -5,9 +5,12 @@ import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.layout.Region;
-import model.*;
-
-import java.util.Optional;
+import mediator.ExamListModel;
+import model.Classroom;
+import model.Course;
+import model.Examiner;
+import model.MyDate;
+import persistence.XmlConverterException;
 
 public class ExamListViewController
 {
@@ -38,14 +41,14 @@ public class ExamListViewController
     this.model = model;
     this.viewModel = new ExamListViewModel(model);
 
-    MyDate date1 = new MyDate(2,1,2020,10,20);
-    MyDate date2 = new MyDate(5,1,2020,14,20);
-    Examiner examiner = new Examiner("SVA", false);
-    Examiner coExaminer = new Examiner("MNA", true);
-    Course course = new Course("SEP1Y",34, true);
-    Classroom classroom = new Classroom("301B", true, 36);
-
-    model.addExam(date1,date2,examiner,coExaminer,course,classroom);
+//    MyDate date1 = new MyDate(2,1,2020,10,20);
+//    MyDate date2 = new MyDate(5,1,2020,14,20);
+//    Examiner examiner = new Examiner("SVA", false);
+//    Examiner coExaminer = new Examiner("MNA", true);
+//    Course course = new Course("SEP1Y",34, true, examiner);
+//    Classroom classroom = new Classroom("301B", true, 36);
+//
+//    model.addExam(date1,date2,examiner,coExaminer,course,classroom);
 
     courseColumn.setCellValueFactory(cellData -> cellData.getValue().getCourseProperty());
     oralWrittenColumn.setCellValueFactory(
@@ -81,7 +84,6 @@ public class ExamListViewController
     try
     {
       viewHandler.openView("addExamView");
-      System.out.println("aici");
     }
     catch (Exception e)
     {

@@ -2,18 +2,18 @@ package model;
 
 public class Examiner
 {
-  private String name;
+  private String initials;
   private boolean isCoExaminer;
 
-  public Examiner(String name, boolean isCoExaminer)
+  public Examiner(String initials, boolean isCoExaminer)
   {
-    this.name=name;
+    this.initials=initials;
     this.isCoExaminer=isCoExaminer;
   }
 
-  public String getName()
+  public String getInitials()
   {
-    return name;
+    return initials;
   }
   public boolean isCoExaminer()
   {

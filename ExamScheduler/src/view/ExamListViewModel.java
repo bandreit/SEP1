@@ -3,7 +3,7 @@ package view;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import model.Exam;
-import model.ExamListModel;
+import mediator.ExamListModel;
 
 import java.util.ArrayList;
 

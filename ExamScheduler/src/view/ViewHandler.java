@@ -4,7 +4,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.Region;
 import javafx.stage.Stage;
-import model.ExamListModel;
+import mediator.ExamListModel;
 
 public class ViewHandler
 {
@@ -22,17 +22,21 @@ public class ViewHandler
 
   public void start(Stage primaryStage)
   {
-   this.primaryStage = primaryStage;
-   openView("examListView");
+    this.primaryStage = primaryStage;
+    openView("examListView");
   }
-
 
   public void openView(String id)
   {
     Region root = null;
-    switch (id) {
-      case "examListView" : root = loadExamListView("ExamListView.fxml"); break;
-      case "addExamView" : root = loadAddExamView("AddExamView.fxml"); break;
+    switch (id)
+    {
+      case "examListView":
+        root = loadExamListView("ExamListView.fxml");
+        break;
+      case "addExamView":
+        root = loadAddExamView("AddExamView.fxml");
+        break;
     }
     currentScene.setRoot(root);
     String title = "";
@@ -49,7 +53,7 @@ public class ViewHandler
 
   public void closeView()
   {
-      primaryStage.close();
+    primaryStage.close();
   }
 
   private Region loadExamListView(String fxmlFile)
@@ -86,7 +90,7 @@ public class ViewHandler
         loader.setLocation(getClass().getResource(fxmlFile));
         Region root = loader.load();
         addExamViewController = loader.getController();
-        addExamViewController.init(this, root);
+        addExamViewController.init(this, model, root);
       }
       catch (Exception e)
       {

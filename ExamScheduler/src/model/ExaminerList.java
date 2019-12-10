@@ -16,11 +16,15 @@ public class ExaminerList
     examiners.add(examiner);
   }
 
-  public void removeExaminer(String name)
+  public int size(){return examiners.size();}
+
+  public Examiner getExaminer(int index){return examiners.get(index);}
+
+  public void removeExaminer(String initials)
   {
     for (int i = 0; i < examiners.size(); i++)
     {
-        if (examiners.get(i).getName().equals(name))
+        if (examiners.get(i).getInitials().equals(initials))
         {
           examiners.remove(i);
           break;
@@ -28,11 +32,11 @@ public class ExaminerList
     }
   }
 
-  public Examiner getExaminer(String name)
+  public Examiner getExaminer(String initials)
   {
     for (int i = 0; i < examiners.size(); i++)
     {
-        if (examiners.get(i).getName().equals(name))
+        if (examiners.get(i).getInitials().equals(initials))
         {
           return examiners.get(i);
         }

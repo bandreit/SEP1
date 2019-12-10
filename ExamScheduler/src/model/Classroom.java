@@ -1,16 +1,19 @@
 package model;
 
-public class Classroom
+import java.io.Serializable;
+
+public class Classroom implements Serializable
 {
- private boolean equiped;
- private String number;
- private int maxCapacity;
- public Classroom(String number,boolean equiped,int maxCapacity)
- {
-   this.number=number;
-   this.equiped=false;
-   this.maxCapacity=0;
- }
+  private boolean equiped;
+  private String number;
+  private int maxCapacity;
+
+  public Classroom(String number, boolean equiped, int maxCapacity)
+  {
+    this.number = number;
+    this.equiped = false;
+    this.maxCapacity = 0;
+  }
 
   public void setNumber(String number)
   {
@@ -35,5 +38,10 @@ public class Classroom
   public int getMaxCapacity()
   {
     return maxCapacity;
+  }
+
+  public String toString()
+  {
+    return number + ", is equiped: " + equiped + ", max capacity: " + maxCapacity;
   }
 }

@@ -7,11 +7,12 @@ public class Course
   private boolean isOral;
   private Examiner teacher;
 
-  public Course(String name, int students, boolean isOral)
+  public Course(String name, int students, boolean isOral, Examiner teacher)
   {
     this.name=name;
     this.students=students;
     this.isOral=isOral;
+    this.teacher = teacher;
   }
 
   public String getName()
@@ -36,5 +37,10 @@ public class Course
       return teacher;
     }
     return null;
+  }
+
+  public String toString()
+  {
+    return name + ", students: " + students + ", is Oral: " + isOral + ", teacher: " + teacher.getInitials();
   }
 }
