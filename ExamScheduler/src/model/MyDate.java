@@ -122,7 +122,18 @@ public class MyDate
 
   public String toString()
   {
-    return day + "-" + month + "-" + year + " " + hour + ":" +minutes;
+
+    String fh = String.valueOf(hour), fm = String.valueOf(minutes);
+    if (hour < 10)
+    {
+      fh = "0" + hour;
+    }
+    if (minutes < 10)
+    {
+      fm = "0" + minutes;
+    }
+
+    return day + "-" + month + "-" + year + " " + fh + ":" +fm;
   }
 }
 

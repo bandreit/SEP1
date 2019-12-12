@@ -41,16 +41,16 @@ public class ExamListViewController
     this.viewModel = new ExamListViewModel(model);
 //    examListTable.getSelectionModel().clearSelection();
 
-    MyDate date1 = new MyDate(2,1,2020,10,20);
-    MyDate date2 = new MyDate(5,1,2020,14,20);
-    Examiner examiner = new Examiner("Lina", false);
-    Examiner coExaminer = new Examiner("JDE", true);
-    Course course = new Course("SEP1Y",34, true, examiner);
-    Course course2 = new Course("RWD",34, true, examiner);
-    Classroom classroom = new Classroom("301B", true, 36);
-
-    model.addExam(date1,date2,examiner,coExaminer,course,classroom);
-    model.addExam(date1,date2,examiner,coExaminer,course2,classroom);
+//    MyDate date1 = new MyDate(2,1,2020,10,20);
+//    MyDate date2 = new MyDate(5,1,2020,14,20);
+//    Examiner examiner = new Examiner("Lina", false);
+//    Examiner coExaminer = new Examiner("JDE", true);
+//    Course course = new Course("SEP1Y",34, true, examiner);
+//    Course course2 = new Course("RWD",34, true, examiner);
+//    Classroom classroom = new Classroom("301B", true, 36);
+//
+//    model.addExam(date1,date2,examiner,coExaminer,course,classroom);
+//    model.addExam(date1,date2,examiner,coExaminer,course2,classroom);
 
     courseColumn.setCellValueFactory(cellData -> cellData.getValue().getCourseProperty());
     oralWrittenColumn.setCellValueFactory(

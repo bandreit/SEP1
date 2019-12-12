@@ -70,9 +70,9 @@ public class AddExamViewController
 
   @FXML private void createExam()
   {
+    errorLabel.setText("");
     try
     {
-      errorLabel.setText("");
 //      MyDate date1 = new MyDate(2,1,2020,10,20);
 //      MyDate date2 = new MyDate(5,1,2020,14,20);
 //      Examiner examiner = new Examiner("SVA", false);
