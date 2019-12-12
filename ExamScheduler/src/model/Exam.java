@@ -48,4 +48,34 @@ public class Exam
   {
     return classroom;
   }
+
+  public void setDate1(MyDate date1)
+  {
+    this.date1 = date1;
+  }
+
+  public void setDate2(MyDate date2)
+  {
+    this.date2 = date2;
+  }
+
+  public void setExaminer(Examiner examiner)
+  {
+    this.examiner = examiner;
+  }
+
+  public void setCoExaminer(Examiner coExaminer)
+  {
+    this.coExaminer = coExaminer;
+  }
+
+  public void setCourse(Course course)
+  {
+    this.course = course;
+  }
+
+  public void setClassroom(Classroom classroom)
+  {
+    this.classroom = classroom;
+  }
 }

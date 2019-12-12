@@ -54,5 +54,17 @@ public class ExamListModelManager implements ExamListModel
   {
     exams.removeExam(course);
   }
+
+  @Override public Exam getExamByCourse(String courseName)
+  {
+    for (int i = 0; i < exams.size(); i++)
+    {
+      if (exams.getExam(i).getCourse().getName().equals(courseName))
+      {
+        return exams.getExam(i);
+      }
+    }
+    return null;
+  }
 }
 

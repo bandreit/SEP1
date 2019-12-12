@@ -37,12 +37,25 @@ public class AddExamViewController
 
   public void reset()
   {
+    System.out.println("ciota nu e aici");
     errorLabel.setText("");
     supervisor.getItems().removeAll();
     course.getItems().removeAll();
     classroom.getItems().removeAll();
     oralOrWritten.setText("ORAL/WRITTEN");
     externalSupervisor.getItems().removeAll();
+
+    //set tu null all the fields
+    externalSupervisor.getSelectionModel().select(null);
+    supervisor.getSelectionModel().select(null);
+    datePicker.setValue(LocalDate.of(2020,1,2));
+    time1.getSelectionModel().select(null);
+    time2.getSelectionModel().select(null);
+    classroom.getSelectionModel().select(null);
+    course.getSelectionModel().select(null);
+
+
+
   }
 
   public Region getRoot()
@@ -73,16 +86,6 @@ public class AddExamViewController
     errorLabel.setText("");
     try
     {
-//      MyDate date1 = new MyDate(2,1,2020,10,20);
-//      MyDate date2 = new MyDate(5,1,2020,14,20);
-//      Examiner examiner = new Examiner("SVA", false);
-//      Examiner coExaminer = new Examiner("MNA", true);
-//      Course course = new Course("SEP1Y",34, true, examiner);
-//      Classroom classroom = new Classroom("301B", true, 36);
-
-//      model.addExam(date1,date2,examiner,coExaminer,course,classroom);
-
-
       LocalDate datePickerValue = datePicker.getValue();
       String startTime = time1.getValue().toString();
       String[] st = startTime.split(":");

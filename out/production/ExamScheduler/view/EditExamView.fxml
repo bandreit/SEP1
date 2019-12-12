@@ -39,7 +39,7 @@
          <font>
             <Font size="23.0" />
          </font></Label>
-      <Button layoutX="373.0" layoutY="429.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="230.0" text="FINISH EDITING 🡆">
+      <Button layoutX="373.0" layoutY="429.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="230.0" onAction="#editExam" text="FINISH EDITING 🡆">
          <font>
             <Font size="18.0" />
          </font></Button>
