@@ -17,5 +17,5 @@ public interface ExamListModel
   ExaminerList loadExaminerList() throws XmlConverterException;
   ExamList getExams();
 
-  boolean test();
+  boolean isDateAvailable(MyDate startDate, MyDate endDate, String classroom);
 }

@@ -35,19 +35,20 @@ public class ExamListModelManager implements ExamListModel
     return exams.getExam(index);
   }
 
-  @Override public ClassroomList loadClassroomList() throws XmlConverterException
+  @Override public ClassroomList loadClassroomList()
+      throws XmlConverterException
   {
-    return examListFile.loadClassroomList();
+    return ExamListFile.loadClassroomList();
   }
 
   @Override public CourseList loadCourseList() throws XmlConverterException
   {
-    return examListFile.loadCourseList();
+    return ExamListFile.loadCourseList();
   }
 
   @Override public ExaminerList loadExaminerList() throws XmlConverterException
   {
-    return examListFile.loadExaminerList();
+    return ExamListFile.loadExaminerList();
   }
 
   @Override public void removeExam(String course)
@@ -72,9 +73,31 @@ public class ExamListModelManager implements ExamListModel
     return exams;
   }
 
-  @Override public boolean test()
+  @Override public boolean isDateAvailable(MyDate startDate, MyDate endDate,
+      String classroom)
   {
-    throw new IllegalArgumentException("Merge");
+    if (exams.size() < 1)
+      return true;
+
+    for (int i = 0; i < exams.size(); i++)
+    {
+      Exam exam = exams.getExam(i);
+
+      boolean validStartDate =
+          startDate.getTimeInSeconds() - exam.getDate1().getTimeInSeconds()
+              > 0;
+
+      boolean validEndDate =
+          endDate.getTimeInSeconds() - exam.getDate2().getTimeInSeconds() > 0;
+
+      if (validStartDate && validEndDate && exam.getClassroom().getNumber().equals(classroom))
+      {
+        return true;
+      }
+    }
+
+    throw new IllegalArgumentException("Date is not available");
+
   }
 }
 
