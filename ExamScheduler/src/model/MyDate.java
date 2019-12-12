@@ -122,7 +122,64 @@ public class MyDate
 
   public String toString()
   {
-    return day + "-" + month + "-" + year + " " + hour + ":" +minutes;
+
+    String fh = String.valueOf(hour), fm = String.valueOf(minutes);
+    if (hour < 10)
+    {
+      fh = "0" + hour;
+    }
+    if (minutes < 10)
+    {
+      fm = "0" + minutes;
+    }
+
+    String s = "";
+    if (day < 10)
+    {
+      s += "0";
+    }
+    s += day + ".";
+    if (month < 10)
+    {
+      s += "0";
+    }
+    s += month + ".";
+    s += year;
+
+    return s + " " + fh + ":" +fm;
+  }
+
+  public String getTimeString()
+  {
+    String fh = String.valueOf(hour), fm = String.valueOf(minutes);
+    if (hour < 10)
+    {
+      fh = "0" + hour;
+    }
+    if (minutes < 10)
+    {
+      fm = "0" + minutes;
+    }
+
+    return fh + ":" + fm;
+  }
+
+  public String getDateString()
+  {
+    String s = "";
+    if (day < 10)
+    {
+      s += "0";
+    }
+    s += day + ".";
+    if (month < 10)
+    {
+      s += "0";
+    }
+    s += month + ".";
+    s += year;
+
+    return s;
   }
 }
 

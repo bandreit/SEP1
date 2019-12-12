@@ -5,26 +5,60 @@
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="658.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.AddExamViewController">
+<AnchorPane prefHeight="553.0" prefWidth="683.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.AddExamViewController">
    <children>
-      <Label fx:id="oralOrWritten" layoutX="123.0" layoutY="295.0" text="ORAL/WRITTEN" />
-      <DatePicker id="datePicker" fx:id="datePicker" layoutX="50.0" layoutY="225.0" prefHeight="26.0" prefWidth="230.0" showWeekNumbers="true" />
-      <Label layoutX="50.0" layoutY="134.0" text="EXAMINER" />
-      <Label layoutX="50.0" layoutY="207.0" text="Date" />
-      <Label layoutX="365.0" layoutY="64.0" text="Start time" />
-      <Label layoutX="53.0" layoutY="69.0" text="COURSE" />
-      <Label layoutX="365.0" layoutY="134.0" text="ROOM" />
-      <Label layoutX="365.0" layoutY="207.0" text="EXTERNAL EXAMINER" />
-      <Button layoutX="366.0" layoutY="291.0" mnemonicParsing="false" onAction="#createExam" prefHeight="26.0" prefWidth="230.0" text="CREATE EXAM" />
-      <Label id="errorLabel" fx:id="errorLabel" layoutX="294.0" layoutY="348.0" text="Error Label" />
-      <ComboBox fx:id="supervisor" layoutX="51.0" layoutY="152.0" prefHeight="26.0" prefWidth="230.0" />
-      <ComboBox fx:id="externalSupervisor" layoutX="366.0" layoutY="225.0" prefHeight="26.0" prefWidth="230.0" />
-      <ComboBox fx:id="course" layoutX="51.0" layoutY="88.0" onAction="#courseAction" prefHeight="26.0" prefWidth="230.0" />
-      <Label layoutX="545.0" layoutY="64.0" text="End time" />
-      <Button layoutX="50.0" layoutY="28.0" mnemonicParsing="false" onAction="#cancelPressed" text="GO BACK" />
-      <ComboBox fx:id="classroom" layoutX="365.0" layoutY="152.0" prefHeight="26.0" prefWidth="230.0" />
-      <ComboBox fx:id="time1" layoutX="366.0" layoutY="88.0" prefHeight="26.0" prefWidth="84.0" />
-      <ComboBox fx:id="time2" layoutX="511.0" layoutY="88.0" prefHeight="26.0" prefWidth="84.0" />
+      <Label fx:id="oralOrWritten" layoutX="123.0" layoutY="410.0" text="ORAL/WRITTEN">
+         <font>
+            <Font size="18.0" />
+         </font></Label>
+      <DatePicker id="datePicker" fx:id="datePicker" layoutX="50.0" layoutY="330.0" prefHeight="35.0" prefWidth="230.0" showWeekNumbers="true" />
+      <Label layoutX="51.0" layoutY="205.0" text="EXAMINER">
+         <font>
+            <Font size="23.0" />
+         </font></Label>
+      <Label layoutX="49.0" layoutY="296.0" text="Date">
+         <font>
+            <Font size="23.0" />
+         </font></Label>
+      <Label layoutX="369.0" layoutY="112.0" text="Start time">
+         <font>
+            <Font size="18.0" />
+         </font></Label>
+      <Label layoutX="50.0" layoutY="109.0" text="COURSE">
+         <font>
+            <Font size="23.0" />
+         </font></Label>
+      <Label layoutX="365.0" layoutY="205.0" text="ROOM">
+         <font>
+            <Font size="23.0" />
+         </font></Label>
+      <Label layoutX="365.0" layoutY="296.0" text="EXTERNAL EXAMINER">
+         <font>
+            <Font size="23.0" />
+         </font></Label>
+      <Button layoutX="366.0" layoutY="405.0" mnemonicParsing="false" onAction="#createExam" prefHeight="35.0" prefWidth="230.0" text="CREATE EXAM 🡆">
+         <font>
+            <Font size="18.0" />
+         </font></Button>
+      <Label id="errorLabel" fx:id="errorLabel" layoutX="186.0" layoutY="481.0" text="Error Label" textFill="RED">
+         <font>
+            <Font size="23.0" />
+         </font></Label>
+      <ComboBox fx:id="supervisor" layoutX="51.0" layoutY="240.0" prefHeight="35.0" prefWidth="230.0" />
+      <ComboBox fx:id="externalSupervisor" layoutX="366.0" layoutY="330.0" prefHeight="35.0" prefWidth="230.0" />
+      <ComboBox fx:id="course" layoutX="51.0" layoutY="150.0" onAction="#courseAction" prefHeight="35.0" prefWidth="230.0" />
+      <Label layoutX="525.0" layoutY="112.0" text="End time">
+         <font>
+            <Font size="18.0" />
+         </font></Label>
+      <Button layoutX="24.0" layoutY="26.0" mnemonicParsing="false" onAction="#cancelPressed" prefHeight="48.0" prefWidth="97.0" text="🡄">
+         <font>
+            <Font size="22.0" />
+         </font></Button>
+      <ComboBox fx:id="classroom" layoutX="366.0" layoutY="240.0" prefHeight="35.0" prefWidth="230.0" />
+      <ComboBox fx:id="time1" layoutX="366.0" layoutY="150.0" prefHeight="26.0" prefWidth="84.0" />
+      <ComboBox fx:id="time2" layoutX="511.0" layoutY="150.0" prefHeight="26.0" prefWidth="84.0" />
    </children>
 </AnchorPane>

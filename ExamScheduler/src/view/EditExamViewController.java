@@ -32,15 +32,16 @@ public class EditExamViewController
   private ClassroomList classroomList;
   private CourseList courseList;
   private ExaminerList examinerList;
+  private String editingCourse;
 
   public EditExamViewController()
   {
-
   }
 
   public void reset()
   {
     errorLabel.setText("");
+    editingExam.setText("EDIT EXAM");
     supervisor.getItems().removeAll();
     classroom.getItems().removeAll();
     oralOrWritten.setText("ORAL/WRITTEN");
@@ -52,39 +53,10 @@ public class EditExamViewController
     return root;
   }
 
-  @FXML private void courseAction()
-  {
-    supervisor.setDisable(false);
-    for (int i = 0; i < courseList.size(); i++)
-    {
-      if (courseList.getCourse(i).getName().equals(course.getValue())){
-        if (courseList.getCourse(i).isOral()){
-          oralOrWritten.setText("ORAL");
-          supervisor.setDisable(true);
-        }else {
-          oralOrWritten.setText("Written");
-        }
-        supervisor.setValue(courseList.getCourse(i).getTeacher().getInitials());
-
-      }
-    }
-  }
-
-  @FXML private void createExam()
+  @FXML private void editExam()
   {
     try
     {
-      errorLabel.setText("");
-      //      MyDate date1 = new MyDate(2,1,2020,10,20);
-      //      MyDate date2 = new MyDate(5,1,2020,14,20);
-      //      Examiner examiner = new Examiner("SVA", false);
-      //      Examiner coExaminer = new Examiner("MNA", true);
-      //      Course course = new Course("SEP1Y",34, true, examiner);
-      //      Classroom classroom = new Classroom("301B", true, 36);
-
-      //      model.addExam(date1,date2,examiner,coExaminer,course,classroom);
-
-
       LocalDate datePickerValue = datePicker.getValue();
       String startTime = time1.getValue().toString();
       String[] st = startTime.split(":");
@@ -96,10 +68,13 @@ public class EditExamViewController
 
       Examiner examiner = examinerList.getExaminer(supervisor.getValue().toString());
       Examiner coExaminer = examinerList.getExaminer(externalSupervisor.getValue().toString());
-      Course actualCourse = courseList.getCourse(course.getValue().toString());
       Classroom actualClassroom = classroomList.getClassroom(classroom.getValue().toString());
 
-      model.addExam(date1,date2,examiner,coExaminer,actualCourse,actualClassroom);
+      model.getExamByCourse(editingCourse).setDate1(date1);
+      model.getExamByCourse(editingCourse).setDate2(date2);
+      model.getExamByCourse(editingCourse).setExaminer(examiner);
+      model.getExamByCourse(editingCourse).setCoExaminer(coExaminer);
+      model.getExamByCourse(editingCourse).setClassroom(actualClassroom);
 
       viewHandler.openView("examListView", null);
     }
@@ -111,23 +86,24 @@ public class EditExamViewController
 
   @FXML private void cancelPressed(ActionEvent event)
   {
-    viewHandler.openView("examListView", null);
+    viewHandler.openView("examListView", "");
   }
 
-  public void init(ViewHandler viewHandler, ExamListModel model, Region root, String course)
+  public void init(ViewHandler viewHandler, ExamListModel model, Region root, String editingCourse)
       throws XmlConverterException
   {
     this.viewHandler = viewHandler;
     this.root = root;
     this.model = model;
+    this.editingCourse = editingCourse;
+
     reset();
+
 
     //loads data from XML
     classroomList = model.loadClassroomList();
     courseList = model.loadCourseList();
     examinerList = model.loadExaminerList();
-
-    editingExam.setText(editingExam.getText() + " " + course);
 
     for (int i = 8; i < 10; i++)
     {
@@ -173,6 +149,24 @@ public class EditExamViewController
       {
         supervisor.getItems().add(examinerList.getExaminer(i).getInitials());
       }
+    }
+
+    Exam editingActualExam = model.getExamByCourse(editingCourse);
+
+    editingExam.setText(editingExam.getText() + " " + editingCourse);
+    supervisor.getSelectionModel().select(courseList.getCourse(editingCourse).getTeacher().getInitials());
+    classroom.getSelectionModel().select(editingActualExam.getClassroom().getNumber());
+    externalSupervisor.getSelectionModel().select(editingActualExam.getCoExaminer().getInitials());
+    time1.getSelectionModel().select(editingActualExam.getDate1().getTimeString());
+    time2.getSelectionModel().select(editingActualExam.getDate2().getTimeString());
+    datePicker.setValue(LocalDate.of(editingActualExam.getDate1().getYear(), editingActualExam.getDate1().getMonth(), editingActualExam.getDate1().getDay()));
+
+    if (courseList.getCourse(editingCourse).isOral())
+    {
+      oralOrWritten.setText("ORAL");
+      supervisor.setDisable(true);
+    }else {
+      oralOrWritten.setText("WRITTEN");
     }
 
   }
