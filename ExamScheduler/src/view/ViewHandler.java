@@ -109,6 +109,7 @@ public class ViewHandler
 
   private Region loadEditExamView(String fxmlFile, String course)
   {
+    editExamViewController = null;
     if (editExamViewController == null)
     {
       try

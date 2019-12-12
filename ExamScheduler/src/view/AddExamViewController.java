@@ -60,7 +60,7 @@ public class AddExamViewController
           oralOrWritten.setText("ORAL");
           supervisor.setDisable(true);
         }else {
-          oralOrWritten.setText("Written");
+          oralOrWritten.setText("WRITTEN");
         }
         supervisor.setValue(courseList.getCourse(i).getTeacher().getInitials());
 

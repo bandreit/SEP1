@@ -39,15 +39,18 @@ public class ExamListViewController
     this.root = root;
     this.model = model;
     this.viewModel = new ExamListViewModel(model);
+//    examListTable.getSelectionModel().clearSelection();
 
     MyDate date1 = new MyDate(2,1,2020,10,20);
     MyDate date2 = new MyDate(5,1,2020,14,20);
-    Examiner examiner = new Examiner("SVA", false);
-    Examiner coExaminer = new Examiner("MNA", true);
+    Examiner examiner = new Examiner("Lina", false);
+    Examiner coExaminer = new Examiner("JDE", true);
     Course course = new Course("SEP1Y",34, true, examiner);
+    Course course2 = new Course("RWD",34, true, examiner);
     Classroom classroom = new Classroom("301B", true, 36);
 
     model.addExam(date1,date2,examiner,coExaminer,course,classroom);
+    model.addExam(date1,date2,examiner,coExaminer,course2,classroom);
 
     courseColumn.setCellValueFactory(cellData -> cellData.getValue().getCourseProperty());
     oralWrittenColumn.setCellValueFactory(
@@ -117,7 +120,7 @@ public class ExamListViewController
 //        Exam exam = new Exam(selectedItem.getCourseProperty().get(),
 //            selectedItem.getOralWrittenProperty().get(),selectedItem.getDateProperty().get(),selectedItem.getTimeProperty().get(),selectedItem.getExaminersProperty().get(),selectedItem.getRoomProperty().get(),selectedItem.getStudentsProperty().get(),selectedItem.getExternalExaminersProperty().get());
         //        model.removeGrade(grade);
-        System.out.println(selectedItem.getCourseProperty().get());
+//        System.out.println(selectedItem.getCourseProperty().get());
         viewModel.remove(selectedItem.getCourseProperty().get());
         examListTable.getSelectionModel().clearSelection();
         model.removeExam(selectedItem.getCourseProperty().get());

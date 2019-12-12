@@ -35,12 +35,12 @@ public class EditExamViewController
 
   public EditExamViewController()
   {
-
   }
 
   public void reset()
   {
     errorLabel.setText("");
+    editingExam.setText("EDIT EXAM");
     supervisor.getItems().removeAll();
     classroom.getItems().removeAll();
     oralOrWritten.setText("ORAL/WRITTEN");
@@ -111,7 +111,7 @@ public class EditExamViewController
 
   @FXML private void cancelPressed(ActionEvent event)
   {
-    viewHandler.openView("examListView", null);
+    viewHandler.openView("examListView", "");
   }
 
   public void init(ViewHandler viewHandler, ExamListModel model, Region root, String course)
@@ -120,14 +120,16 @@ public class EditExamViewController
     this.viewHandler = viewHandler;
     this.root = root;
     this.model = model;
+
     reset();
+
 
     //loads data from XML
     classroomList = model.loadClassroomList();
     courseList = model.loadCourseList();
     examinerList = model.loadExaminerList();
 
-    editingExam.setText(editingExam.getText() + " " + course);
+//    System.out.println(courseList.getCourse(course).getTeacher().getInitials());
 
     for (int i = 8; i < 10; i++)
     {
@@ -173,6 +175,18 @@ public class EditExamViewController
       {
         supervisor.getItems().add(examinerList.getExaminer(i).getInitials());
       }
+    }
+
+
+    editingExam.setText(editingExam.getText() + " " + course);
+    supervisor.getSelectionModel().select(courseList.getCourse(course).getTeacher().getInitials());
+
+    if (courseList.getCourse(course).isOral())
+    {
+      oralOrWritten.setText("ORAL");
+      supervisor.setDisable(true);
+    }else {
+      oralOrWritten.setText("WRITTEN");
     }
 
   }
