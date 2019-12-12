@@ -66,5 +66,15 @@ public class ExamListModelManager implements ExamListModel
     }
     return null;
   }
+
+  @Override public ExamList getExams()
+  {
+    return exams;
+  }
+
+  @Override public boolean test()
+  {
+    throw new IllegalArgumentException("Merge");
+  }
 }
 

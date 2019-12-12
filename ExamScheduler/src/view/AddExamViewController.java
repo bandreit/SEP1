@@ -99,6 +99,7 @@ public class AddExamViewController
       Course actualCourse = courseList.getCourse(course.getValue().toString());
       Classroom actualClassroom = classroomList.getClassroom(classroom.getValue().toString());
 
+      model.test();
       model.addExam(date1,date2,examiner,coExaminer,actualCourse,actualClassroom);
 
       viewHandler.openView("examListView", null);

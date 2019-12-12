@@ -12,6 +12,7 @@ public class Exam
   public Exam(MyDate date1, MyDate date2, Examiner examiner, Examiner coExaminer, Course course, Classroom classroom)
   {
     validateDate(date1);
+
     this.date1=date1;
     this.date2=date2;
     this.examiner=examiner;
