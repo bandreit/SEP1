@@ -1,0 +1,201 @@
+.big {
+  font-size: 4em;
+}
+
+#inside-container > row {
+  background: red;
+}
+
+.info {
+  color: black;
+  font-size: 1.8em;
+}
+
+.topcik {
+  z-index: 1;
+  right: -40px;
+  top: 30px;
+  border: 7px solid #45b0de;
+}
+
+.pd-c {
+  padding-right: 110px;
+}
+
+@media only screen and (max-width: 992px) {
+  .pd-c {
+    padding-right: 100px;
+  }
+  .topcik {
+    top: 100px;
+    display: block;
+    height: 150px;
+    widows: 150px;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .lm {
+    margin: 1.5rem;
+  }
+}
+
+.lg-cc {
+  border: 1px black solid;
+  margin: 5px;
+}
+
+.h2c {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+h3 {
+  text-align: center;
+}
+
+.button {
+  margin: 15px 0px 0px 0px;
+  border-radius: 8px;
+  color: black;
+}
+p {
+  color: black;
+}
+.orange {
+  display: grid;
+  background-color: #45b0de;
+  border-radius: 25px;
+  border-style: solid;
+  height: 100%;
+}
+.red {
+  display: grid;
+  background-color: #45b0de;
+  border-radius: 25px;
+  height: 100%;
+  border-style: solid;
+}
+.aqua {
+  display: grid;
+  background-color: #45b0de;
+  border-radius: 25px;
+  border-style: solid;
+  height: 100%;
+}
+.green {
+  display: grid;
+  border-radius: 25px;
+  height: 100%;
+  border-style: solid;
+  background-color: #45b0de;
+}
+
+body,
+html {
+  margin: 0px;
+}
+
+/**
+* Colors
+**/
+.primary {
+  background-color: #2a304a;
+}
+
+/**
+* Navbar
+**/
+.navbar {
+  background-color: #2a304a !important;
+}
+
+.nav-link {
+  color: #b8c0d4 !important;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+.nav-item .active {
+  color: #ffffff !important;
+  font-weight: bold;
+}
+
+/**
+* News Feed
+**/
+
+.newsFeed {
+  margin-top: 30px;
+}
+
+.newsFeed .card {
+  margin: 10px 0px;
+}
+
+/**
+* Schedule
+**/
+#dropdownFilterButton {
+  background-color: #2a304a;
+  color: #ffffff;
+}
+
+.filterRow {
+  margin: 20px 0px 10px 0px;
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+/**
+* Footer
+**/
+
+footer {
+  margin-top: 20px;
+  background-color: #2a304a;
+  color: #b8c0d4;
+}
+
+footer a {
+  opacity: 0.5;
+  font-weight: 500;
+  color: #b8c0d4;
+}
+
+footer a:hover {
+  opacity: 1;
+  color: #b8c0d4;
+}
+
+#scheduleFooter {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+/**
+* Contact
+**/
+.contact-header img {
+  margin: 0px;
+  width: 100%;
+}
+.contact-wrapper {
+  margin: 100px 0px;
+}
+
+.contact-profile {
+  text-align: center;
+}
+
+.contact-profile img {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+}
+
+.contact-profile p {
+  font-weight: 500;
+}
