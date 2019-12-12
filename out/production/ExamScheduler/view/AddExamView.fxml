@@ -42,7 +42,7 @@
          <font>
             <Font size="18.0" />
          </font></Button>
-      <Label id="errorLabel" fx:id="errorLabel" layoutX="280.0" layoutY="479.0" text="Error Label" textFill="RED">
+      <Label id="errorLabel" fx:id="errorLabel" layoutX="186.0" layoutY="481.0" text="Error Label" textFill="RED">
          <font>
             <Font size="23.0" />
          </font></Label>

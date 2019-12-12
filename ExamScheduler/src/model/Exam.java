@@ -11,6 +11,7 @@ public class Exam
 
   public Exam(MyDate date1, MyDate date2, Examiner examiner, Examiner coExaminer, Course course, Classroom classroom)
   {
+    validateDate(date1);
     this.date1=date1;
     this.date2=date2;
     this.examiner=examiner;
@@ -51,6 +52,7 @@ public class Exam
 
   public void setDate1(MyDate date1)
   {
+    validateDate(date1);
     this.date1 = date1;
   }
 
@@ -77,5 +79,14 @@ public class Exam
   public void setClassroom(Classroom classroom)
   {
     this.classroom = classroom;
+  }
+
+  public void validateDate(MyDate date)
+  {
+    System.out.println(date.getMonth());
+    if ((date.getMonth() != 1) && (date.getMonth() != 6))
+    {
+      throw new IllegalArgumentException("This date is outside the exam period");
+    }
   }
 }

@@ -37,7 +37,6 @@ public class AddExamViewController
 
   public void reset()
   {
-    System.out.println("ciota nu e aici");
     errorLabel.setText("");
     supervisor.getItems().removeAll();
     course.getItems().removeAll();
