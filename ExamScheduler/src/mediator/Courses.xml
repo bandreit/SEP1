@@ -3,6 +3,7 @@
         <name>SDJ1X</name>
         <students>34</students>
         <isOral>true</isOral>
+        <studyGroup>1X-A19</studyGroup>
         <teacher>
             <initials>SVA</initials>
             <isCoExaminer>false</isCoExaminer>
@@ -12,15 +13,27 @@
         <name>SEP1Y</name>
         <students>32</students>
         <isOral>true</isOral>
+        <studyGroup>1Y-A19</studyGroup>
         <teacher>
             <initials>MNA</initials>
             <isCoExaminer>false</isCoExaminer>
         </teacher>
     </courses>
     <courses>
-        <name>RWD</name>
-        <students>30</students>
+        <name>MSE1Y</name>
+        <students>32</students>
         <isOral>false</isOral>
+        <studyGroup>1Y-A19</studyGroup>
+        <teacher>
+            <initials>MNA</initials>
+            <isCoExaminer>false</isCoExaminer>
+        </teacher>
+    </courses>
+    <courses>
+        <name>RWD1Y</name>
+        <students>54</students>
+        <isOral>false</isOral>
+        <studyGroup>1Y-A19</studyGroup>
         <teacher>
             <initials>Lina</initials>
             <isCoExaminer>false</isCoExaminer>

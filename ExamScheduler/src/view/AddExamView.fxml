@@ -4,12 +4,13 @@
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="553.0" prefWidth="683.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.AddExamViewController">
    <children>
-      <Label fx:id="oralOrWritten" layoutX="123.0" layoutY="410.0" text="ORAL/WRITTEN">
+      <Label fx:id="oralOrWritten" layoutX="51.0" layoutY="411.0" text="ORAL/WRITTEN">
          <font>
             <Font size="18.0" />
          </font></Label>
@@ -60,5 +61,6 @@
       <ComboBox fx:id="classroom" layoutX="366.0" layoutY="240.0" prefHeight="35.0" prefWidth="230.0" />
       <ComboBox fx:id="time1" layoutX="366.0" layoutY="150.0" prefHeight="26.0" prefWidth="84.0" />
       <ComboBox fx:id="time2" layoutX="511.0" layoutY="150.0" prefHeight="26.0" prefWidth="84.0" />
+      <TextField fx:id="oralExamDayNo" layoutX="51.0" layoutY="382.0" prefHeight="27.0" prefWidth="155.0" />
    </children>
 </AnchorPane>
