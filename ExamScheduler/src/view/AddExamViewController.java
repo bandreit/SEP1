@@ -10,6 +10,7 @@ import model.*;
 import persistence.XmlConverterException;
 
 import java.time.LocalDate;
+import java.util.Optional;
 
 public class AddExamViewController
 {
@@ -47,13 +48,11 @@ public class AddExamViewController
     //set tu null all the fields
     externalSupervisor.getSelectionModel().select(null);
     supervisor.getSelectionModel().select(null);
-    datePicker.setValue(LocalDate.of(2020,1,2));
+    datePicker.setValue(LocalDate.of(2020, 1, 2));
     time1.getSelectionModel().select(null);
     time2.getSelectionModel().select(null);
     classroom.getSelectionModel().select(null);
     course.getSelectionModel().select(null);
-
-
 
   }
 
@@ -67,11 +66,15 @@ public class AddExamViewController
     supervisor.setDisable(false);
     for (int i = 0; i < courseList.size(); i++)
     {
-      if (courseList.getCourse(i).getName().equals(course.getValue())){
-        if (courseList.getCourse(i).isOral()){
+      if (courseList.getCourse(i).getName().equals(course.getValue()))
+      {
+        if (courseList.getCourse(i).isOral())
+        {
           oralOrWritten.setText("ORAL");
           supervisor.setDisable(true);
-        }else {
+        }
+        else
+        {
           oralOrWritten.setText("WRITTEN");
         }
         supervisor.setValue(courseList.getCourse(i).getTeacher().getInitials());
@@ -91,16 +94,72 @@ public class AddExamViewController
       String endTime = time2.getValue().toString();
       String[] et = endTime.split(":");
 
-      MyDate date1 = new MyDate(datePickerValue.getDayOfMonth(), datePickerValue.getMonthValue(), datePickerValue.getYear(), Integer.parseInt(st[0]),  Integer.parseInt(st[1]));
-      MyDate date2 = new MyDate(datePickerValue.getDayOfMonth(), datePickerValue.getMonthValue(), datePickerValue.getYear(), Integer.parseInt(et[0]),  Integer.parseInt(et[1]));
+      MyDate date1 = new MyDate(datePickerValue.getDayOfMonth(),
+          datePickerValue.getMonthValue(), datePickerValue.getYear(),
+          Integer.parseInt(st[0]), Integer.parseInt(st[1]));
 
-      Examiner examiner = examinerList.getExaminer(supervisor.getValue().toString());
-      Examiner coExaminer = examinerList.getExaminer(externalSupervisor.getValue().toString());
+      Examiner examiner = examinerList
+          .getExaminer(supervisor.getValue().toString());
+      Examiner coExaminer = examinerList
+          .getExaminer(externalSupervisor.getValue().toString());
       Course actualCourse = courseList.getCourse(course.getValue().toString());
-      Classroom actualClassroom = classroomList.getClassroom(classroom.getValue().toString());
+      Classroom actualClassroom = classroomList
+          .getClassroom(classroom.getValue().toString());
+
+      int endDay = 0;
+
+      //setting oral exam date to end after 3 days;
+      if (actualCourse.isOral())
+      {
+         endDay = datePickerValue.getDayOfMonth() + 2;
+      } else {
+        endDay = datePickerValue.getDayOfMonth();
+      }
+
+      MyDate date2 = new MyDate(endDay,
+          datePickerValue.getMonthValue(), datePickerValue.getYear(),
+          Integer.parseInt(et[0]), Integer.parseInt(et[1]));
+
+      //Validate Weekend Days
+      if (datePickerValue.getDayOfWeek().toString().equals("SATURDAY")
+          || (datePickerValue.getDayOfWeek().toString().equals("SUNDAY")))
+      {
+        throw new IllegalArgumentException(
+            "Exam date is set to be in the weekend");
+      }
+
+      LocalDate today = LocalDate.now();
+      LocalDate firstDayOfExamPeriod = LocalDate.of(2020, 1, 2);
+
+      //validate past dates
+      if (datePickerValue.isBefore(today))
+      {
+        throw new IllegalArgumentException("Exam date is set in the past");
+      }
+
+      //Validate not to be on the first day of exam period
+      if (datePickerValue.isEqual(firstDayOfExamPeriod))
+      {
+        if(!confirmation())
+        {
+          throw new IllegalArgumentException("Exam is set to be on the 2nd of January");
+        }
+      }
+
+      //Validate February and June
+      validateExamPeriod(date1);
+
+
+      //Validate Oral exams not being in the weekend
+      if (actualCourse.isOral() && !(datePickerValue.getDayOfWeek().toString().equals("MONDAY") || datePickerValue.getDayOfWeek().toString().equals("TUESDAY") || datePickerValue.getDayOfWeek().toString().equals("WEDNESDAY")))
+      {
+        throw new IllegalArgumentException("Exam is set to take place in weekend days");
+      }
+
 
       model.isDateAvailable(date1, date2, actualClassroom.getNumber());
-      model.addExam(date1,date2,examiner,coExaminer,actualCourse,actualClassroom);
+      model.addExam(date1, date2, examiner, coExaminer, actualCourse,
+          actualClassroom);
 
       viewHandler.openView("examListView", null);
     }
@@ -114,7 +173,6 @@ public class AddExamViewController
   {
     viewHandler.openView("examListView", null);
   }
-
 
   public void init(ViewHandler viewHandler, ExamListModel model, Region root)
       throws XmlConverterException
@@ -131,27 +189,26 @@ public class AddExamViewController
 
     for (int i = 8; i < 10; i++)
     {
-      time1.getItems().add("0"+i+":00");
-      time1.getItems().add("0"+i+":15");
-      time1.getItems().add("0"+i+":30");
-      time1.getItems().add("0"+i+":45");
+      time1.getItems().add("0" + i + ":00");
+      time1.getItems().add("0" + i + ":15");
+      time1.getItems().add("0" + i + ":30");
+      time1.getItems().add("0" + i + ":45");
     }
     for (int i = 10; i < 14; i++)
     {
-      time1.getItems().add(i+":00");
-      time1.getItems().add(i+":15");
-      time1.getItems().add(i+":30");
-      time1.getItems().add(i+":45");
+      time1.getItems().add(i + ":00");
+      time1.getItems().add(i + ":15");
+      time1.getItems().add(i + ":30");
+      time1.getItems().add(i + ":45");
     }
     time1.getItems().add("14:00");
 
-
     for (int i = 10; i < 14; i++)
     {
-      time2.getItems().add(i+":00");
-      time2.getItems().add(i+":15");
-      time2.getItems().add(i+":30");
-      time2.getItems().add(i+":45");
+      time2.getItems().add(i + ":00");
+      time2.getItems().add(i + ":15");
+      time2.getItems().add(i + ":30");
+      time2.getItems().add(i + ":45");
     }
     time2.getItems().add("14:00");
 
@@ -179,5 +236,24 @@ public class AddExamViewController
       }
     }
 
+  }
+
+  public void validateExamPeriod(MyDate date)
+  {
+    if ((date.getMonth() != 1) && (date.getMonth() != 6))
+    {
+      throw new IllegalArgumentException(
+          "This date is outside the exam period");
+    }
+  }
+
+  private boolean confirmation()
+  {
+    Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+    alert.setTitle("Confirmation");
+    alert.setHeaderText(
+        "Setting an exam on the 2nd of January?");
+    Optional<ButtonType> result = alert.showAndWait();
+    return (result.isPresent()) && (result.get() == ButtonType.OK);
   }
 }
