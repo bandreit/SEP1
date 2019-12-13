@@ -5,13 +5,15 @@ public class Course
   private String name;
   private int students;
   private boolean isOral;
+  private String studyGroup;
   private Examiner teacher;
 
-  public Course(String name, int students, boolean isOral, Examiner teacher)
+  public Course(String name, int students, boolean isOral, String studyGroup, Examiner teacher)
   {
     this.name=name;
     this.students=students;
     this.isOral=isOral;
+    this.studyGroup = studyGroup;
     this.teacher = teacher;
   }
 
@@ -28,6 +30,11 @@ public class Course
   public boolean isOral()
   {
     return isOral;
+  }
+
+  public String getStudyGroup()
+  {
+    return studyGroup;
   }
 
   public Examiner getTeacher()

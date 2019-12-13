@@ -24,6 +24,7 @@ public class AddExamViewController
   @FXML private ComboBox time2;
   @FXML private TextField room;
   @FXML private Label errorLabel;
+  @FXML private TextField oralExamDayNo;
   private Region root;
   private ViewHandler viewHandler;
   private ExamListModel model;
@@ -44,11 +45,13 @@ public class AddExamViewController
     classroom.getItems().removeAll();
     oralOrWritten.setText("ORAL/WRITTEN");
     externalSupervisor.getItems().removeAll();
+    oralExamDayNo.setText("number of days to allocate");
+    oralExamDayNo.setVisible(false);
 
     //set tu null all the fields
     externalSupervisor.getSelectionModel().select(null);
     supervisor.getSelectionModel().select(null);
-    datePicker.setValue(LocalDate.of(2020, 1, 2));
+    datePicker.setValue(LocalDate.of(2020, 1, 3));
     time1.getSelectionModel().select(null);
     time2.getSelectionModel().select(null);
     classroom.getSelectionModel().select(null);
@@ -72,10 +75,12 @@ public class AddExamViewController
         {
           oralOrWritten.setText("ORAL");
           supervisor.setDisable(true);
+          oralExamDayNo.setVisible(true);
         }
         else
         {
           oralOrWritten.setText("WRITTEN");
+          oralExamDayNo.setVisible(false);
         }
         supervisor.setValue(courseList.getCourse(i).getTeacher().getInitials());
 
@@ -111,7 +116,17 @@ public class AddExamViewController
       //setting oral exam date to end after 3 days;
       if (actualCourse.isOral())
       {
-         endDay = datePickerValue.getDayOfMonth() + 2;
+        isNumeric(oralExamDayNo.getText());
+         endDay = datePickerValue.plusDays(Integer.parseInt(oralExamDayNo.getText())).getDayOfMonth();
+
+        for (int i = 0; i < Integer.parseInt(oralExamDayNo.getText()); i++)
+        {
+          if (datePickerValue.plusDays(i).getDayOfWeek().toString().equals("FRIDAY"))
+          {
+            System.out.println("aici");
+            endDay += 1;
+          }
+        }
       } else {
         endDay = datePickerValue.getDayOfMonth();
       }
@@ -148,14 +163,6 @@ public class AddExamViewController
 
       //Validate February and June
       validateExamPeriod(date1);
-
-
-      //Validate Oral exams not being in the weekend
-      if (actualCourse.isOral() && !(datePickerValue.getDayOfWeek().toString().equals("MONDAY") || datePickerValue.getDayOfWeek().toString().equals("TUESDAY") || datePickerValue.getDayOfWeek().toString().equals("WEDNESDAY")))
-      {
-        throw new IllegalArgumentException("Exam is set to take place in weekend days");
-      }
-
 
       model.isDateAvailable(date1, date2, actualClassroom.getNumber());
       model.addExam(date1, date2, examiner, coExaminer, actualCourse,
@@ -256,4 +263,11 @@ public class AddExamViewController
     Optional<ButtonType> result = alert.showAndWait();
     return (result.isPresent()) && (result.get() == ButtonType.OK);
   }
+
+  public void isNumeric(String strNum) {
+    if (strNum == null) {
+      throw new IllegalArgumentException("Please provide number of exam days to allocate");
+    }
+      double d = Integer.parseInt(strNum);
+    }
 }
