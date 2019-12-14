@@ -2,16 +2,14 @@ package view;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.layout.Region;
 import mediator.ExamListModel;
 import model.*;
 import persistence.XmlConverterException;
 
 import java.time.LocalDate;
+import java.util.Optional;
 
 public class EditExamViewController
 {
@@ -26,6 +24,8 @@ public class EditExamViewController
   @FXML private TextField room;
   @FXML private Label errorLabel;
   @FXML private Label editingExam;
+  @FXML private TextField oralExamDayNo;
+  @FXML private Label daysLabel;
   private Region root;
   private ViewHandler viewHandler;
   private ExamListModel model;
@@ -46,6 +46,8 @@ public class EditExamViewController
     classroom.getItems().removeAll();
     oralOrWritten.setText("ORAL/WRITTEN");
     externalSupervisor.getItems().removeAll();
+    oralExamDayNo.setVisible(false);
+    daysLabel.setVisible(false);
   }
 
   public Region getRoot()
@@ -57,31 +59,106 @@ public class EditExamViewController
   {
     try
     {
-      LocalDate datePickerValue = datePicker.getValue();
-      String startTime = time1.getValue().toString();
-      String[] st = startTime.split(":");
-      String endTime = time2.getValue().toString();
-      String[] et = endTime.split(":");
 
-      MyDate date1 = new MyDate(datePickerValue.getDayOfMonth(), datePickerValue.getMonthValue(), datePickerValue.getYear(), Integer.parseInt(st[0]),  Integer.parseInt(st[1]));
-      MyDate date2 = new MyDate(datePickerValue.getDayOfMonth(), datePickerValue.getMonthValue(), datePickerValue.getYear(), Integer.parseInt(et[0]),  Integer.parseInt(et[1]));
 
-      Examiner examiner = examinerList.getExaminer(supervisor.getValue().toString());
-      Examiner coExaminer = examinerList.getExaminer(externalSupervisor.getValue().toString());
-      Classroom actualClassroom = classroomList.getClassroom(classroom.getValue().toString());
+    LocalDate datePickerValue = datePicker.getValue();
+    String startTime = time1.getValue().toString();
+    String[] st = startTime.split(":");
+    String endTime = time2.getValue().toString();
+    String[] et = endTime.split(":");
 
-      model.getExamByCourse(editingCourse).setDate1(date1);
-      model.getExamByCourse(editingCourse).setDate2(date2);
-      model.getExamByCourse(editingCourse).setExaminer(examiner);
-      model.getExamByCourse(editingCourse).setCoExaminer(coExaminer);
-      model.getExamByCourse(editingCourse).setClassroom(actualClassroom);
+    MyDate date1 = new MyDate(datePickerValue.getDayOfMonth(),
+        datePickerValue.getMonthValue(), datePickerValue.getYear(),
+        Integer.parseInt(st[0]), Integer.parseInt(st[1]));
 
-      viewHandler.openView("examListView", null);
-    }
-    catch (Exception e)
+    Examiner examiner = examinerList
+        .getExaminer(supervisor.getValue().toString());
+    Examiner coExaminer = examinerList
+        .getExaminer(externalSupervisor.getValue().toString());
+    Course actualCourse = courseList.getCourse(editingCourse);
+    Classroom actualClassroom = classroomList
+        .getClassroom(classroom.getValue().toString());
+
+    int endDay = 0;
+
+    //setting oral exam date to end after 3 days;
+    if (actualCourse.isOral())
     {
-      errorLabel.setText(e.getMessage());
+      isNumeric(oralExamDayNo.getText());
+      endDay = datePickerValue.plusDays(Integer.parseInt(oralExamDayNo.getText())).getDayOfMonth();
+
+      for (int i = 0; i < Integer.parseInt(oralExamDayNo.getText()); i++)
+      {
+        if (datePickerValue.plusDays(i).getDayOfWeek().toString().equals("FRIDAY"))
+        {
+          endDay += 1;
+        }
+      }
+    } else {
+      endDay = datePickerValue.getDayOfMonth();
     }
+
+    MyDate date2 = new MyDate(endDay,
+        datePickerValue.getMonthValue(), datePickerValue.getYear(),
+        Integer.parseInt(et[0]), Integer.parseInt(et[1]));
+
+    //Validate Weekend Days
+    if (datePickerValue.getDayOfWeek().toString().equals("SATURDAY")
+        || (datePickerValue.getDayOfWeek().toString().equals("SUNDAY")))
+    {
+      throw new IllegalArgumentException(
+          "Exam date is set to be in the weekend");
+    }
+
+    LocalDate today = LocalDate.now();
+    LocalDate firstDayOfExamPeriod = LocalDate.of(2020, 1, 2);
+
+    //validate past dates
+    if (datePickerValue.isBefore(today))
+    {
+      throw new IllegalArgumentException("Exam date is set in the past");
+    }
+
+    //Validate not to be on the first day of exam period
+    if (datePickerValue.isEqual(firstDayOfExamPeriod))
+    {
+      if(!confirmation())
+      {
+        throw new IllegalArgumentException("Exam is set to be on the 2nd of January");
+      }
+    }
+
+    if (actualClassroom.getMaxCapacity() < actualCourse.getStudents())
+    {
+      throw new IllegalArgumentException("Classroom is not big enough");
+    }
+
+    if (!actualClassroom.isEquiped())
+    {
+      throw new IllegalArgumentException("Classroom is not equiped");
+    }
+
+    //Validate February and June
+    validateExamPeriod(date1);
+    model.examAlreadyExists(actualCourse.getName());
+    model.isExaminerAvailable(date1, date2, examiner.getInitials());
+    model.isStudyGroupAvailable(date1, date2, actualCourse.getStudyGroup());
+    model.isRoomAvailable(date1, date2, actualClassroom.getNumber());
+    model.isClassRested(actualCourse.getStudyGroup(), date1.getDay());
+    if (actualCourse.isOral())
+    {
+      model.areWrittenExamsAfterOral(date1);
+    }
+    model.addExam(date1, date2, examiner, coExaminer, actualCourse,
+        actualClassroom);
+    model.loadExamsToFile();
+
+    viewHandler.openView("examListView", null);
+  }
+    catch (Exception e)
+  {
+    errorLabel.setText(e.getMessage());
+  }
   }
 
   @FXML private void cancelPressed(ActionEvent event)
@@ -160,15 +237,43 @@ public class EditExamViewController
     time1.getSelectionModel().select(editingActualExam.getDate1().getTimeString());
     time2.getSelectionModel().select(editingActualExam.getDate2().getTimeString());
     datePicker.setValue(LocalDate.of(editingActualExam.getDate1().getYear(), editingActualExam.getDate1().getMonth(), editingActualExam.getDate1().getDay()));
-
     if (courseList.getCourse(editingCourse).isOral())
     {
       oralOrWritten.setText("ORAL");
       supervisor.setDisable(true);
+      oralExamDayNo.setVisible(true);
+      daysLabel.setVisible(true);
+      oralExamDayNo.setText(String.valueOf(editingActualExam.getDate2().getDay() - editingActualExam.getDate1().getDay()));
     }else {
       oralOrWritten.setText("WRITTEN");
     }
 
+    model.removeExam(editingCourse);
   }
 
+  public void validateExamPeriod(MyDate date)
+  {
+    if ((date.getMonth() != 1) && (date.getMonth() != 6))
+    {
+      throw new IllegalArgumentException(
+          "This date is outside the exam period");
+    }
+  }
+
+  private boolean confirmation()
+  {
+    Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+    alert.setTitle("Confirmation");
+    alert.setHeaderText(
+        "Setting an exam on the 2nd of January?");
+    Optional<ButtonType> result = alert.showAndWait();
+    return (result.isPresent()) && (result.get() == ButtonType.OK);
+  }
+
+  public void isNumeric(String strNum) {
+    if (strNum == null) {
+      throw new IllegalArgumentException("Please provide number of exam days to allocate");
+    }
+    double d = Integer.parseInt(strNum);
+  }
 }

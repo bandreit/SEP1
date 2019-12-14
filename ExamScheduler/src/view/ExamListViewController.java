@@ -108,6 +108,7 @@ public class ExamListViewController
         viewModel.remove(selectedItem.getCourseProperty().get());
         examListTable.getSelectionModel().clearSelection();
         model.removeExam(selectedItem.getCourseProperty().get());
+        model.loadExamsToFile();
       }
     }
     catch (Exception e)

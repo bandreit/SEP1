@@ -1,12 +1,12 @@
 <classroomlist>
-    <classrooms>
-        <number>E301A</number>
-        <equiped>true</equiped>
-        <maxCapacity>35</maxCapacity>
-    </classrooms>
-    <classrooms>
-        <number>E301B</number>
-        <equiped>true</equiped>
-        <maxCapacity>30</maxCapacity>
-    </classrooms>
+  <classrooms>
+    <number>E301A</number>
+    <equiped>true</equiped>
+    <maxCapacity>35</maxCapacity>
+  </classrooms>
+  <classrooms>
+    <number>E301B</number>
+    <equiped>true</equiped>
+    <maxCapacity>30</maxCapacity>
+  </classrooms>
 </classroomlist>
