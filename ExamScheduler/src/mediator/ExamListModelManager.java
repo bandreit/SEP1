@@ -3,6 +3,8 @@ package mediator;
 import model.*;
 import persistence.XmlConverterException;
 
+import java.util.ArrayList;
+
 public class ExamListModelManager implements ExamListModel
 {
   private ExamList exams;
@@ -71,6 +73,18 @@ public class ExamListModelManager implements ExamListModel
   @Override public ExamList getExams()
   {
     return exams;
+  }
+
+  @Override public void isClassRested(String studyGroup, int day)
+  {
+    ArrayList<Exam> examsToEndOnDay = exams.getExamsByEndDate(day-1);
+    for (int i = 0; i < examsToEndOnDay.size(); i++)
+    {
+      if (examsToEndOnDay.get(i).getCourse().getStudyGroup().equals(studyGroup))
+      {
+        throw new IllegalArgumentException("This class has an exam the day before");
+      }
+    }
   }
 
   @Override public boolean isDateAvailable(MyDate startDate, MyDate endDate,

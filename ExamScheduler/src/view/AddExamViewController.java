@@ -123,7 +123,6 @@ public class AddExamViewController
         {
           if (datePickerValue.plusDays(i).getDayOfWeek().toString().equals("FRIDAY"))
           {
-            System.out.println("aici");
             endDay += 1;
           }
         }
@@ -163,8 +162,8 @@ public class AddExamViewController
 
       //Validate February and June
       validateExamPeriod(date1);
-
-      model.isDateAvailable(date1, date2, actualClassroom.getNumber());
+      model.isClassRested(actualCourse.getStudyGroup(), date1.getDay());
+//      model.isDateAvailable(date1, date2, actualClassroom.getNumber());
       model.addExam(date1, date2, examiner, coExaminer, actualCourse,
           actualClassroom);
 
