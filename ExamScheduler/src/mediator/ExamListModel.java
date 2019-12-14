@@ -15,11 +15,13 @@ public interface ExamListModel
   ClassroomList loadClassroomList() throws XmlConverterException;
   CourseList loadCourseList() throws XmlConverterException;
   ExaminerList loadExaminerList() throws XmlConverterException;
-  ExamList getExams();
+  ExamList getExams() throws XmlConverterException;
 
   void isClassRested(String studyGroup, int day);
   boolean isStudyGroupAvailable(MyDate startDate, MyDate endDate, String studyGroup);
   boolean isExaminerAvailable(MyDate startDate, MyDate endDate, String examiner);
   boolean examAlreadyExists(String course);
   boolean isRoomAvailable(MyDate startDate, MyDate endDate, String classroom);
+  boolean areWrittenExamsAfterOral(MyDate startDate);
+  void loadExamsToFile() throws XmlConverterException;
 }

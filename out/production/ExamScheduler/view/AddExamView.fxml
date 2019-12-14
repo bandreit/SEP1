@@ -39,11 +39,11 @@
          <font>
             <Font size="23.0" />
          </font></Label>
-      <Button layoutX="366.0" layoutY="405.0" mnemonicParsing="false" onAction="#createExam" prefHeight="35.0" prefWidth="230.0" style="-fx-background-color: A0A0A0;" text="CREATE EXAM 🡆" textFill="WHITE">
+      <Button layoutX="366.0" layoutY="405.0" mnemonicParsing="false" onAction="#createExam" prefHeight="35.0" prefWidth="230.0" style="-fx-background-color: A0A0A0;" text="CREATE EXAM 🡆">
          <font>
             <Font size="18.0" />
          </font></Button>
-      <Label id="errorLabel" fx:id="errorLabel" layoutX="51.0" layoutY="478.0" prefHeight="34.0" prefWidth="119.0" text="Error Label" textFill="RED">
+      <Label id="errorLabel" fx:id="errorLabel" layoutX="51.0" layoutY="478.0" prefHeight="34.0" prefWidth="565.0" text="Error Label" textFill="RED">
          <font>
             <Font size="23.0" />
          </font></Label>
@@ -54,7 +54,7 @@
          <font>
             <Font size="18.0" />
          </font></Label>
-      <Button layoutX="24.0" layoutY="26.0" mnemonicParsing="false" onAction="#cancelPressed" prefHeight="48.0" prefWidth="97.0" style="-fx-background-color: A0A0A0;" text="🡄" textFill="WHITE">
+      <Button layoutX="24.0" layoutY="26.0" mnemonicParsing="false" onAction="#cancelPressed" prefHeight="48.0" prefWidth="97.0" style="-fx-background-color: A0A0A0;" text="🡄">
          <font>
             <Font size="22.0" />
          </font></Button>

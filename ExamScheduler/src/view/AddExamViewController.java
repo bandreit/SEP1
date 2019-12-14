@@ -180,8 +180,13 @@ public class AddExamViewController
       model.isStudyGroupAvailable(date1, date2, actualCourse.getStudyGroup());
       model.isRoomAvailable(date1, date2, actualClassroom.getNumber());
       model.isClassRested(actualCourse.getStudyGroup(), date1.getDay());
+      if (actualCourse.isOral())
+      {
+        model.areWrittenExamsAfterOral(date1);
+      }
       model.addExam(date1, date2, examiner, coExaminer, actualCourse,
           actualClassroom);
+      model.loadExamsToFile();
 
       viewHandler.openView("examListView", null);
     }

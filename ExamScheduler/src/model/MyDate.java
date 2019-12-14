@@ -252,5 +252,6 @@ public class MyDate
     MyDate other = (MyDate) obj;
     return day == other.day && month == other.month && year == other.year && hour == other.hour && minutes == other.minutes;
   }
+
 }
 

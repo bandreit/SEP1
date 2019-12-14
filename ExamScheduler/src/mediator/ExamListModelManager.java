@@ -1,8 +1,10 @@
 package mediator;
 
 import model.*;
+import persistence.MyXmlConverter;
 import persistence.XmlConverterException;
 
+import java.io.File;
 import java.util.ArrayList;
 
 public class ExamListModelManager implements ExamListModel
@@ -73,6 +75,18 @@ public class ExamListModelManager implements ExamListModel
   @Override public ExamList getExams()
   {
     return exams;
+  }
+
+  @Override public boolean areWrittenExamsAfterOral(MyDate startDate)
+  {
+    for (int i = 0; i < exams.size(); i++)
+    {
+      if (exams.getExam(i).getDate1().isBefore(startDate))
+      {
+        throw new IllegalArgumentException("There are written exams after this oral one");
+      }
+    }
+    return false;
   }
 
   @Override public void isClassRested(String studyGroup, int day)
@@ -212,5 +226,12 @@ public class ExamListModelManager implements ExamListModel
     }
     return false;
   }
+
+  @Override public void loadExamsToFile() throws XmlConverterException
+  {
+    MyXmlConverter converter = new MyXmlConverter();
+    File file = converter.toXml(exams,"ExamScheduler/src/mediator/Exams.xml");
+  }
+
 }
 
