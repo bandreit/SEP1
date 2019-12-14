@@ -12,9 +12,14 @@ public class ExamListModelManager implements ExamListModel
   private ExamList exams;
   private ExamListFile examListFile;
 
-  public ExamListModelManager()
+  public ExamListModelManager() throws XmlConverterException
   {
-    this.exams = new ExamList();
+    this.exams = loadExamList();
+  }
+
+  @Override public ExamList loadExamList() throws XmlConverterException
+  {
+    return ExamListFile.loadExamList();
   }
 
   @Override public int numberOfExams()

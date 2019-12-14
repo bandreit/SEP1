@@ -15,7 +15,8 @@ public interface ExamListModel
   ClassroomList loadClassroomList() throws XmlConverterException;
   CourseList loadCourseList() throws XmlConverterException;
   ExaminerList loadExaminerList() throws XmlConverterException;
-  ExamList getExams() throws XmlConverterException;
+  ExamList getExams();
+  ExamList loadExamList() throws XmlConverterException;
 
   void isClassRested(String studyGroup, int day);
   boolean isStudyGroupAvailable(MyDate startDate, MyDate endDate, String studyGroup);
