@@ -181,5 +181,76 @@ public class MyDate
 
     return s;
   }
+
+  public boolean isBefore(MyDate other)
+  {
+    if (this.year > other.year)
+    {
+      return false;
+    }
+    else if ((this.year == other.year) && (this.month > other.month))
+    {
+      return false;
+    }
+    else if ((this.year == other.year) && (this.month == other.month) && (
+        this.day > other.day))
+    {
+      return false;
+    }
+    else if ((this.year == other.year) && (this.month == other.month) && (
+        this.day == other.day) && (this.hour > other.hour))
+    {
+      return false;
+    }
+    else if ((this.year == other.year) && (this.month == other.month) && (
+        this.day == other.day) && (this.hour == other.hour) && (this.minutes > other.minutes))
+    {
+      return false;
+    }
+    else
+    {
+      return true;
+    }
+  }
+
+
+  public boolean isAfter(MyDate other)
+  {
+    if (this.year < other.year)
+    {
+      return false;
+    }
+    else if ((this.year == other.year) && (this.month < other.month))
+    {
+      return false;
+    }
+    else if ((this.year == other.year) && (this.month == other.month) && (
+        this.day < other.day))
+    {
+      return false;
+    }
+    else if ((this.year == other.year) && (this.month == other.month) && (
+        this.day == other.day) && (this.hour < other.hour))
+    {
+      return false;
+    }
+    else if ((this.year == other.year) && (this.month == other.month) && (
+        this.day == other.day) && (this.hour == other.hour) && (this.minutes < other.minutes))
+    {
+      return false;
+    }
+    else
+    {
+      return true;
+    }
+  }
+
+  public boolean equals(Object obj)
+  {
+    if (!(obj instanceof MyDate))
+      return false;
+    MyDate other = (MyDate) obj;
+    return day == other.day && month == other.month && year == other.year && hour == other.hour && minutes == other.minutes;
+  }
 }
 

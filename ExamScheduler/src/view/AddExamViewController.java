@@ -25,6 +25,7 @@ public class AddExamViewController
   @FXML private TextField room;
   @FXML private Label errorLabel;
   @FXML private TextField oralExamDayNo;
+  @FXML private Label daysLabel;
   private Region root;
   private ViewHandler viewHandler;
   private ExamListModel model;
@@ -45,8 +46,8 @@ public class AddExamViewController
     classroom.getItems().removeAll();
     oralOrWritten.setText("ORAL/WRITTEN");
     externalSupervisor.getItems().removeAll();
-    oralExamDayNo.setText("number of days to allocate");
     oralExamDayNo.setVisible(false);
+    daysLabel.setVisible(false);
 
     //set tu null all the fields
     externalSupervisor.getSelectionModel().select(null);
@@ -76,11 +77,13 @@ public class AddExamViewController
           oralOrWritten.setText("ORAL");
           supervisor.setDisable(true);
           oralExamDayNo.setVisible(true);
+          daysLabel.setVisible(true);
         }
         else
         {
           oralOrWritten.setText("WRITTEN");
           oralExamDayNo.setVisible(false);
+          daysLabel.setVisible(false);
         }
         supervisor.setValue(courseList.getCourse(i).getTeacher().getInitials());
 
@@ -123,7 +126,6 @@ public class AddExamViewController
         {
           if (datePickerValue.plusDays(i).getDayOfWeek().toString().equals("FRIDAY"))
           {
-            System.out.println("aici");
             endDay += 1;
           }
         }
@@ -161,10 +163,23 @@ public class AddExamViewController
         }
       }
 
+      if (actualClassroom.getMaxCapacity() < actualCourse.getStudents())
+      {
+        throw new IllegalArgumentException("Classroom is not big enough");
+      }
+
+      if (!actualClassroom.isEquiped())
+      {
+        throw new IllegalArgumentException("Classroom is not equiped");
+      }
+
       //Validate February and June
       validateExamPeriod(date1);
-
-      model.isDateAvailable(date1, date2, actualClassroom.getNumber());
+      model.examAlreadyExists(actualCourse.getName());
+      model.isExaminerAvailable(date1, date2, examiner.getInitials());
+      model.isStudyGroupAvailable(date1, date2, actualCourse.getStudyGroup());
+      model.isRoomAvailable(date1, date2, actualClassroom.getNumber());
+      model.isClassRested(actualCourse.getStudyGroup(), date1.getDay());
       model.addExam(date1, date2, examiner, coExaminer, actualCourse,
           actualClassroom);
 

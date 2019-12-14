@@ -10,6 +10,16 @@
         </teacher>
     </courses>
     <courses>
+        <name>SDJ1Y</name>
+        <students>34</students>
+        <isOral>true</isOral>
+        <studyGroup>1Y-A19</studyGroup>
+        <teacher>
+            <initials>SVA</initials>
+            <isCoExaminer>false</isCoExaminer>
+        </teacher>
+    </courses>
+    <courses>
         <name>SEP1Y</name>
         <students>32</students>
         <isOral>true</isOral>

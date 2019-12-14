@@ -40,4 +40,18 @@ public class ExamList
   {
     return exams.get(index);
   }
+
+  public ArrayList<Exam> getExamsByEndDate(int day)
+  {
+    ArrayList<Exam> examsByDate = new ArrayList<>();
+
+    for (int i = 0; i < exams.size(); i++)
+    {
+      if (exams.get(i).getDate2().getDay() == day){
+        examsByDate.add(exams.get(i));
+      }
+    }
+
+    return examsByDate;
+  }
 }
