@@ -87,7 +87,83 @@ public class ExamListModelManager implements ExamListModel
     }
   }
 
-  @Override public boolean isDateAvailable(MyDate startDate, MyDate endDate,
+  @Override public boolean isStudyGroupAvailable(MyDate startDate, MyDate endDate,
+      String studyGroup)
+  {
+    if (exams.size() < 1)
+      return true;
+
+    for (int i = 0; i < exams.size(); i++)
+    {
+
+        if (exams.getExam(i).getCourse().getStudyGroup().equals(studyGroup))
+        {
+          Exam exam = exams.getExam(i);
+
+          if (startDate.equals(exam.getDate1()) && endDate.equals(exam.getDate2()))
+          {
+            throw new IllegalArgumentException("Class" + studyGroup + " is not available on that day");
+          }
+          else if (startDate.isAfter(exam.getDate1()) && startDate.isBefore(exam.getDate2()))
+          {
+            throw new IllegalArgumentException("Class" + studyGroup + " is not available on that day");
+          }
+          else if (endDate.isAfter(exam.getDate1()) && endDate.isBefore(exam.getDate2()))
+          {
+            throw new IllegalArgumentException("Class" + studyGroup + " is not available on that day");
+          }
+          else if (startDate.getMonth() == exam.getDate1().getMonth() && startDate.getDay() == exam.getDate1().getDay())
+          {
+            throw new IllegalArgumentException("Class" + studyGroup + " is not available on that day");
+          }
+          else if (startDate.isBefore(exam.getDate1()) && endDate.isAfter(exam.getDate2()))
+          {
+            throw new IllegalArgumentException("Class" + studyGroup + " is not available on that day");
+          }
+        }
+    }
+    return true;
+  }
+
+  @Override public boolean isExaminerAvailable(MyDate startDate, MyDate endDate,
+      String examiner)
+  {
+    if (exams.size() < 1)
+      return true;
+
+    for (int i = 0; i < exams.size(); i++)
+    {
+
+      if (exams.getExam(i).getExaminer().getInitials().equals(examiner))
+      {
+        Exam exam = exams.getExam(i);
+
+        if (startDate.equals(exam.getDate1()) && endDate.equals(exam.getDate2()))
+        {
+          throw new IllegalArgumentException("Examiner " + examiner + " is not available on that day");
+        }
+        else if (startDate.isAfter(exam.getDate1()) && startDate.isBefore(exam.getDate2()))
+        {
+          throw new IllegalArgumentException("Examiner " + examiner + " is not available on that day");
+        }
+        else if (endDate.isAfter(exam.getDate1()) && endDate.isBefore(exam.getDate2()))
+        {
+          throw new IllegalArgumentException("Examiner " + examiner + " is not available on that day");
+        }
+        else if (startDate.getMonth() == exam.getDate1().getMonth() && startDate.getDay() == exam.getDate1().getDay())
+        {
+          throw new IllegalArgumentException("Examiner " + examiner + " is not available on that day");
+        }
+        else if (startDate.isBefore(exam.getDate1()) && endDate.isAfter(exam.getDate2()))
+        {
+          throw new IllegalArgumentException("Examiner " + examiner + " is not available on that day");
+        }
+      }
+    }
+    return true;
+  }
+
+  @Override public boolean isRoomAvailable(MyDate startDate, MyDate endDate,
       String classroom)
   {
     if (exams.size() < 1)
@@ -95,23 +171,46 @@ public class ExamListModelManager implements ExamListModel
 
     for (int i = 0; i < exams.size(); i++)
     {
-      Exam exam = exams.getExam(i);
 
-      boolean validStartDate =
-          startDate.getTimeInSeconds() - exam.getDate1().getTimeInSeconds()
-              > 0;
-
-      boolean validEndDate =
-          endDate.getTimeInSeconds() - exam.getDate2().getTimeInSeconds() > 0;
-
-      if (validStartDate && validEndDate && exam.getClassroom().getNumber().equals(classroom))
+      if (exams.getExam(i).getClassroom().getNumber().equals(classroom))
       {
-        return true;
+        Exam exam = exams.getExam(i);
+
+        if (startDate.equals(exam.getDate1()) && endDate.equals(exam.getDate2()))
+        {
+          throw new IllegalArgumentException("Classroom " + classroom + " is not available on that day");
+        }
+        else if (startDate.isAfter(exam.getDate1()) && startDate.isBefore(exam.getDate2()))
+        {
+          throw new IllegalArgumentException("Classroom " + classroom + " is not available on that day");
+        }
+        else if (endDate.isAfter(exam.getDate1()) && endDate.isBefore(exam.getDate2()))
+        {
+          throw new IllegalArgumentException("Classroom " + classroom + " is not available on that day");
+        }
+        else if (startDate.getMonth() == exam.getDate1().getMonth() && startDate.getDay() == exam.getDate1().getDay())
+        {
+          throw new IllegalArgumentException("Classroom " + classroom + " is not available on that day");
+        }
+        else if (startDate.isBefore(exam.getDate1()) && endDate.isAfter(exam.getDate2()))
+        {
+          throw new IllegalArgumentException("Classroom " + classroom + " is not available on that day");
+        }
       }
     }
+    return true;
+  }
 
-    throw new IllegalArgumentException("Date is not available");
-
+  @Override public boolean examAlreadyExists(String course)
+  {
+    for (int i = 0; i < exams.size(); i++)
+    {
+        if (exams.getExam(i).getCourse().getName().equals(course))
+        {
+          throw new IllegalArgumentException("Exam " + course + " already exists");
+        }
+    }
+    return false;
   }
 }
 

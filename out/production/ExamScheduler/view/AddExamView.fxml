@@ -43,7 +43,7 @@
          <font>
             <Font size="18.0" />
          </font></Button>
-      <Label id="errorLabel" fx:id="errorLabel" layoutX="186.0" layoutY="481.0" text="Error Label" textFill="RED">
+      <Label id="errorLabel" fx:id="errorLabel" layoutX="51.0" layoutY="478.0" text="Error Label" textFill="RED">
          <font>
             <Font size="23.0" />
          </font></Label>
@@ -61,6 +61,11 @@
       <ComboBox fx:id="classroom" layoutX="366.0" layoutY="240.0" prefHeight="35.0" prefWidth="230.0" />
       <ComboBox fx:id="time1" layoutX="366.0" layoutY="150.0" prefHeight="26.0" prefWidth="84.0" />
       <ComboBox fx:id="time2" layoutX="511.0" layoutY="150.0" prefHeight="26.0" prefWidth="84.0" />
-      <TextField fx:id="oralExamDayNo" layoutX="51.0" layoutY="382.0" prefHeight="27.0" prefWidth="155.0" />
+      <TextField fx:id="oralExamDayNo" layoutX="223.0" layoutY="383.0" prefHeight="27.0" prefWidth="61.0" />
+      <Label layoutX="51.0" layoutY="388.0" text="Number of days to allocate" fx:id="daysLabel">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

@@ -30,6 +30,11 @@ public class Classroom implements Serializable
     this.maxCapacity = maxCapacity;
   }
 
+  public boolean isEquiped()
+  {
+    return equiped;
+  }
+
   public String getNumber()
   {
     return number;

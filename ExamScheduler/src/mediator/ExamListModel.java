@@ -18,5 +18,8 @@ public interface ExamListModel
   ExamList getExams();
 
   void isClassRested(String studyGroup, int day);
-  boolean isDateAvailable(MyDate startDate, MyDate endDate, String classroom);
+  boolean isStudyGroupAvailable(MyDate startDate, MyDate endDate, String studyGroup);
+  boolean isExaminerAvailable(MyDate startDate, MyDate endDate, String examiner);
+  boolean examAlreadyExists(String course);
+  boolean isRoomAvailable(MyDate startDate, MyDate endDate, String classroom);
 }
