@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="557.0" prefWidth="683.0" style="-fx-background-color: #1B1B1B;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.EditExamViewController">
+   <children>
+      <Label fx:id="oralOrWritten" layoutX="59.0" layoutY="391.0" text="ORAL/WRITTEN" textFill="WHITE">
+         <font>
+            <Font size="18.0" />
+         </font></Label>
+      <DatePicker id="datePicker" fx:id="datePicker" layoutX="60.0" layoutY="261.0" prefHeight="35.0" prefWidth="230.0" showWeekNumbers="true" style="-fx-control-inner-background: A0A0A0;" />
+      <Label layoutX="60.0" layoutY="144.0" text="EXAMINER" textFill="#f2f2f2">
+         <font>
+            <Font size="23.0" />
+         </font></Label>
+      <Label layoutX="61.0" layoutY="227.0" text="Date" textFill="WHITE">
+         <font>
+            <Font size="23.0" />
+         </font></Label>
+      <Label layoutX="369.0" layoutY="147.0" text="Start time" textFill="WHITE">
+         <font>
+            <Font size="18.0" />
+         </font></Label>
+      <Label fx:id="editingExam" layoutX="214.0" layoutY="74.0" text="EDIT EXAM" textFill="WHITE">
+         <font>
+            <Font size="31.0" />
+         </font>
+      </Label>
+      <Label layoutX="374.0" layoutY="224.0" text="ROOM" textFill="WHITE">
+         <font>
+            <Font size="23.0" />
+         </font></Label>
+      <Label layoutX="374.0" layoutY="314.0" text="EXTERNAL EXAMINER" textFill="WHITE">
+         <font>
+            <Font size="23.0" />
+         </font></Label>
+      <Button layoutX="373.0" layoutY="429.0" mnemonicParsing="false" onAction="#editExam" prefHeight="35.0" prefWidth="230.0" style="-fx-background-color: A0A0A0;" text="FINISH EDITING 🡆">
+         <font>
+            <Font size="18.0" />
+         </font></Button>
+      <Label id="errorLabel" fx:id="errorLabel" layoutX="170.0" layoutY="490.0" text="Error Label" textFill="RED">
+         <font>
+            <Font size="23.0" />
+         </font></Label>
+      <ComboBox fx:id="supervisor" layoutX="60.0" layoutY="178.0" prefHeight="35.0" prefWidth="230.0" style="-fx-background-color: A0A0A0;" />
+      <ComboBox fx:id="externalSupervisor" layoutX="374.0" layoutY="348.0" prefHeight="35.0" prefWidth="230.0" style="-fx-background-color: A0A0A0;" />
+      <Label layoutX="532.0" layoutY="147.0" text="End time" textFill="WHITE">
+         <font>
+            <Font size="18.0" />
+         </font></Label>
+      <Button layoutX="24.0" layoutY="26.0" mnemonicParsing="false" onAction="#cancelPressed" prefHeight="48.0" prefWidth="97.0" style="-fx-background-color: A0A0A0;" text="🡄">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Button>
+      <ComboBox fx:id="classroom" layoutX="373.0" layoutY="258.0" prefHeight="35.0" prefWidth="230.0" style="-fx-background-color: A0A0A0;" />
+      <ComboBox fx:id="time1" layoutX="370.0" layoutY="181.0" prefHeight="26.0" prefWidth="84.0" style="-fx-background-color: A0A0A0;" />
+      <ComboBox fx:id="time2" layoutX="519.0" layoutY="181.0" prefHeight="26.0" prefWidth="84.0" style="-fx-background-color: A0A0A0;" />
+      <TextField fx:id="oralExamDayNo" layoutX="230.0" layoutY="334.0" prefHeight="27.0" prefWidth="61.0" style="-fx-background-color: A0A0A0;" />
+      <Label fx:id="daysLabel" layoutX="58.0" layoutY="339.0" text="Number of days to allocate" textFill="WHITE">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

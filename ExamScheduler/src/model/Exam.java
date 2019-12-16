@@ -1,106 +1,83 @@
 package model;
 
-public class Exam
+import java.io.Serializable;
+
+public class Exam implements Serializable
 {
-  private String course;
-  private String oralWritten;
-  private String date;
-  private String time;
-  private String examiner;
-  private String room;
-  private int students;
-  private String externalExaminer;
+  private MyDate date1;
+  private MyDate date2;
+  private Examiner examiner;
+  private Examiner coExaminer;
+  private Course course;
+  private Classroom classroom;
 
-  public Exam(String course, String oralWritten, String date, String time,
-      String examiner, String room, int students, String externalExaminer)
+  public Exam(MyDate date1, MyDate date2, Examiner examiner, Examiner coExaminer, Course course, Classroom classroom)
   {
-    this.course = course;
-    this.oralWritten = oralWritten;
-    this.date = date;
-    this.time = time;
-    this.examiner = examiner;
-    this.room = room;
-    this.students = students;
-    this.externalExaminer = externalExaminer;
+    this.date1=date1;
+    this.date2=date2;
+    this.examiner=examiner;
+    this.coExaminer=coExaminer;
+    this.course=course;
+    this.classroom=classroom;
   }
 
-  public String getCourse()
+  public MyDate getDate1()
   {
-    return course;
+    return date1;
   }
 
-  public void setCourse(String course)
+  public MyDate getDate2()
   {
-    this.course = course;
+    return date2;
   }
 
-  public String getOralWritten()
-  {
-    return oralWritten;
-  }
-
-  public void setOralWritten(String oralWritten)
-  {
-    this.oralWritten = oralWritten;
-  }
-
-  public String getDate()
-  {
-    return date;
-  }
-
-  public void setDate(String date)
-  {
-    this.date = date;
-  }
-
-  public String getTime()
-  {
-    return time;
-  }
-
-  public void setTime(String time)
-  {
-    this.time = time;
-  }
-
-  public String getExaminer()
+  public Examiner getExaminer()
   {
     return examiner;
   }
 
-  public void setExaminer(String examiner)
+  public Examiner getCoExaminer()
+  {
+    return coExaminer;
+  }
+
+  public Course getCourse()
+  {
+    return course;
+  }
+
+  public Classroom getClassroom()
+  {
+    return classroom;
+  }
+
+  public void setDate1(MyDate date1)
+  {
+    this.date1 = date1;
+  }
+
+  public void setDate2(MyDate date2)
+  {
+    this.date2 = date2;
+  }
+
+  public void setExaminer(Examiner examiner)
   {
     this.examiner = examiner;
   }
 
-  public String getRoom()
+  public void setCoExaminer(Examiner coExaminer)
   {
-    return room;
+    this.coExaminer = coExaminer;
   }
 
-  public void setRoom(String room)
+  public void setCourse(Course course)
   {
-    this.room = room;
+    this.course = course;
   }
 
-  public int getStudents()
+  public void setClassroom(Classroom classroom)
   {
-    return students;
-  }
-
-  public void setStudents(int students)
-  {
-    this.students = students;
-  }
-
-  public String getExternalExaminer()
-  {
-    return externalExaminer;
-  }
-
-  public void setExternalExaminer(String externalExaminer)
-  {
-    this.externalExaminer = externalExaminer;
+    this.classroom = classroom;
   }
 }

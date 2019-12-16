@@ -1,14 +1,13 @@
 package view;
 
-import javafx.beans.property.SimpleIntegerProperty;
-import javafx.beans.property.SimpleStringProperty;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.layout.Region;
-import model.Exam;
-import model.ExamListModel;
+import mediator.ExamListModel;
+import model.*;
+import persistence.XmlConverterException;
 
 import java.util.Optional;
 
@@ -18,15 +17,15 @@ public class ExamListViewController
   @FXML private TableColumn<ExamViewModel, String> courseColumn;
   @FXML private TableColumn<ExamViewModel, String> oralWrittenColumn;
   @FXML private TableColumn<ExamViewModel, String> dateColumn;
-  @FXML private TableColumn<ExamViewModel, String> timeColumn;
+  @FXML private TableColumn<ExamViewModel, String> date2Column;
   @FXML private TableColumn<ExamViewModel, String> examinersColumn;
   @FXML private TableColumn<ExamViewModel, String> roomColumn;
   @FXML private TableColumn<ExamViewModel, String> externalExaminerColumn;
   @FXML private TableColumn<ExamViewModel, Number> studentsColumn;
   @FXML private Label errorLabel;
   private Region root;
-  private ViewHandler viewHandler;
   private ExamListModel model;
+  private ViewHandler viewHandler;
   private ExamListViewModel viewModel;
 
   public ExamListViewController()
@@ -34,26 +33,26 @@ public class ExamListViewController
 
   }
 
-  public void init(ViewHandler viewHandler, Region root, ExamListModel model)
+  public void init(ViewHandler viewHandler, ExamListModel model, Region root)
   {
     this.viewHandler = viewHandler;
     this.root = root;
     this.model = model;
     this.viewModel = new ExamListViewModel(model);
-    model.addExam("SDJ1X", "O", "14-01-2020","09:00", "SVA", "E-301A", 34, "SVV");
+
     courseColumn.setCellValueFactory(cellData -> cellData.getValue().getCourseProperty());
     oralWrittenColumn.setCellValueFactory(
         cellData -> cellData.getValue().getOralWrittenProperty());
     dateColumn
-        .setCellValueFactory(cellData -> cellData.getValue().getDateProperty());
-    timeColumn
-        .setCellValueFactory(cellData -> cellData.getValue().getTimeProperty());
+        .setCellValueFactory(cellData -> cellData.getValue().getDate1Property());
+    date2Column
+        .setCellValueFactory(cellData -> cellData.getValue().getDate2Property());
     examinersColumn.setCellValueFactory(
-        cellData -> cellData.getValue().getExaminersProperty());
+        cellData -> cellData.getValue().getExaminerProperty());
     roomColumn
-        .setCellValueFactory(cellData -> cellData.getValue().getRoomProperty());
+        .setCellValueFactory(cellData -> cellData.getValue().getClassroomProperty());
     externalExaminerColumn.setCellValueFactory(
-        cellData -> cellData.getValue().getExternalExaminersProperty());
+        cellData -> cellData.getValue().getCoExaminerProperty());
     studentsColumn.setCellValueFactory(
         cellData -> cellData.getValue().getStudentsProperty());
     reset();
@@ -74,8 +73,21 @@ public class ExamListViewController
   {
     try
     {
-      viewHandler.openView("addExamView");
-      System.out.println("aici");
+      viewHandler.openView("addExamView",null);
+    }
+    catch (Exception e)
+    {
+      errorLabel.setText(e.getMessage());
+    }
+  }
+
+  @FXML private void editExamButtonPressed()
+  {
+    try
+    {
+      ExamViewModel selectedItem = examListTable.getSelectionModel().getSelectedItem();
+      String course = selectedItem.getCourseProperty().get();
+      viewHandler.openView("editExamView", course);
     }
     catch (Exception e)
     {
@@ -93,11 +105,10 @@ public class ExamListViewController
       boolean remove = confirmation();
       if (remove)
       {
-        Exam exam = new Exam(selectedItem.getCourseProperty().get(),
-            selectedItem.getOralWrittenProperty().get(),selectedItem.getDateProperty().get(),selectedItem.getTimeProperty().get(),selectedItem.getExaminersProperty().get(),selectedItem.getRoomProperty().get(),selectedItem.getStudentsProperty().get(),selectedItem.getExternalExaminersProperty().get());
-        //        model.removeGrade(grade);
-//        viewModel.remove(exam);
+        viewModel.remove(selectedItem.getCourseProperty().get());
         examListTable.getSelectionModel().clearSelection();
+        model.removeExam(selectedItem.getCourseProperty().get());
+        model.loadExamsToFile();
       }
     }
     catch (Exception e)
@@ -117,8 +128,8 @@ public class ExamListViewController
     Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
     alert.setTitle("Confirmation");
     alert.setHeaderText(
-        "Removing exam {" + selectedItem.getCourseProperty().get() + "on "
-            + selectedItem.getDateProperty().get() + "}");
+        "Removing exam {" + selectedItem.getCourseProperty().get() + " on "
+            + selectedItem.getDate1Property().get() + "}");
     Optional<ButtonType> result = alert.showAndWait();
     return (result.isPresent()) && (result.get() == ButtonType.OK);
   }

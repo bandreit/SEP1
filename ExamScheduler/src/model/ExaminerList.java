@@ -8,52 +8,39 @@ public class ExaminerList
 
   public ExaminerList()
   {
-    this.examiners = new ArrayList<>();
+    examiners = new ArrayList<>();
   }
 
-  public int size()
+  public void addExaminer(Examiner examiner)
   {
-    return examiners.size();
+    examiners.add(examiner);
   }
 
-  public void addExaminer(Examiner name)
-  {
-    examiners.add(name); // Should we do this with connected with studyGroup?
-  }
+  public int size(){return examiners.size();}
 
-  public void removeExaminer(int index)
-  {
-    examiners.remove(index);
-  }
+  public Examiner getExaminer(int index){return examiners.get(index);}
 
-  public Examiner getExaminer(int index)
-  {
-    return examiners.get(index);
-  }
-
-  public void changeStatusFromAvailableToUnavailable(String name,
-      String status) // check please,thanks :D
+  public void removeExaminer(String initials)
   {
     for (int i = 0; i < examiners.size(); i++)
     {
-      if (examiners.get(i).getName().equals(name) && examiners.get(i)
-          .getStatus().equals(status))
-      {
-        examiners.get(i).setStatus("Unavailable");
-      }
+        if (examiners.get(i).getInitials().equals(initials))
+        {
+          examiners.remove(i);
+          break;
+        }
     }
   }
 
-  public void changeStatusFromUnavailableToAvailable(String name,
-      String status) // check please,thanks :D
+  public Examiner getExaminer(String initials)
   {
     for (int i = 0; i < examiners.size(); i++)
     {
-      if (examiners.get(i).getName().equals(name) && examiners.get(i)
-          .getStatus().equals(status))
-      {
-        examiners.get(i).setStatus("Available");
+        if (examiners.get(i).getInitials().equals(initials))
+        {
+          return examiners.get(i);
+        }
       }
-    }
+    return null;
   }
 }

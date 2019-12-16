@@ -1,14 +1,15 @@
 package model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class ClassroomList
+public class ClassroomList implements Serializable
 {
   private ArrayList<Classroom> classrooms;
 
   public ClassroomList()
   {
-    this.classrooms = new ArrayList<>();
+    classrooms = new ArrayList<>();
   }
 
   public void addClassroom(Classroom classroom)
@@ -18,38 +19,32 @@ public class ClassroomList
 
   public Classroom getClassroom(String number)
   {
-    return classrooms.get(Integer.parseInt(number));//does it work like that?
-  }
-
-  public void removeClassroom(String number)
-  {
-    classrooms.remove(number);
-  }
-
-  public void changeStatusFromUnavailableToAvailable(String number,
-      String status) // check please,thanks :D
-  {
     for (int i = 0; i < classrooms.size(); i++)
     {
-      if (classrooms.get(i).getNumber().equals(number) && classrooms.get(i)
-          .getStatus().equals(status))
+      if (classrooms.get(i).getNumber().equals(number))
       {
-        classrooms.get(i).setStatus("Available");
+        return classrooms.get(i);
       }
     }
+    return null;
   }
 
-  public void changeStatusFromAvailableToUnavailable(String number,
-      String status) // check please,thanks :D
+  public Classroom getClassroom(int index){return classrooms.get(index);}
+
+  public int size()
   {
+    return classrooms.size();
+  }
+
+  public String toString()
+  {
+    String text = " ";
+
     for (int i = 0; i < classrooms.size(); i++)
     {
-      if (classrooms.get(i).getNumber().equals(number) && classrooms.get(i)
-          .getStatus().equals(status))
-      {
-        classrooms.get(i).setStatus("Unavailable");
-      }
+      text += classrooms.get(i).toString();
+      text += "\n";
     }
+    return text;
   }
-
 }

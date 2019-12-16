@@ -1,0 +1,22 @@
+<examinerlist>
+    <examiners>
+        <initials>SVA</initials>
+        <isCoExaminer>false</isCoExaminer>
+    </examiners>
+    <examiners>
+        <initials>MNA</initials>
+        <isCoExaminer>false</isCoExaminer>
+    </examiners>
+    <examiners>
+        <initials>Lina</initials>
+        <isCoExaminer>false</isCoExaminer>
+    </examiners>
+    <examiners>
+        <initials>Jon Doe</initials>
+        <isCoExaminer>true</isCoExaminer>
+    </examiners>
+    <examiners>
+        <initials>Don Joe</initials>
+        <isCoExaminer>true</isCoExaminer>
+    </examiners>
+</examinerlist>

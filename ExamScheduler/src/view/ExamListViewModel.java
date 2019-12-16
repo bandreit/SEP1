@@ -2,8 +2,9 @@ package view;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import model.Course;
 import model.Exam;
-import model.ExamListModel;
+import mediator.ExamListModel;
 
 import java.util.ArrayList;
 
@@ -43,16 +44,27 @@ public class ExamListViewModel
     list.add(new ExamViewModel(exam));
   }
 
-//  public void remove(Exam exam)
-//  {
-//    for (int i = 0; i < list.size(); i++)
-//    {
-//      if (list.get(i).getCourseProperty().get().equals(exam.getCourse())
-//          && list.get(i).getGradeProperty().get() == grade.getGrade())
-//      {
-//        list.remove(i);
-//        break;
-//      }
-//    }
-//  }
+  public void remove(Exam exam)
+  {
+    for (int i = 0; i < list.size(); i++)
+    {
+      if (list.get(i).getCourseProperty().get().equals(exam.getCourse()))
+      {
+        list.remove(i);
+        break;
+      }
+    }
+  }
+
+  public void remove(String course)
+  {
+    for (int i = 0; i < list.size(); i++)
+    {
+      if (list.get(i).getCourseProperty().get().equals(course))
+      {
+        list.remove(i);
+        break;
+      }
+    }
+  }
 }
