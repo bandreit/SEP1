@@ -49,4 +49,14 @@
             <isCoExaminer>false</isCoExaminer>
         </teacher>
     </courses>
+    <courses>
+        <name>MSE1X</name>
+        <students>32</students>
+        <isOral>false</isOral>
+        <studyGroup>1Y-A19</studyGroup>
+        <teacher>
+            <initials>MNA</initials>
+            <isCoExaminer>false</isCoExaminer>
+        </teacher>
+    </courses>
 </courselist>

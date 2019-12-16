@@ -86,7 +86,7 @@ public class ExamListModelManager implements ExamListModel
   {
     for (int i = 0; i < exams.size(); i++)
     {
-      if (exams.getExam(i).getDate1().isBefore(startDate))
+      if (exams.getExam(i).getDate1().isAfter(startDate)&&!exams.getExam(i).getCourse().isOral())
       {
         throw new IllegalArgumentException("There are written exams after this oral one");
       }
