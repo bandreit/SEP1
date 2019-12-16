@@ -1,0 +1,20 @@
+  <CoursesList>
+    <Course>
+        <Name>SDJ1</Name>
+        <StudentCount>34</StudentCount>
+        <IsOral>true</IsOral>
+        <Teacher>SVA</Teacher>
+    </Course>
+     <Course>
+        <Name>RWD1</Name>
+        <StudentCount>34</StudentCount>
+        <IsOral>true</IsOral>
+        <Teacher>SVA</Teacher>
+    </Course>
+     <Course>
+        <Name>MSE1</Name>
+        <StudentCount>34</StudentCount>
+        <IsOral>true</IsOral>
+        <Teacher>SVA</Teacher>
+    </Course>
+</CoursesList>

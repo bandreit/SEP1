@@ -1,0 +1,100 @@
+<Exams>
+    <Exam>
+        <Course>SEP1X</Course>
+        <StartDate>10-01-2019 09:00</StartDate>
+        <EndDate>13-01-2019 16:00</EndDate>
+        <ClassRoom>E301B</ClassRoom>
+        <Examiners>SVA, SJF</Examiners>
+        <IsOral>true</IsOral>
+    </Exam>
+    <Exam>
+        <Course>SEP1Y</Course>
+        <StartDate>10-01-2019 09:00</StartDate>
+        <EndDate>13-01-2019 16:00</EndDate>
+        <ClassRoom>E301B</ClassRoom>
+        <Examiners>SVA, SJF</Examiners>
+        <IsOral>false</IsOral>
+    </Exam>
+    <Exam>
+        <Course>SEP1Z</Course>
+        <StartDate>10-01-2019 09:00</StartDate>
+        <EndDate>13-01-2019 16:00</EndDate>
+        <ClassRoom>E301B</ClassRoom>
+        <Examiners>SVA, SJF</Examiners>
+        <IsOral>true</IsOral>
+    </Exam>
+      <Exam>
+        <Course>RWD1X</Course>
+        <StartDate>10-01-2019 09:00</StartDate>
+        <EndDate>13-01-2019 16:00</EndDate>
+        <ClassRoom>E301B</ClassRoom>
+        <Examiners>SVA, SJF</Examiners>
+        <IsOral>false</IsOral>
+    </Exam>
+    <Exam>
+        <Course>RWD1Y</Course>
+        <StartDate>10-01-2019 09:00</StartDate>
+        <EndDate>13-01-2019 16:00</EndDate>
+        <ClassRoom>E301B</ClassRoom>
+        <Examiners>SVA, SJF</Examiners>
+        <IsOral>false</IsOral>
+    </Exam>
+    <Exam>
+        <Course>RWD1Z</Course>
+        <StartDate>10-01-2019 09:00</StartDate>
+        <EndDate>13-01-2019 16:00</EndDate>
+        <ClassRoom>E301B</ClassRoom>
+        <Examiners>SVA, SJF</Examiners>
+        <IsOral>true</IsOral>
+    </Exam>
+
+    <Exam>
+        <Course>SDJ1X</Course>
+        <StartDate>10-01-2019 09:00</StartDate>
+        <EndDate>13-01-2019 16:00</EndDate>
+        <ClassRoom>E301B</ClassRoom>
+        <Examiners>SVA, SJF</Examiners>
+        <IsOral>true</IsOral>
+    </Exam>
+    <Exam>
+        <Course>SDJ1Y</Course>
+        <StartDate>10-01-2019 09:00</StartDate>
+        <EndDate>13-01-2019 16:00</EndDate>
+        <ClassRoom>E301B</ClassRoom>
+        <Examiners>SVA, SJF</Examiners>
+        <IsOral>true</IsOral>
+    </Exam>
+    <Exam>
+        <Course>SDJ1Z</Course>
+        <StartDate>10-01-2019 09:00</StartDate>
+        <EndDate>13-01-2019 16:00</EndDate>
+        <ClassRoom>E301B</ClassRoom>
+        <Examiners>SVA, SJF</Examiners>
+        <IsOral>true</IsOral>
+    </Exam>
+
+      <Exam>
+        <Course>MSE1X</Course>
+        <StartDate>10-01-2019 09:00</StartDate>
+        <EndDate>13-01-2019 16:00</EndDate>
+        <ClassRoom>E301B</ClassRoom>
+        <Examiners>SVA, SJF</Examiners>
+        <IsOral>true</IsOral>
+    </Exam>
+    <Exam>
+        <Course>MSE1Y</Course>
+        <StartDate>10-01-2019 09:00</StartDate>
+        <EndDate>13-01-2019 16:00</EndDate>
+        <ClassRoom>E301B</ClassRoom>
+        <Examiners>SVA, SJF</Examiners>
+        <IsOral>true</IsOral>
+    </Exam>
+    <Exam>
+        <Course>MSE1Z</Course>
+        <StartDate>10-01-2019 09:00</StartDate>
+        <EndDate>13-01-2019 16:00</EndDate>
+        <ClassRoom>E301B</ClassRoom>
+        <Examiners>SVA, SJF</Examiners>
+        <IsOral>true</IsOral>
+    </Exam>
+</Exams>
