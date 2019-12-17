@@ -54,7 +54,26 @@ class CourseListTest
 
   @Test public void testGetCourseByName()
   {
+    //zero
+    assertNull(list.getCourse("SDJ1X"));
 
+    //one
+    list.addCourse(course1);
+    assertEquals(course1, list.getCourse("SDJ1X"));
+    assertEquals(course1.getName(), list.getCourse("SDJ1X").getName());
+    assertNull(list.getCourse("ABFBFBF"));
+
+    //more
+    list.addCourse(course2);
+    list.addCourse(course2Copy);
+    list.addCourse(course3);
+    list.addCourse(course4Name3);
+    assertEquals(course1.getName(), list.getCourse("SDJ1X").getName());
+    assertEquals(course1, list.getCourse(0));
+    assertEquals(course2, list.getCourse("MSE1Y"));
+    assertEquals(course2, list.getCourse(1));
+//    assertEquals(course2, list.getCourse(2));
+//    assertEquals(course2Copy, list.getCourse(3));
   }
 
   @Test public void testGetNumberOfCourses()
