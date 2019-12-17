@@ -6,9 +6,7 @@ import model.Examiner;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
-;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
+;import static org.junit.jupiter.api.Assertions.*;
 
 class CourseListTest
 {
@@ -62,9 +60,9 @@ class CourseListTest
 
     assertEquals(course1, list.getCourse(0));
     assertEquals(course2, list.getCourse(1));
-    assertEquals(course2Copy, list.getCourse(1));
+    assertSame(course2Copy, list.getCourse(1));
     assertEquals(course3, list.getCourse(2));
-    assertEquals(course4Name3, list.getCourse(2));
+    assertNotEquals(course4Name3, list.getCourse(2));
 
     assertThrows(IndexOutOfBoundsException.class, () -> {
       list.getCourse(3);
@@ -85,13 +83,13 @@ class CourseListTest
 
     list.addCourse(course2);
     list.addCourse(course2Copy);
-    assertEquals(2, list.size());
-
-    list.addCourse(course3);
     assertEquals(3, list.size());
 
-    list.addCourse(course4Name3);
+    list.addCourse(course3);
     assertEquals(4, list.size());
+
+    list.addCourse(course4Name3);
+    assertEquals(5, list.size());
   }
 
   @Test public void testToString()
