@@ -60,7 +60,6 @@ class CourseListTest
 
     assertEquals(course1, list.getCourse(0));
     assertEquals(course2, list.getCourse(1));
-//    assertSame(course2Copy, list.getCourse(1));
     assertEquals(course3, list.getCourse(2));
     assertNotEquals(course4Name3, list.getCourse(2));
 
@@ -89,8 +88,7 @@ class CourseListTest
     assertEquals(course1, list.getCourse(0));
     assertEquals(course2, list.getCourse("MSE1Y"));
     assertEquals(course2, list.getCourse(1));
-//    assertEquals(course2, list.getCourse(2));
-//    assertEquals(course2Copy, list.getCourse(3));
+    assertEquals(course2Copy, list.getCourse(2));
   }
 
   @Test public void testGetNumberOfCourses()
@@ -113,6 +111,21 @@ class CourseListTest
 
   @Test public void testToString()
   {
+    //zero
+    String expected = "";
+    assertEquals(expected, list.toString());
+
+    //one
+    list.addCourse(course1);
+
+    expected = "SDJ1X, students: 30, is Oral: true, teacher: SVA\n";
+    assertEquals(expected, list.toString());
+
+    //many
+    list.addCourse(course2);
+    expected = "SDJ1X, students: 30, is Oral: true, teacher: SVA\n"
+        + "MSE1Y, students: 34, is Oral: false, teacher: MAN\n";
+    assertEquals(expected, list.toString());
 
   }
 }

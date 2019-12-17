@@ -46,6 +46,18 @@ public class Course
     return null;
   }
 
+  @Override public boolean equals(Object obj)
+  {
+    if (!(obj instanceof Course))
+    {
+      return false;
+    }
+
+    Course other = (Course) obj;
+
+    return other.name.equals(name) && other.students == students && other.isOral == isOral && other.teacher.equals(teacher);
+  }
+
   public String toString()
   {
     return name + ", students: " + students + ", is Oral: " + isOral + ", teacher: " + teacher.getInitials();
