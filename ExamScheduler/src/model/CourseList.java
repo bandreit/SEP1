@@ -28,6 +28,11 @@ public class CourseList
     return courses.get(index);
   }
 
+  public void addCourse(Course course)
+  {
+    courses.add(course);
+  }
+
   /**
    * Getter for course by name
    * @param name name of the course
@@ -55,6 +60,7 @@ public class CourseList
    * A string representation of the list
    * @return list of the courses as a string
    */
+
   public String toString()
   {
     String text = " ";
