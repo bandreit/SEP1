@@ -60,7 +60,7 @@ class CourseListTest
 
     assertEquals(course1, list.getCourse(0));
     assertEquals(course2, list.getCourse(1));
-    assertSame(course2Copy, list.getCourse(1));
+//    assertSame(course2Copy, list.getCourse(1));
     assertEquals(course3, list.getCourse(2));
     assertNotEquals(course4Name3, list.getCourse(2));
 
