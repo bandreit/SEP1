@@ -1,7 +1,11 @@
 package model;
 
-import java.time.LocalDate;
-
+/**
+ * A class representing date and time
+ *
+ * @author Edvinas Andrijauskas
+ * @version 1.2-December 2019
+ */
 public class MyDate
 {
   private int day;
@@ -10,6 +14,15 @@ public class MyDate
   private int hour;
   private int minutes;
 
+  /**
+   * Five-argument constructor throws an exception if hour is bigger than 24 or minutes bigger than 59
+   * @param day the day
+   * @param month the month
+   * @param year the year
+   * @param hour the hour 1-24
+   * @param minutes the minutes 1-59
+   * @throws IllegalArgumentException if time is out of bounds
+   */
   public MyDate(int day, int month, int year, int hour, int minutes)
   {
     this.day=day;
@@ -23,103 +36,46 @@ public class MyDate
     this.minutes = minutes;
   }
 
+  /**
+   * Getter for the day
+   * @return day as an integer
+   */
   public int getDay()
   {
     return day;
   }
 
+  /**
+   * Getter for the month
+   * @return month as an integer
+   */
   public int getMonth()
   {
     return month;
   }
 
+  /**
+   * Getter for the year
+   * @return year as an integer
+   */
   public int getYear()
   {
     return year;
   }
 
-  public void set(int day, int month, int year)
-  {
-    if (year < 0)
-    {
-      year = -year;
-    }
-    this.year = year;
-
-    if (month < 1)
-    {
-      month = 1;
-    }
-    else if (month > 12)
-    {
-      month = 12;
-    }
-    this.month = month;
-
-    if (day < 1)
-    {
-      day = 1;
-    }
-    else if (day > numberOfDaysInMonth())
-    {
-      day = numberOfDaysInMonth();
-    }
-    this.day = day;
-  }
-
-  public int numberOfDaysInMonth()
-  {
-    switch (month)
-    {
-      case 2:
-        if (isLeapYear())
-        {
-          return 29;
-        }
-        return 28;
-      case 4:
-      case 6:
-      case 9:
-      case 11:
-        return 30;
-      default:
-        return 31;
-    }
-  }
-
-  public boolean isLeapYear()
-  {
-    return (year % 4 == 0) && (year % 100 != 0 || year % 400 == 0);
-  }
-
-  public double getTimeInSeconds()
-  {
-    double timeInSeconds;
-    int days = 0;
-    if (month == 1)
-    {
-      days = year * 365 + numberOfDaysInMonth();
-      return timeInSeconds = days * 86.400 + hour * 60 * 60 + minutes * 60;
-    }
-    if (month == 6)
-    {
-      if (isLeapYear())
-      {
-        days = year * 365 + 31 + 29 + 31 + 30 + 31 + day;
-      }
-      else
-      {
-        days = year * 365 + 31 + 28 + 31 + 30 + 31 + day;
-      }
-    }
-    return timeInSeconds = day * 86.400 + hour * 60 * 60 + minutes * 60;
-  }
-
+  /**
+   * Get a copy of the date and time
+   * @return new MyDate object
+   */
   public MyDate copy()
   {
     return new MyDate(day, month, year, hour, minutes);
   }
 
+  /**
+   * A string representation of date and time
+   * @return date and time as a string
+   */
   public String toString()
   {
 
@@ -149,6 +105,10 @@ public class MyDate
     return s + " " + fh + ":" +fm;
   }
 
+  /**
+   * A string representation as a string
+   * @return time as a string
+   */
   public String getTimeString()
   {
     String fh = String.valueOf(hour), fm = String.valueOf(minutes);
@@ -164,24 +124,11 @@ public class MyDate
     return fh + ":" + fm;
   }
 
-  public String getDateString()
-  {
-    String s = "";
-    if (day < 10)
-    {
-      s += "0";
-    }
-    s += day + ".";
-    if (month < 10)
-    {
-      s += "0";
-    }
-    s += month + ".";
-    s += year;
-
-    return s;
-  }
-
+  /**
+   * Checks if the date is before other date
+   * @param other other MyDate object
+   * @return true if date is before other date otherwise return false
+   */
   public boolean isBefore(MyDate other)
   {
     if (this.year > other.year)
@@ -213,7 +160,11 @@ public class MyDate
     }
   }
 
-
+  /**
+   * Checks if the date is after other date
+   * @param other other MyDate object
+   * @return true if date is after other date otherwise return false
+   */
   public boolean isAfter(MyDate other)
   {
     if (this.year < other.year)
@@ -245,6 +196,11 @@ public class MyDate
     }
   }
 
+  /**
+   * Compares two date objects
+   * @param obj other date object
+   * @return true if two objects are equal otherwise return false
+   */
   public boolean equals(Object obj)
   {
     if (!(obj instanceof MyDate))
