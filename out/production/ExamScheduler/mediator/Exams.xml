@@ -117,4 +117,43 @@
       <day>23</day>
     </date1>
   </exams>
+  <exams>
+    <examiner>
+      <isCoExaminer>false</isCoExaminer>
+      <initials>SVA</initials>
+    </examiner>
+    <course>
+      <teacher>
+        <isCoExaminer>false</isCoExaminer>
+        <initials>SVA</initials>
+      </teacher>
+      <studyGroup>1X-A19</studyGroup>
+      <name>SDJ1X</name>
+      <students>34</students>
+      <isOral>true</isOral>
+    </course>
+    <coExaminer>
+      <isCoExaminer>true</isCoExaminer>
+      <initials>Jon Doe</initials>
+    </coExaminer>
+    <classroom>
+      <number>E301A</number>
+      <equiped>true</equiped>
+      <maxCapacity>35</maxCapacity>
+    </classroom>
+    <date2>
+      <month>1</month>
+      <hour>10</hour>
+      <year>2020</year>
+      <minutes>0</minutes>
+      <day>21</day>
+    </date2>
+    <date1>
+      <month>1</month>
+      <hour>8</hour>
+      <year>2020</year>
+      <minutes>0</minutes>
+      <day>20</day>
+    </date1>
+  </exams>
 </examlist>

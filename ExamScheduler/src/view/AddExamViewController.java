@@ -168,7 +168,7 @@ public class AddExamViewController
         throw new IllegalArgumentException("Classroom is not big enough");
       }
 
-      if (!actualClassroom.isEquiped())
+      if (actualCourse.isOral() && !actualClassroom.isEquiped())
       {
         throw new IllegalArgumentException("Classroom is not equiped");
       }
