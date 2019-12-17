@@ -16,6 +16,11 @@ public class CourseList
     return courses.get(index);
   }
 
+  public void addCourse(Course course)
+  {
+    courses.add(course);
+  }
+
   public Course getCourse(String name)
   {
     for (int i = 0; i < courses.size(); i++)
