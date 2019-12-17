@@ -2,12 +2,11 @@ package test;
 
 import model.Course;
 import model.CourseList;
-import model.Exam;
 import model.Examiner;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+;import static org.junit.jupiter.api.Assertions.*;
 
 class CourseListTest
 {
@@ -49,7 +48,25 @@ class CourseListTest
 
   @Test void testGet()
   {
+    assertThrows(IndexOutOfBoundsException.class, () -> {
+      list.getCourse(0);
+    });
 
+    list.addCourse(course1);
+    assertEquals(course1, list.getCourse(0));
+
+    list.addCourse(course2);
+    list.addCourse(course3);
+
+    assertEquals(course1, list.getCourse(0));
+    assertEquals(course2, list.getCourse(1));
+//    assertSame(course2Copy, list.getCourse(1));
+    assertEquals(course3, list.getCourse(2));
+    assertNotEquals(course4Name3, list.getCourse(2));
+
+    assertThrows(IndexOutOfBoundsException.class, () -> {
+      list.getCourse(3);
+    });
   }
 
   @Test public void testGetCourseByName()
@@ -78,7 +95,20 @@ class CourseListTest
 
   @Test public void testGetNumberOfCourses()
   {
+    assertEquals(0, list.size());
 
+    list.addCourse(course1);
+    assertEquals(1, list.size());
+
+    list.addCourse(course2);
+    list.addCourse(course2Copy);
+    assertEquals(3, list.size());
+
+    list.addCourse(course3);
+    assertEquals(4, list.size());
+
+    list.addCourse(course4Name3);
+    assertEquals(5, list.size());
   }
 
   @Test public void testToString()
