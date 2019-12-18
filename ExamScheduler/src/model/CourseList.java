@@ -63,7 +63,7 @@ public class CourseList
 
   public String toString()
   {
-    String text = " ";
+    String text = "";
 
     for (int i = 0; i < courses.size(); i++)
     {
