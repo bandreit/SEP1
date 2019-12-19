@@ -1,14 +1,12 @@
 package model;
 
-import java.io.Serializable;
-
 /**
  * A representing an exam
  *
  * @author Lelde Norenberga and Edvinas Andrijauskas
  * @version 1.2-December 2019
  */
-public class Exam implements Serializable
+public class Exam
 {
   private MyDate date1;
   private MyDate date2;
