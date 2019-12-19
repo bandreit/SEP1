@@ -14,7 +14,13 @@ public class ExamListModelManager implements ExamListModel
 
   public ExamListModelManager() throws XmlConverterException
   {
-    this.exams = loadExamList();
+    try
+    {
+      this.exams = loadExamList();
+    } catch (XmlConverterException e)
+    {
+      this.exams = new ExamList();
+    }
   }
 
   @Override public ExamList loadExamList() throws XmlConverterException
