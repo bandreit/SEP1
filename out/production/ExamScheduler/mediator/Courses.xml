@@ -69,10 +69,6 @@
             <isCoExaminer>false</isCoExaminer>
         </teacher>
     </courses>
-
-
-
-    -----
     <courses>
         <name>SDJ2X</name>
         <students>34</students>

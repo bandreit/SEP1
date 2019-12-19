@@ -14,4 +14,9 @@
     <equiped>true</equiped>
     <maxCapacity>70</maxCapacity>
   </classrooms>
+  <classrooms>
+    <number>E301D</number>
+    <equiped>true</equiped>
+    <maxCapacity>65</maxCapacity>
+  </classrooms>
 </classroomlist>

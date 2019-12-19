@@ -390,4 +390,43 @@
       <day>31</day>
     </date1>
   </exams>
+  <exams>
+    <examiner>
+      <isCoExaminer>false</isCoExaminer>
+      <initials>BTB</initials>
+    </examiner>
+    <course>
+      <teacher>
+        <isCoExaminer>false</isCoExaminer>
+        <initials>BTB</initials>
+      </teacher>
+      <studyGroup>2X-A19</studyGroup>
+      <name>SDJ2X</name>
+      <students>34</students>
+      <isOral>true</isOral>
+    </course>
+    <coExaminer>
+      <isCoExaminer>true</isCoExaminer>
+      <initials>Jon Doe</initials>
+    </coExaminer>
+    <classroom>
+      <number>E301D</number>
+      <equiped>true</equiped>
+      <maxCapacity>65</maxCapacity>
+    </classroom>
+    <date2>
+      <month>1</month>
+      <hour>10</hour>
+      <year>2021</year>
+      <minutes>15</minutes>
+      <day>12</day>
+    </date2>
+    <date1>
+      <month>1</month>
+      <hour>8</hour>
+      <year>2021</year>
+      <minutes>15</minutes>
+      <day>11</day>
+    </date1>
+  </exams>
 </examlist>
