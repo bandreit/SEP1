@@ -28,6 +28,10 @@ public class CourseList
     return courses.get(index);
   }
 
+  /**
+   * Adds course to the list
+   * @param course course type Course
+   */
   public void addCourse(Course course)
   {
     courses.add(course);

@@ -2,6 +2,9 @@ package model;
 
 /**
  * A class representing an examiner
+ *
+ * @author Lelde Norenberga
+ * @version 1.2-December 2019
  */
 public class Examiner
 {
