@@ -6,7 +6,7 @@ import java.util.ArrayList;
  * A class representing list of exams
  *
  * @author Lelde Norenberga and Edvinas Andrijauskas
- * @versin 1.2-December 2019
+ * @version 1.2-December 2019
  */
 public class ExamList
 {
