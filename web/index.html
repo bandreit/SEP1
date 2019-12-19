@@ -23,322 +23,329 @@
     <title>SEP</title>
   </head>
   <body>
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg primary">
-      <div class="container">
-        <a class="navbar-brand" href="index.html">
-          <img src="images/logo.png" alt="logo" height="36px" />
-        </a>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-toggle="collapse"
-          data-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
+    <div class="main-container">
+      <!-- Navbar -->
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+          <a class="navbar-brand" href="index.html">
+            <img src="images/logo.png" alt="logo" height="36px" />
+          </a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse " id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item active">
+                <a class="nav-link active" href="index.html">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="tips.html">Advice</a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link" href="regulations.html">Regulations</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="schedule.html">Schedule</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="contact.html">Contact</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+      <!-- Carousel -->
+      <div id="homeCarousel" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+          <li data-target="#homeCarousel" data-slide-to="0" class="active"></li>
+          <li data-target="#homeCarousel" data-slide-to="1"></li>
+          <li data-target="#homeCarousel" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="images/news/carousel/arvr.png" class="d-block w-100" />
+            <div class="carousel-caption d-none d-md-block">
+              <p>
+                <span class="bg-light p-1">
+                  Learn how to engage your public
+                </span>
+                <br />
+                <span class="bg-light p-1">
+                  using latest technologies
+                </span>
+              </p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img src="images/news/carousel/celfon.jpg" class="d-block w-100" />
+            <div class="carousel-caption d-none d-md-block">
+              <p>
+                <span class="bg-light p-1">
+                  Celfon representants are comming to VIA tomorrow
+                </span>
+                <br />
+                <span class="bg-light p-1">
+                  to talk about internships
+                </span>
+              </p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img src="images/news/carousel/lego.jpg" class="d-block w-100" />
+            <div class="carousel-caption d-none d-md-block">
+              <p>
+                <span class="bg-light p-1">
+                  Meet top people from LEGO
+                </span>
+                <br />
+                <span class="bg-light p-1">
+                  and ask them everything
+                </span>
+              </p>
+            </div>
+          </div>
+        </div>
+        <a
+          class="carousel-control-prev"
+          href="#homeCarousel"
+          role="button"
+          data-slide="prev"
         >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse " id="navbarSupportedContent">
-          <ul class="navbar-nav ml-auto">
-            <li class="nav-item active">
-              <a class="nav-link active" href="index.html">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="tips.html">Advice</a>
-            </li>
-
-            <li class="nav-item">
-              <a class="nav-link" href="regulations.html">Regulations</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="schedule.html">Schedule</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="contact.html">Contact</a>
-            </li>
-          </ul>
-        </div>
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a
+          class="carousel-control-next"
+          href="#homeCarousel"
+          role="button"
+          data-slide="next"
+        >
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
       </div>
-    </nav>
 
-    <!-- Carousel -->
-    <div id="homeCarousel" class="carousel slide" data-ride="carousel">
-      <ol class="carousel-indicators">
-        <li data-target="#homeCarousel" data-slide-to="0" class="active"></li>
-        <li data-target="#homeCarousel" data-slide-to="1"></li>
-        <li data-target="#homeCarousel" data-slide-to="2"></li>
-      </ol>
-      <div class="carousel-inner">
-        <div class="carousel-item active">
-          <img src="images/news/carousel/arvr.png" class="d-block w-100" />
-          <div class="carousel-caption d-none d-md-block">
-            <p>
-              <span class="bg-light p-1">
-                Learn how to engage your public
-              </span>
-              <br />
-              <span class="bg-light p-1">
-                using latest technologies
-              </span>
-            </p>
-          </div>
-        </div>
-        <div class="carousel-item">
-          <img src="images/news/carousel/celfon.jpg" class="d-block w-100" />
-          <div class="carousel-caption d-none d-md-block">
-            <p>
-              <span class="bg-light p-1">
-                Celfon representants are comming to VIA tomorrow
-              </span>
-              <br />
-              <span class="bg-light p-1">
-                to talk about internships
-              </span>
-            </p>
-          </div>
-        </div>
-        <div class="carousel-item">
-          <img src="images/news/carousel/lego.jpg" class="d-block w-100" />
-          <div class="carousel-caption d-none d-md-block">
-            <p>
-              <span class="bg-light p-1">
-                Meet top people from LEGO
-              </span>
-              <br />
-              <span class="bg-light p-1">
-                and ask them everything
-              </span>
-            </p>
-          </div>
-        </div>
-      </div>
-      <a
-        class="carousel-control-prev"
-        href="#homeCarousel"
-        role="button"
-        data-slide="prev"
-      >
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="sr-only">Previous</span>
-      </a>
-      <a
-        class="carousel-control-next"
-        href="#homeCarousel"
-        role="button"
-        data-slide="next"
-      >
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="sr-only">Next</span>
-      </a>
-    </div>
-
-    <div class="container">
-      <!-- News Feed -->
-      <div class="newsFeed">
-        <div class="row">
-          <div class="col-md-4">
-            <!-- Card 1 -->
-            <a href="#">
-              <div class="card">
-                <img
-                  class="card-img-top"
-                  src="images/news/arvr.png"
-                  alt="Card image cap"
-                />
-                <div class="card-body">
-                  <p class="card-text">
-                    See how VR and AR is used nowadays to engage your audience
-                    and sell more to them.
-                  </p>
-                </div>
-              </div>
-            </a>
-          </div>
-
-          <div class="col-md-4">
-            <!-- Card 2 -->
-            <a href="#">
-              <div class="card">
-                <img
-                  class="card-img-top"
-                  src="images/news/celfon.jpg"
-                  alt="Card image cap"
-                />
-                <div class="card-body">
-                  <p class="card-text">
-                    Celfon is one of the best tech companies and they are
-                    comming to VIA tomorrow to talk about a change to get an
-                    intership.
-                  </p>
-                </div>
-              </div>
-            </a>
-          </div>
-
-          <div class="col-md-4">
-            <!-- Card 3 -->
-            <a href="#">
-              <div class="card">
-                <img
-                  class="card-img-top"
-                  src="images/news/kamstrup.jpg"
-                  alt="Card image cap"
-                />
-                <div class="card-body">
-                  <p class="card-text">
-                    Would you like how to build an efficient CV ? See here what
-                    are companies interested in.
-                  </p>
-                </div>
-              </div>
-            </a>
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col-md-4">
-            <!-- Card 1 -->
-            <a href="#">
-              <div class="card">
-                <img
-                  class="card-img-top"
-                  src="images/news/lego.jpg"
-                  alt="Card image cap"
-                />
-                <div class="card-body">
-                  <p class="card-text">
-                    LEGO has recently opened an office in Horsens. See how you
-                    can apply for a student job there.
-                  </p>
-                </div>
-              </div>
-            </a>
-          </div>
-
-          <div class="col-md-4">
-            <!-- Card 2 -->
-            <a href="#">
-              <div class="card">
-                <img
-                  class="card-img-top"
-                  src="images/news/php.jpg"
-                  alt="Card image cap"
-                />
-                <div class="card-body">
-                  <p class="card-text">
-                    Read about websites that can help you find renting in
-                    Horsens and be up-to-date with all the offers.
-                  </p>
-                </div>
-              </div>
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Footer -->
-    <footer>
       <div class="container">
-        <div class="row">
-          <!-- Col 1 -->
-          <div class="col-6 col-sm-4 col-md-3 mx-auto">
-            <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Personal</h5>
+        <!-- News Feed -->
+        <div class="newsFeed">
+          <div class="row">
+            <div class="col-md-4">
+              <!-- Card 1 -->
+              <a href="#">
+                <div class="card">
+                  <img
+                    class="card-img-top"
+                    src="images/news/arvr.png"
+                    alt="Card image cap"
+                  />
+                  <div class="card-body">
+                    <p class="card-text">
+                      See how VR and AR is used nowadays to engage your audience
+                      and sell more to them.
+                    </p>
+                  </div>
+                </div>
+              </a>
+            </div>
 
-            <ul class="list-unstyled">
-              <li>
-                <a href="https://via.itslearning.com/">Itslearning</a>
-              </li>
-              <li>
-                <a href="https://studienet.via.dk/">Studienet</a>
-              </li>
-              <li>
-                <a href="https://mitv2.via.dk/">My Via</a>
-              </li>
-              <li>
-                <a href="https://mail.via.dk/">My Mail</a>
-              </li>
-            </ul>
+            <div class="col-md-4">
+              <!-- Card 2 -->
+              <a href="#">
+                <div class="card">
+                  <img
+                    class="card-img-top"
+                    src="images/news/celfon.jpg"
+                    alt="Card image cap"
+                  />
+                  <div class="card-body">
+                    <p class="card-text">
+                      Celfon is one of the best tech companies and they are
+                      comming to VIA tomorrow to talk about a change to get an
+                      intership.
+                    </p>
+                  </div>
+                </div>
+              </a>
+            </div>
+
+            <div class="col-md-4">
+              <!-- Card 3 -->
+              <a href="#">
+                <div class="card">
+                  <img
+                    class="card-img-top"
+                    src="images/news/kamstrup.jpg"
+                    alt="Card image cap"
+                  />
+                  <div class="card-body">
+                    <p class="card-text">
+                      Would you like how to build an efficient CV ? See here
+                      what are companies interested in.
+                    </p>
+                  </div>
+                </div>
+              </a>
+            </div>
           </div>
 
-          <!-- Col 2 -->
-          <div class="col-6 col-sm-4 col-md-3 mx-auto">
-            <h5 class="font-weight-bold text-uppercase mt-3 mb-4">
-              Online Facilities
-            </h5>
+          <div class="row">
+            <div class="col-md-4">
+              <!-- Card 1 -->
+              <a href="#">
+                <div class="card">
+                  <img
+                    class="card-img-top"
+                    src="images/news/lego.jpg"
+                    alt="Card image cap"
+                  />
+                  <div class="card-body">
+                    <p class="card-text">
+                      LEGO has recently opened an office in Horsens. See how you
+                      can apply for a student job there.
+                    </p>
+                  </div>
+                </div>
+              </a>
+            </div>
 
-            <ul class="list-unstyled">
-              <li>
-                <a
-                  href="https://studienet.via.dk/sites/via/board/Lists/Board/ViaFrontPage.aspx"
-                  >Board</a
-                >
-              </li>
-              <li>
-                <a href="https://challenges.dk/en">Challenges</a>
-              </li>
-              <li>
-                <a href="https://print.via.dk/login.cfm?lang=en">VIA Print</a>
-              </li>
-              <li>
-                <a href="https://dgs.via.dk/">Yellow Pages</a>
-              </li>
-            </ul>
-          </div>
-
-          <!-- Col 3 -->
-          <div class="col-6 col-sm-4 col-md-3 mx-auto">
-            <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Shortcuts</h5>
-
-            <ul class="list-unstyled">
-              <li>
-                <a
-                  href="https://studienet.via.dk/sites/via/campussites/SitePages/Startside.aspx"
-                  >Campus Page</a
-                >
-              </li>
-              <li>
-                <a
-                  href="https://studienet.via.dk/sites/uddannelse/programpages/SitePages/Startside.aspx"
-                  >Programme Page</a
-                >
-              </li>
-              <li>
-                <a href="https://www.bibliotekerne.via.dk/en">VIA Library</a>
-              </li>
-            </ul>
-          </div>
-
-          <!-- Col 4 -->
-          <div class="col-6 col-sm-4 col-md-3 mx-auto ">
-            <h5 class="font-weight-bold text-uppercase mt-3 mb-4">
-              Meet VIA at
-            </h5>
-
-            <ul class="list-unstyled">
-              <li>
-                <a href="https://www.facebook.com/viauniversitycollege"
-                  >Facebook</a
-                >
-              </li>
-              <li>
-                <a href="http://www.linkedin.com/company/via-university-college"
-                  >Linkedin</a
-                >
-              </li>
-              <li>
-                <a href="http://vimeo.com/viauc">Vimeo</a>
-              </li>
-              <li>
-                <a href="http://www.youtube.com/viauc">Youtube</a>
-              </li>
-            </ul>
+            <div class="col-md-4">
+              <!-- Card 2 -->
+              <a href="#">
+                <div class="card">
+                  <img
+                    class="card-img-top"
+                    src="images/news/php.jpg"
+                    alt="Card image cap"
+                  />
+                  <div class="card-body">
+                    <p class="card-text">
+                      Read about websites that can help you find renting in
+                      Horsens and be up-to-date with all the offers.
+                    </p>
+                  </div>
+                </div>
+              </a>
+            </div>
           </div>
         </div>
       </div>
-    </footer>
+
+      <!-- Footer -->
+      <footer>
+        <div class="container">
+          <div class="row">
+            <!-- Col 1 -->
+            <div class="col-6 col-sm-4 col-md-3 mx-auto">
+              <h5 class="font-weight-bold text-uppercase mt-3 mb-4">
+                Personal
+              </h5>
+
+              <ul class="list-unstyled">
+                <li>
+                  <a href="https://via.itslearning.com/">Itslearning</a>
+                </li>
+                <li>
+                  <a href="https://studienet.via.dk/">Studienet</a>
+                </li>
+                <li>
+                  <a href="https://mitv2.via.dk/">My Via</a>
+                </li>
+                <li>
+                  <a href="https://mail.via.dk/">My Mail</a>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Col 2 -->
+            <div class="col-6 col-sm-4 col-md-3 mx-auto">
+              <h5 class="font-weight-bold text-uppercase mt-3 mb-4">
+                Online Facilities
+              </h5>
+
+              <ul class="list-unstyled">
+                <li>
+                  <a
+                    href="https://studienet.via.dk/sites/via/board/Lists/Board/ViaFrontPage.aspx"
+                    >Board</a
+                  >
+                </li>
+                <li>
+                  <a href="https://challenges.dk/en">Challenges</a>
+                </li>
+                <li>
+                  <a href="https://print.via.dk/login.cfm?lang=en">VIA Print</a>
+                </li>
+                <li>
+                  <a href="https://dgs.via.dk/">Yellow Pages</a>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Col 3 -->
+            <div class="col-6 col-sm-4 col-md-3 mx-auto">
+              <h5 class="font-weight-bold text-uppercase mt-3 mb-4">
+                Shortcuts
+              </h5>
+
+              <ul class="list-unstyled">
+                <li>
+                  <a
+                    href="https://studienet.via.dk/sites/via/campussites/SitePages/Startside.aspx"
+                    >Campus Page</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="https://studienet.via.dk/sites/uddannelse/programpages/SitePages/Startside.aspx"
+                    >Programme Page</a
+                  >
+                </li>
+                <li>
+                  <a href="https://www.bibliotekerne.via.dk/en">VIA Library</a>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Col 4 -->
+            <div class="col-6 col-sm-4 col-md-3 mx-auto ">
+              <h5 class="font-weight-bold text-uppercase mt-3 mb-4">
+                Meet VIA at
+              </h5>
+
+              <ul class="list-unstyled">
+                <li>
+                  <a href="https://www.facebook.com/viauniversitycollege"
+                    >Facebook</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="http://www.linkedin.com/company/via-university-college"
+                    >Linkedin</a
+                  >
+                </li>
+                <li>
+                  <a href="http://vimeo.com/viauc">Vimeo</a>
+                </li>
+                <li>
+                  <a href="http://www.youtube.com/viauc">Youtube</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
   </body>
 </html>

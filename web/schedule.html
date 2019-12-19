@@ -25,184 +25,193 @@
     <title>SEP</title>
   </head>
   <body>
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light" id="top">
-      <div class="container">
-        <a class="navbar-brand" href="index.html">
-          <img src="images/logo.png" alt="logo" height="36px" />
-        </a>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-toggle="collapse"
-          data-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse " id="navbarSupportedContent">
-          <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-              <a class="nav-link" href="index.html">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="tips.html">Advice</a>
-            </li>
-           
-            <li class="nav-item">
-              <a class="nav-link" href="regulations.html">Regulations</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link active" href="schedule.html">Schedule</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="contact.html">Contact</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
-
-    <div class="container">
-      <!-- Courses filter -->
-      <div class="row filterRow">
-        <div class="dropdown" id="scheduleDropdown">
+    <div class="main-container">
+      <!-- Navbar -->
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark" id="top">
+        <div class="container">
+          <a class="navbar-brand" href="index.html">
+            <img src="images/logo.png" alt="logo" height="36px" />
+          </a>
           <button
-            class="btn btn-secondary dropdown-toggle"
+            class="navbar-toggler"
             type="button"
-            id="dropdownFilterButton"
-            data-toggle="dropdown"
-            aria-haspopup="true"
+            data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
             aria-expanded="false"
+            aria-label="Toggle navigation"
           >
-            Courses
+            <span class="navbar-toggler-icon"></span>
           </button>
-          <div class="dropdown-menu" aria-labelledby="dropdownFilterButton">
-            <a class="dropdown-item" id="resetFilters" href="#"
-              >Reset Filters</a
-            >
-            <div class="dropdown-divider"></div>
+
+          <div class="collapse navbar-collapse " id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="index.html">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="tips.html">Advice</a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link" href="regulations.html">Regulations</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" href="schedule.html">Schedule</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="contact.html">Contact</a>
+              </li>
+            </ul>
           </div>
         </div>
-      </div>
+      </nav>
 
-      <!-- Table -->
-      <table class="table table-striped" id="scheduleTable">
-        <thead>
-          <tr>
-            <th scope="col">Course</th>
-            <th scope="col">Start date</th>
-            <th scope="col">End date</th>
-            <th scope="col">Classroom</th>
-            <th scope="col">Examiners</th>
-            <th scope="col">Type</th>
-          </tr>
-        </thead>
-        <tbody></tbody>
-      </table>
-    </div>
-
-    <footer id="scheduleFooter">
       <div class="container">
-        <div class="row">
-          <!-- Col 1 -->
-          <div class="col-6 col-sm-4 col-md-3 mx-auto">
-            <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Personal</h5>
-
-            <ul class="list-unstyled">
-              <li>
-                <a href="https://via.itslearning.com/">Itslearning</a>
-              </li>
-              <li>
-                <a href="https://studienet.via.dk/">Studienet</a>
-              </li>
-              <li>
-                <a href="https://mitv2.via.dk/">My Via</a>
-              </li>
-              <li>
-                <a href="https://mail.via.dk/">My Mail</a>
-              </li>
-            </ul>
-          </div>
-
-          <!-- Col 2 -->
-          <div class="col-6 col-sm-4 col-md-3 mx-auto">
-            <h5 class="font-weight-bold text-uppercase mt-3 mb-4">
-              Online Facilities
-            </h5>
-
-            <ul class="list-unstyled">
-              <li>
-                <a
-                  href="https://studienet.via.dk/sites/via/board/Lists/Board/ViaFrontPage.aspx"
-                  >Board</a
-                >
-              </li>
-              <li>
-                <a href="https://challenges.dk/en">Challenges</a>
-              </li>
-              <li>
-                <a href="https://print.via.dk/login.cfm?lang=en">VIA Print</a>
-              </li>
-              <li>
-                <a href="https://dgs.via.dk/">Yellow Pages</a>
-              </li>
-            </ul>
-          </div>
-
-          <!-- Col 3 -->
-          <div class="col-6 col-sm-4 col-md-3 mx-auto">
-            <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Shortcuts</h5>
-
-            <ul class="list-unstyled">
-              <li>
-                <a
-                  href="https://studienet.via.dk/sites/via/campussites/SitePages/Startside.aspx"
-                  >Campus Page</a
-                >
-              </li>
-              <li>
-                <a
-                  href="https://studienet.via.dk/sites/uddannelse/programpages/SitePages/Startside.aspx"
-                  >Programme Page</a
-                >
-              </li>
-              <li>
-                <a href="https://www.bibliotekerne.via.dk/en">VIA Library</a>
-              </li>
-            </ul>
-          </div>
-
-          <!-- Col 4 -->
-          <div class="col-6 col-sm-4 col-md-3 mx-auto ">
-            <h5 class="font-weight-bold text-uppercase mt-3 mb-4">
-              Meet VIA at
-            </h5>
-
-            <ul class="list-unstyled">
-              <li>
-                <a href="https://www.facebook.com/viauniversitycollege"
-                  >Facebook</a
-                >
-              </li>
-              <li>
-                <a href="http://www.linkedin.com/company/via-university-college"
-                  >Linkedin</a
-                >
-              </li>
-              <li>
-                <a href="http://vimeo.com/viauc">Vimeo</a>
-              </li>
-              <li>
-                <a href="http://www.youtube.com/viauc">Youtube</a>
-              </li>
-            </ul>
+        <!-- Courses filter -->
+        <div class="row filterRow">
+          <div class="dropdown" id="scheduleDropdown">
+            <button
+              class="btn btn-secondary dropdown-toggle"
+              type="button"
+              id="dropdownFilterButton"
+              data-toggle="dropdown"
+              aria-haspopup="true"
+              aria-expanded="false"
+            >
+              Courses
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownFilterButton">
+              <a class="dropdown-item" id="resetFilters" href="#"
+                >Reset Filters</a
+              >
+              <div class="dropdown-divider"></div>
+            </div>
           </div>
         </div>
+
+        <!-- Table -->
+        <div class="table-responsive">
+          <table class="table table-striped" id="scheduleTable">
+            <thead>
+              <tr>
+                <th scope="col">Course</th>
+                <th scope="col">Start date</th>
+                <th scope="col">End date</th>
+                <th scope="col">Classroom</th>
+                <th scope="col">Examiners</th>
+                <th scope="col">Type</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
       </div>
-    </footer>
+
+      <footer id="scheduleFooter">
+        <div class="container">
+          <div class="row">
+            <!-- Col 1 -->
+            <div class="col-6 col-sm-4 col-md-3 mx-auto">
+              <h5 class="font-weight-bold text-uppercase mt-3 mb-4">
+                Personal
+              </h5>
+
+              <ul class="list-unstyled">
+                <li>
+                  <a href="https://via.itslearning.com/">Itslearning</a>
+                </li>
+                <li>
+                  <a href="https://studienet.via.dk/">Studienet</a>
+                </li>
+                <li>
+                  <a href="https://mitv2.via.dk/">My Via</a>
+                </li>
+                <li>
+                  <a href="https://mail.via.dk/">My Mail</a>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Col 2 -->
+            <div class="col-6 col-sm-4 col-md-3 mx-auto">
+              <h5 class="font-weight-bold text-uppercase mt-3 mb-4">
+                Online Facilities
+              </h5>
+
+              <ul class="list-unstyled">
+                <li>
+                  <a
+                    href="https://studienet.via.dk/sites/via/board/Lists/Board/ViaFrontPage.aspx"
+                    >Board</a
+                  >
+                </li>
+                <li>
+                  <a href="https://challenges.dk/en">Challenges</a>
+                </li>
+                <li>
+                  <a href="https://print.via.dk/login.cfm?lang=en">VIA Print</a>
+                </li>
+                <li>
+                  <a href="https://dgs.via.dk/">Yellow Pages</a>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Col 3 -->
+            <div class="col-6 col-sm-4 col-md-3 mx-auto">
+              <h5 class="font-weight-bold text-uppercase mt-3 mb-4">
+                Shortcuts
+              </h5>
+
+              <ul class="list-unstyled">
+                <li>
+                  <a
+                    href="https://studienet.via.dk/sites/via/campussites/SitePages/Startside.aspx"
+                    >Campus Page</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="https://studienet.via.dk/sites/uddannelse/programpages/SitePages/Startside.aspx"
+                    >Programme Page</a
+                  >
+                </li>
+                <li>
+                  <a href="https://www.bibliotekerne.via.dk/en">VIA Library</a>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Col 4 -->
+            <div class="col-6 col-sm-4 col-md-3 mx-auto ">
+              <h5 class="font-weight-bold text-uppercase mt-3 mb-4">
+                Meet VIA at
+              </h5>
+
+              <ul class="list-unstyled">
+                <li>
+                  <a href="https://www.facebook.com/viauniversitycollege"
+                    >Facebook</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="http://www.linkedin.com/company/via-university-college"
+                    >Linkedin</a
+                  >
+                </li>
+                <li>
+                  <a href="http://vimeo.com/viauc">Vimeo</a>
+                </li>
+                <li>
+                  <a href="http://www.youtube.com/viauc">Youtube</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
   </body>
 </html>
