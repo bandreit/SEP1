@@ -3,19 +3,37 @@ $(document).ready(() => {
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
       if (this.readyState == 4 && this.status == 200) {
-        cb(this.response);
+        cb(this.responseXML);
       }
     };
     xhttp.open("GET", url, true);
     xhttp.send();
   };
 
-  const getInformation = (text, n, field) => {
-    var parser = new DOMParser();
-    var xmlDoc = parser.parseFromString(text, "text/xml");
-    var x = xmlDoc.getElementsByTagName(field);
+  const getInformation = (element, field) => {
+    let currentTag = field;
+    let currentElement = element;
 
-    return x[n].childNodes[0].nodeValue;
+    if (currentTag.includes(".")) {
+      currentTag = currentTag.split(".");
+      currentElement = element.getElementsByTagName(currentTag[0])[0];
+
+      currentTag = currentTag.slice(1).shift(".");
+      return getInformation(currentElement, currentTag);
+    }
+
+    return currentElement.getElementsByTagName(currentTag)[0].childNodes[0]
+      .nodeValue;
+  };
+
+  const formatExamDate = (element, field) => {
+    const day = getInformation(element, `${field}.day`);
+    const month = getInformation(element, `${field}.month`);
+    const year = getInformation(element, `${field}.year`);
+    const hour = getInformation(element, `${field}.hour`);
+    const minutes = getInformation(element, `${field}.minutes`);
+
+    return `${day}/${month}/${year} ${hour}:${minutes}`;
   };
 
   /**
@@ -34,16 +52,20 @@ $(document).ready(() => {
    */
   const fetchExams = (filterCourse = null) => {
     fetchData("../data/ExamsList.xml", data => {
-      const examsLength = data.split("<Exam>").length - 1;
+      const exams = data.getElementsByTagName("exams");
       $("#scheduleTable tbody").empty();
 
-      for (let i = 0; i < examsLength; i++) {
-        const course = getInformation(data, i, "Course");
-        const startDate = getInformation(data, i, "StartDate");
-        const endDate = getInformation(data, i, "EndDate");
-        const classroom = getInformation(data, i, "ClassRoom");
-        const examiners = getInformation(data, i, "Examiners");
-        const isOral = getInformation(data, i, "IsOral") == "true";
+      for (let i = 0; i < exams.length; i++) {
+        const course = getInformation(exams[i], "course.name");
+        const startDate = formatExamDate(exams[i], "date1");
+        const endDate = formatExamDate(exams[i], "date2");
+        const classroom = getInformation(exams[i], "classroom.number");
+
+        const examiner = getInformation(exams[i], "examiner.initials");
+        const teacher = getInformation(exams[i], "teacher.initials");
+        const examiners = `${examiner}, ${teacher}`;
+
+        const isOral = getInformation(exams[i], "course.isOral") == "true";
         const examType = isOral ? "Oral" : "Written";
 
         if (filterCourse) {
@@ -53,19 +75,19 @@ $(document).ready(() => {
         }
 
         const row = `
-        <tr>
-            <th scope="row">${course}</th>
-            <td>${startDate}</td>
-            <td>${endDate}</td>
-            <td>${classroom}</td>
-            <td>${examiners}</td>
-            <td>
-              <a href="#" data-toggle="tooltip" data-placement="bottom" title="${getTooltipText(
-                isOral
-              )}">${examType}</a>
-            </td>
-        </tr>
-      `;
+          <tr>
+              <th scope="row">${course}</th>
+              <td>${startDate}</td>
+              <td>${endDate}</td>
+              <td>${classroom}</td>
+              <td>${examiners}</td>
+              <td>
+                <a href="#" data-toggle="tooltip" data-placement="bottom" title="${getTooltipText(
+                  isOral
+                )}">${examType}</a>
+              </td>
+          </tr>
+        `;
 
         $("#scheduleTable tbody").append(row);
         $('[data-toggle="tooltip"]').tooltip();
@@ -79,12 +101,12 @@ $(document).ready(() => {
    * Fetch courses
    */
   fetchData("../data/CoursesList.xml", data => {
-    const coursesLength = data.split("<Course>").length - 1;
+    const courses = data.getElementsByTagName("courses");
 
-    for (let i = 0; i < coursesLength; i++) {
-      const Name = getInformation(data, i, "Name");
+    for (let i = 0; i < courses.length; i++) {
+      const name = getInformation(courses[i], "name");
 
-      const row = `<a class="dropdown-item" href="#">${Name}</a>`;
+      const row = `<a class="dropdown-item" href="#">${name}</a>`;
       $(".dropdown-menu").append(row);
     }
   });

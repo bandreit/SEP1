@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<classroomlist>
-  <classrooms>
-    <number>12</number>
-    <equiped>false</equiped>
-    <maxCapacity>0</maxCapacity>
-  </classrooms>
-</classroomlist>
