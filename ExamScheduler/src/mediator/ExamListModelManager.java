@@ -40,6 +40,11 @@ public class ExamListModelManager implements ExamListModel
         new Exam(date1, date2, examiner, coExaminer, course, classroom));
   }
 
+  @Override public void addExam(Exam exam)
+  {
+    exams.addExam(exam);
+  }
+
   @Override public void removeExam(int index)
   {
     exams.removeExam(index);
