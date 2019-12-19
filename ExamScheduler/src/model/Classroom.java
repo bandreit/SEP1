@@ -1,14 +1,12 @@
 package model;
 
-import java.io.Serializable;
-
 /**
  * A class representing a classroom
  *
  * @author Edvinas Andrijauskas
  * @version 1.2-December 2019
  */
-public class Classroom implements Serializable
+public class Classroom
 {
   private boolean equiped;
   private String number;

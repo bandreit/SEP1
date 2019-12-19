@@ -1,3 +1,17 @@
+* {
+  box-sizing: border-box;
+}
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  position: relative;
+}
+
 .big {
   font-size: 4em;
 }
@@ -91,11 +105,6 @@ p {
   background-color: #45b0de;
 }
 
-body,
-html {
-  margin: 0px;
-}
-
 /**
 * Colors
 **/
@@ -121,6 +130,10 @@ html {
   font-weight: bold;
 }
 
+.navbar-toggler-icon {
+  color: #ffffff !important;
+}
+
 /**
 * News Feed
 **/
@@ -131,6 +144,23 @@ html {
 
 .newsFeed .card {
   margin: 10px 0px;
+}
+
+/**
+* Containers
+**/
+.main-container {
+  min-height: 100vh;
+  overflow: hidden;
+  display: block;
+  position: relative;
+  padding-bottom: 200px;
+}
+
+@media (max-width: 480px) {
+  .main-container {
+    padding-bottom: 400px;
+  }
 }
 
 /**
@@ -152,7 +182,9 @@ html {
 **/
 
 footer {
-  margin-top: 20px;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
   background-color: #2a304a;
   color: #b8c0d4;
 }

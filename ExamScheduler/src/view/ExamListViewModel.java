@@ -2,18 +2,17 @@ package view;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import model.Course;
 import model.Exam;
-import mediator.ExamListModel;
+import mediator.ExamScheduleModel;
 
 import java.util.ArrayList;
 
 public class ExamListViewModel
 {
   private ObservableList<ExamViewModel> list;
-  private ExamListModel model;
+  private ExamScheduleModel model;
 
-  public ExamListViewModel(ExamListModel model)
+  public ExamListViewModel(ExamScheduleModel model)
   {
     this.model = model;
     list = FXCollections.observableArrayList();

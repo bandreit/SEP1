@@ -4,18 +4,18 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.Region;
 import javafx.stage.Stage;
-import mediator.ExamListModel;
+import mediator.ExamScheduleModel;
 
 public class ViewHandler
 {
   private Scene currentScene;
   private Stage primaryStage;
-  private ExamListModel model;
+  private ExamScheduleModel model;
   private ExamListViewController examListViewController;
   private AddExamViewController addExamViewController;
   private EditExamViewController editExamViewController;
 
-  public ViewHandler(ExamListModel model)
+  public ViewHandler(ExamScheduleModel model)
   {
     this.model = model;
     currentScene = new Scene(new Region());

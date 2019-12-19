@@ -3,12 +3,13 @@ package mediator;
 import model.*;
 import persistence.XmlConverterException;
 
-public interface ExamListModel
+public interface ExamScheduleModel
 {
   int numberOfExams();
   void addExam(MyDate date1, MyDate date2, Examiner examiner,
       Examiner coExaminer, Course course, Classroom classroom);
   void removeExam(int index);
+  void addExam(Exam exam);
   Exam getExam(int index);
   Exam getExamByCourse(String courseName);
   void removeExam(String course);

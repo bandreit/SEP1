@@ -19,4 +19,8 @@
         <initials>Don Joe</initials>
         <isCoExaminer>true</isCoExaminer>
     </examiners>
+    <examiners>
+        <initials>BTB</initials>
+        <isCoExaminer>false</isCoExaminer>
+    </examiners>
 </examinerlist>
