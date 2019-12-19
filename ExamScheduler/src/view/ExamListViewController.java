@@ -5,9 +5,7 @@ import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.layout.Region;
-import mediator.ExamListModel;
-import model.*;
-import persistence.XmlConverterException;
+import mediator.ExamScheduleModel;
 
 import java.util.Optional;
 
@@ -24,7 +22,7 @@ public class ExamListViewController
   @FXML private TableColumn<ExamViewModel, Number> studentsColumn;
   @FXML private Label errorLabel;
   private Region root;
-  private ExamListModel model;
+  private ExamScheduleModel model;
   private ViewHandler viewHandler;
   private ExamListViewModel viewModel;
 
@@ -33,7 +31,7 @@ public class ExamListViewController
 
   }
 
-  public void init(ViewHandler viewHandler, ExamListModel model, Region root)
+  public void init(ViewHandler viewHandler, ExamScheduleModel model, Region root)
   {
     this.viewHandler = viewHandler;
     this.root = root;

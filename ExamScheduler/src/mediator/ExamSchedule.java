@@ -7,12 +7,12 @@ import persistence.XmlConverterException;
 import java.io.File;
 import java.util.ArrayList;
 
-public class ExamListModelManager implements ExamListModel
+public class ExamSchedule implements ExamScheduleModel
 {
   private ExamList exams;
-  private ExamListFile examListFile;
+  private ExamScheduleFile examScheduleFile;
 
-  public ExamListModelManager() throws XmlConverterException
+  public ExamSchedule() throws XmlConverterException
   {
     try
     {
@@ -25,7 +25,7 @@ public class ExamListModelManager implements ExamListModel
 
   @Override public ExamList loadExamList() throws XmlConverterException
   {
-    return ExamListFile.loadExamList();
+    return ExamScheduleFile.loadExamList();
   }
 
   @Override public int numberOfExams()
@@ -58,17 +58,17 @@ public class ExamListModelManager implements ExamListModel
   @Override public ClassroomList loadClassroomList()
       throws XmlConverterException
   {
-    return ExamListFile.loadClassroomList();
+    return ExamScheduleFile.loadClassroomList();
   }
 
   @Override public CourseList loadCourseList() throws XmlConverterException
   {
-    return ExamListFile.loadCourseList();
+    return ExamScheduleFile.loadCourseList();
   }
 
   @Override public ExaminerList loadExaminerList() throws XmlConverterException
   {
-    return ExamListFile.loadExaminerList();
+    return ExamScheduleFile.loadExaminerList();
   }
 
   @Override public void removeExam(String course)

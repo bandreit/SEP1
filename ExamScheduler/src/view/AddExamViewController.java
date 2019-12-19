@@ -2,10 +2,9 @@ package view;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.layout.Region;
-import mediator.ExamListModel;
+import mediator.ExamScheduleModel;
 import model.*;
 import persistence.XmlConverterException;
 
@@ -28,7 +27,7 @@ public class AddExamViewController
   @FXML private Label daysLabel;
   private Region root;
   private ViewHandler viewHandler;
-  private ExamListModel model;
+  private ExamScheduleModel model;
   private ClassroomList classroomList;
   private CourseList courseList;
   private ExaminerList examinerList;
@@ -201,7 +200,7 @@ public class AddExamViewController
     viewHandler.openView("examListView", null);
   }
 
-  public void init(ViewHandler viewHandler, ExamListModel model, Region root)
+  public void init(ViewHandler viewHandler, ExamScheduleModel model, Region root)
       throws XmlConverterException
   {
     this.viewHandler = viewHandler;

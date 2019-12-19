@@ -1,7 +1,7 @@
 package test;
 
-import mediator.ExamListModel;
-import mediator.ExamListModelManager;
+import mediator.ExamScheduleModel;
+import mediator.ExamSchedule;
 import model.*;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
@@ -20,7 +20,7 @@ class ExamTest
   private static CourseList courseList;
   private static ExaminerList examinerList;
   private static ClassroomList classroomList;
-  private static ExamListModel model;
+  private static ExamScheduleModel model;
   private static ArrayList<Exam> goodExams;
   private static ArrayList<Exam> badExams;
 
@@ -54,7 +54,7 @@ class ExamTest
 
   @BeforeEach void setUp() throws XmlConverterException
   {
-    model = new ExamListModelManager();
+    model = new ExamSchedule();
   }
 
   @Test void testGetAndAddExam()
@@ -125,6 +125,19 @@ class ExamTest
 
     //Class is rested
     assertDoesNotThrow(() -> model.isClassRested(badExams.get(1).getCourse().getStudyGroup(), goodExams.get(0).getDate1().getDay()));
+  }
+
+  @Test void wasDeleted()
+  {
+    model.addExam(goodExams.get(0));
+    assertEquals(goodExams.get(0), model.getExam(0));
+    model.removeExam(0);
+    assertThrows(IndexOutOfBoundsException.class, () -> {model.getExam(0);});
+  }
+
+  @Test void donotAllowEmptyFields()
+  {
+    assertThrows(NullPointerException.class, () -> {model.addExam(null,null,null,null,null,null);});
   }
 
   @AfterEach void tearDown()

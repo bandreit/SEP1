@@ -4,7 +4,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.layout.Region;
-import mediator.ExamListModel;
+import mediator.ExamScheduleModel;
 import model.*;
 import persistence.XmlConverterException;
 
@@ -28,7 +28,7 @@ public class EditExamViewController
   @FXML private Label daysLabel;
   private Region root;
   private ViewHandler viewHandler;
-  private ExamListModel model;
+  private ExamScheduleModel model;
   private ClassroomList classroomList;
   private CourseList courseList;
   private ExaminerList examinerList;
@@ -166,7 +166,7 @@ public class EditExamViewController
     viewHandler.openView("examListView", "");
   }
 
-  public void init(ViewHandler viewHandler, ExamListModel model, Region root, String editingCourse)
+  public void init(ViewHandler viewHandler, ExamScheduleModel model, Region root, String editingCourse)
       throws XmlConverterException
   {
     this.viewHandler = viewHandler;

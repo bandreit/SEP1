@@ -7,7 +7,7 @@ import persistence.XmlConverterException;
 import java.io.File;
 import java.util.ArrayList;
 
-public class ExamListFile
+public class ExamScheduleFile
 {
   public static ClassroomList loadClassroomList() throws XmlConverterException
   {

@@ -3,7 +3,7 @@ package mediator;
 import model.*;
 import persistence.XmlConverterException;
 
-public interface ExamListModel
+public interface ExamScheduleModel
 {
   int numberOfExams();
   void addExam(MyDate date1, MyDate date2, Examiner examiner,
