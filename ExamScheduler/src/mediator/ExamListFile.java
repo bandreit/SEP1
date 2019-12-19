@@ -33,7 +33,6 @@ public class ExamListFile
   public static ExamList loadExamList() throws XmlConverterException
   {
     MyXmlConverter converter = new MyXmlConverter();
-    System.out.println("nu vot");
     ExamList examList = converter.fromXml("ExamScheduler/src/mediator/Exams.xml", ExamList.class);
     return examList;
   }
